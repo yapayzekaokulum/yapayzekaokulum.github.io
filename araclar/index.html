@@ -116,10 +116,25 @@
             <main class="flex-1">
 
                 <!-- Search -->
-                <div class="mb-8 relative">
-                    <input type="text" id="search-input" placeholder="Araç ara (örn: ChatGPT, sunum, resim)..."
-                        class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white focus:outline-none focus:border-brand-purple transition">
-                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                <div class="mb-8 flex flex-col md:flex-row gap-4">
+                    <!-- Search -->
+                    <div class="relative flex-grow">
+                        <input type="text" id="search-input" placeholder="Araç ara (örn: ChatGPT, sunum, resim)..."
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white focus:outline-none focus:border-brand-purple transition">
+                        <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+
+                    <!-- Sort -->
+                    <div class="relative w-full md:w-48">
+                        <select id="sort-select"
+                            class="w-full h-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-brand-purple transition appearance-none cursor-pointer">
+                            <option value="rank-desc" class="bg-brand-dark">⭐ Önerilen</option>
+                            <option value="name-asc" class="bg-brand-dark">🔤 İsim (A-Z)</option>
+                            <option value="date-desc" class="bg-brand-dark">📅 En Yeni</option>
+                        </select>
+                        <i
+                            class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
                 </div>
 
                 <!-- Grid -->
@@ -143,6 +158,7 @@
         const categoryListFn = document.getElementById('category-list');
         const toolsGridFn = document.getElementById('tools-grid');
         const searchInputFn = document.getElementById('search-input');
+        const sortSelectFn = document.getElementById('sort-select');
         const noResultsFn = document.getElementById('no-results');
 
         let activeCategory = 'Tümü';
@@ -188,11 +204,17 @@
                         ${tool.description}
                     </p>
 
-                    <div class="flex flex-wrap gap-2 mb-6">
+                    <div class="flex flex-wrap gap-2 mb-4">
                         ${tool.tags.map(tag => `
                             <span class="text-xs text-brand-purple bg-brand-purple/10 px-2 py-1 rounded border border-brand-purple/20">#${tag}</span>
                         `).join('')}
                     </div>
+
+                    ${tool.video ? `
+                    <div class="mb-6 rounded-lg overflow-hidden border border-white/10 relative pt-[56.25%] bg-black/50 group-hover:border-brand-purple/30 transition">
+                        <iframe src="${tool.video}" title="${tool.name} Video" class="absolute top-0 left-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    ` : ''}
 
                     <a href="${tool.url}" target="_blank" 
                         class="w-full py-2.5 rounded-lg bg-white/5 hover:bg-white text-white hover:text-brand-dark font-medium text-sm text-center transition flex items-center justify-center gap-2 border border-white/10 group-hover:border-white">
@@ -205,13 +227,15 @@
         function filterByCategory(category) {
             activeCategory = category;
             renderCategories();
-            filterTools();
+            filterAndSortTools();
         }
 
-        function filterTools() {
+        function filterAndSortTools() {
             const searchTerm = searchInputFn.value.toLowerCase();
+            const sortValue = sortSelectFn.value;
 
-            const filtered = tools.filter(tool => {
+            // 1. Filter
+            let filtered = tools.filter(tool => {
                 const matchesCategory = activeCategory === 'Tümü' || tool.category === activeCategory;
                 const matchesSearch = tool.name.toLowerCase().includes(searchTerm) ||
                     tool.description.toLowerCase().includes(searchTerm) ||
@@ -220,15 +244,31 @@
                 return matchesCategory && matchesSearch;
             });
 
+            // 2. Sort
+            filtered.sort((a, b) => {
+                switch (sortValue) {
+                    case 'name-asc':
+                        return a.name.localeCompare(b.name);
+                    case 'date-desc':
+                        return new Date(b.date || 0) - new Date(a.date || 0);
+                    case 'rank-desc':
+                        return (b.rank || 0) - (a.rank || 0);
+                    default:
+                        // Default to Rank if nothing matches, or preserve array order
+                        return (b.rank || 0) - (a.rank || 0);
+                }
+            });
+
             renderTools(filtered);
         }
 
         // Init
         renderCategories();
-        renderTools(tools);
+        filterAndSortTools(); // Initial render with default sort
 
         // Events
-        searchInputFn.addEventListener('input', filterTools);
+        searchInputFn.addEventListener('input', filterAndSortTools);
+        sortSelectFn.addEventListener('change', filterAndSortTools);
     </script>
 </body>
 
