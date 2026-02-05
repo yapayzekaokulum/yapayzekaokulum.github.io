@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="tr" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yapay Zeka Okulum |Dr. Murat ALTUN</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome CDN Güncellendi ve Sağlamlaştırıldı -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
         tailwind.config = {
             theme: {
@@ -49,7 +52,7 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-        
+
         body {
             background-color: #0f172a;
             color: #ffffff;
@@ -87,6 +90,7 @@
         .padlet-frame {
             height: 608px;
         }
+
         @media (max-width: 768px) {
             .padlet-frame {
                 height: 450px !important;
@@ -99,11 +103,12 @@
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
+
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Marquee Styles */
         .marquee-container {
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
@@ -111,13 +116,20 @@
         }
     </style>
 </head>
+
 <body class="antialiased selection:bg-brand-purple selection:text-white">
 
     <!-- Ambient Background Animation -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-32 left-1/3 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000">
+        </div>
     </div>
 
     <!-- Navbar -->
@@ -127,23 +139,39 @@
                 <div class="flex items-center">
                     <a href="#" class="flex-shrink-0 flex items-center gap-3 group">
                         <div class="relative">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-                            <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png" onerror="this.src='https://placehold.co/100x100/1e1b4b/FFF?text=YZO'; this.className='h-12 w-12 rounded-full relative'" alt="YZO Logo" class="h-12 w-12 md:h-14 md:w-14 rounded-full object-contain relative bg-white p-1">
+                            <div
+                                class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500">
+                            </div>
+                            <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                                onerror="this.src='https://placehold.co/100x100/1e1b4b/FFF?text=YZO'; this.className='h-12 w-12 rounded-full relative'"
+                                alt="YZO Logo"
+                                class="h-12 w-12 md:h-14 md:w-14 rounded-full object-contain relative bg-white p-1">
                         </div>
                         <div class="block"> <!-- Mobilde de ismin görünmesi için hidden kaldırıldı -->
-                            <span class="block text-lg md:text-xl font-bold text-white tracking-tight leading-none">YAPAY ZEKÂ OKULUM</span>
-                            <span class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">GELECEĞİ KODLA</span>
+                            <span
+                                class="block text-lg md:text-xl font-bold text-white tracking-tight leading-none">YAPAY
+                                ZEKÂ OKULUM</span>
+                            <span
+                                class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">GELECEĞİ
+                                KODLA</span>
                         </div>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#kurumsal" class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Kurumsal</a>
-                    <a href="#egitimler" class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Eğitimler</a>
-                    <a href="#araclar" class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Araçlar</a>
-                    <a href="https://yapayzekaokulum.com/yap-kis/" class="text-gray-300 hover:text-white hover:scale-105 transition duration-300 flex items-center gap-2"><i class="fa-solid fa-book-open text-brand-purple"></i> Yap-Kis</a>
-                    <a href="#kaynaklar" class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Kaynaklar</a>
-                    <a href="https://form.jotform.com/253625405418052" target="_blank" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
-                        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+
+                    <a href="#egitimler"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Eğitimler</a>
+                    <a href="#araclar"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Araçlar</a>
+                    <a href="https://yapayzekaokulum.com/yap-kis/"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300 flex items-center gap-2"><i
+                            class="fa-solid fa-book-open text-brand-purple"></i> Yap-Kis</a>
+                    <a href="#kaynaklar"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Kaynaklar</a>
+                    <a href="https://form.jotform.com/253625405418052" target="_blank"
+                        class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
                             <i class="fa-solid fa-rocket mr-2"></i> Başvuru Yap
                         </span>
                     </a>
@@ -157,13 +185,20 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10 p-4 absolute w-full bg-[#0f172a]/95 backdrop-blur-xl">
-            <a href="#kurumsal" class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Kurumsal</a>
-            <a href="#egitimler" class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Eğitimler</a>
-            <a href="#araclar" class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Araçlar</a>
-            <a href="https://yapayzekaokulum.com/yap-kis/" class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition"><i class="fa-solid fa-book-open mr-2 text-brand-purple"></i> Yap-Kis</a>
-            <a href="#kaynaklar" class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Kaynaklar</a>
-            <a href="https://form.jotform.com/253625405418052" target="_blank" class="block mt-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white font-bold shadow-lg">
+        <div id="mobile-menu"
+            class="hidden md:hidden glass border-t border-white/10 p-4 absolute w-full bg-[#0f172a]/95 backdrop-blur-xl">
+
+            <a href="#egitimler"
+                class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Eğitimler</a>
+            <a href="#araclar"
+                class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Araçlar</a>
+            <a href="https://yapayzekaokulum.com/yap-kis/"
+                class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition"><i
+                    class="fa-solid fa-book-open mr-2 text-brand-purple"></i> Yap-Kis</a>
+            <a href="#kaynaklar"
+                class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Kaynaklar</a>
+            <a href="https://form.jotform.com/253625405418052" target="_blank"
+                class="block mt-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white font-bold shadow-lg">
                 <i class="fa-solid fa-rocket mr-2"></i> Hemen Başvur
             </a>
         </div>
@@ -172,7 +207,8 @@
     <!-- Hero Section -->
     <header class="relative pt-28 pb-16 lg:pt-48 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-block mb-4 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-brand-neon text-xs md:text-sm font-medium tracking-wide animate-float">
+            <div
+                class="inline-block mb-4 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-brand-neon text-xs md:text-sm font-medium tracking-wide animate-float">
                 ✨ Yapay Zeka Çağı Başladı
             </div>
             <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight reveal active">
@@ -180,113 +216,88 @@
                 <span class="gradient-text">Geleceği Tasarlayın</span>
             </h1>
             <p class="text-base md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed reveal active px-2">
-                Yapay Zeka Okulum (YZO) ile dijital dönüşümün merkezinde yer alın. Dr. Murat Altun rehberliğinde, teoriden pratiğe uzanan modern bir eğitim deneyimi.
+                Yapay Zeka Okulum (YZO) ile dijital dönüşümün merkezinde yer alın. Dr. Murat Altun rehberliğinde,
+                teoriden pratiğe uzanan modern bir eğitim deneyimi.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4 reveal active px-4">
-                <a href="#egitimler" class="px-8 py-3.5 bg-white text-brand-dark rounded-full hover:bg-gray-200 transition font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] text-sm md:text-base">
+                <a href="#egitimler"
+                    class="px-8 py-3.5 bg-white text-brand-dark rounded-full hover:bg-gray-200 transition font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] text-sm md:text-base">
                     Eğitimleri Keşfet
                 </a>
-                <a href="https://form.jotform.com/253625405418052" target="_blank" class="px-8 py-3.5 bg-transparent border border-white/30 text-white rounded-full hover:bg-white/10 hover:border-white transition font-bold backdrop-blur-sm flex items-center justify-center gap-2 text-sm md:text-base">
+                <a href="https://form.jotform.com/253625405418052" target="_blank"
+                    class="px-8 py-3.5 bg-transparent border border-white/30 text-white rounded-full hover:bg-white/10 hover:border-white transition font-bold backdrop-blur-sm flex items-center justify-center gap-2 text-sm md:text-base">
                     <i class="fa-solid fa-wand-sparkles"></i> İhtiyaç Analizi
                 </a>
             </div>
         </div>
-        
+
         <!-- Tech Grid Background -->
-        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
+        <div
+            class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light">
+        </div>
         <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0f172a] to-transparent"></div>
     </header>
 
-    <!-- Kurumsal / Hakkımızda -->
-    <section id="kurumsal" class="py-16 md:py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:flex lg:items-center lg:gap-16">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 relative reveal">
-                    <div class="absolute -inset-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-30 blur-lg"></div>
-                    <div class="glass-card p-6 md:p-8 rounded-2xl relative">
-                        <div class="flex items-center gap-4 mb-6">
-                            <div class="h-10 md:h-12 w-1 bg-brand-neon rounded-full"></div>
-                            <h3 class="text-2xl md:text-3xl font-bold text-white">Kurumsal Kimlik</h3>
-                        </div>
-                        <p class="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
-                            Yapay Zeka Okulum, Korkuteli merkezli olup tüm Türkiye'ye hizmet veren, teknoloji eğitiminde mükemmelliği hedefleyen öncü bir kuruluştur.
-                        </p>
-                        
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div class="p-4 rounded-lg bg-white/5 border border-white/10">
-                                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Kurucu</div>
-                                <div class="font-semibold text-white">Mustafa Uçar</div>
-                            </div>
-                            <div class="p-4 rounded-lg bg-white/5 border border-white/10">
-                                <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Kuruluş</div>
-                                <div class="font-semibold text-white">06.10.2025</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 reveal">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Yapay Zeka Sadece Mühendisler İçin Değildir</h2>
-                    <p class="text-gray-400 mb-8 text-base md:text-lg">
-                        Karmaşık teknolojileri anlaşılır ve uygulanabilir hale getiriyoruz. Uzman eğitmen kadromuzla, sıfırdan ileri seviyeye kadar herkes için erişilebilir bir öğrenme ekosistemi sunuyoruz.
-                    </p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-4">
-                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center border border-green-500/30"><i class="fa-solid fa-check"></i></span>
-                            <span class="text-gray-300 text-sm md:text-base">Uygulamalı Proje Tabanlı Öğrenme</span>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/30"><i class="fa-solid fa-certificate"></i></span>
-                            <span class="text-gray-300 text-sm md:text-base">Sektörel Geçerliliği Olan Sertifikalar</span>
-                        </li>
-                        <li class="flex items-center gap-4">
-                            <span class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-500/30"><i class="fa-solid fa-users"></i></span>
-                            <span class="text-gray-300 text-sm md:text-base">Geniş Mentorluk Ağı</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Eğitmenlerimiz -->
     <section id="egitmenler" class="py-16 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Uzman Kadromuz</span>
+                <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Uzman
+                    Kadromuz</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Eğitmenlerimiz</h2>
             </div>
-            
+
             <div class="flex justify-center reveal">
                 <div class="glass-card p-8 rounded-2xl max-w-md w-full relative group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
-                    
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500">
+                    </div>
+
                     <div class="relative flex flex-col items-center text-center">
                         <div class="relative mb-6">
-                            <div class="absolute -inset-1 bg-gradient-to-r from-brand-neon to-brand-purple rounded-full blur opacity-75"></div>
-                            <img src="https://github.com/DrMuratAltun.png" onerror="this.src='https://ui-avatars.com/api/?name=Murat+Altun&background=random'" alt="Dr. Murat Altun" class="relative w-32 h-32 rounded-full object-cover border-2 border-white/20">
-                            <div class="absolute bottom-0 right-0 bg-blue-500 text-white text-xs px-2 py-1 rounded-full border border-gray-900">
+                            <div
+                                class="absolute -inset-1 bg-gradient-to-r from-brand-neon to-brand-purple rounded-full blur opacity-75">
+                            </div>
+                            <img src="https://github.com/DrMuratAltun.png"
+                                onerror="this.src='https://ui-avatars.com/api/?name=Murat+Altun&background=random'"
+                                alt="Dr. Murat Altun"
+                                class="relative w-32 h-32 rounded-full object-cover border-2 border-white/20">
+                            <div
+                                class="absolute bottom-0 right-0 bg-blue-500 text-white text-xs px-2 py-1 rounded-full border border-gray-900">
                                 <i class="fa-solid fa-check-circle"></i> Onaylı
                             </div>
                         </div>
-                        
+
                         <h3 class="text-2xl font-bold text-white mb-1">Dr. Murat ALTUN</h3>
-                        <p class="text-brand-neon text-sm font-medium tracking-wide mb-4 uppercase">Yapay Zekâ Eğitmeni & Danışmanı</p>
-                        
+                        <p class="text-brand-neon text-sm font-medium tracking-wide mb-4 uppercase">Yapay Zekâ Eğitmeni
+                            & Danışmanı</p>
+
                         <p class="text-gray-400 text-sm mb-6 leading-relaxed">
-                            Yapay zeka, veri bilimi ve makine öğrenmesi alanlarında akademik ve sektörel deneyime sahip uzman eğitmen.
+                            Yapay zeka, veri bilimi ve makine öğrenmesi alanlarında akademik ve sektörel deneyime sahip
+                            uzman eğitmen.
                         </p>
-                        
+
                         <div class="flex gap-4">
-                            <a href="https://drmurataltun.github.io/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-brand-purple hover:border-brand-purple transition hover:-translate-y-1" title="Kişisel Web Sitesi">
+                            <a href="https://drmurataltun.github.io/" target="_blank"
+                                class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-brand-purple hover:border-brand-purple transition hover:-translate-y-1"
+                                title="Kişisel Web Sitesi">
                                 <i class="fa-solid fa-globe"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/drmurataltun/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition hover:-translate-y-1" title="LinkedIn">
+                            <a href="https://www.linkedin.com/in/drmurataltun/" target="_blank"
+                                class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#0077b5] hover:border-[#0077b5] transition hover:-translate-y-1"
+                                title="LinkedIn">
                                 <i class="fa-brands fa-linkedin-in"></i>
                             </a>
-                            <a href="https://github.com/DrMuratAltun" target="_blank" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#333] hover:border-[#333] transition hover:-translate-y-1" title="GitHub">
+                            <a href="https://github.com/DrMuratAltun" target="_blank"
+                                class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#333] hover:border-[#333] transition hover:-translate-y-1"
+                                title="GitHub">
                                 <i class="fa-brands fa-github"></i>
                             </a>
-                            <a href="https://www.instagram.com/drmurataltun/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent transition hover:-translate-y-1" title="Instagram">
+                            <a href="https://www.instagram.com/drmurataltun/" target="_blank"
+                                class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-yellow-400 hover:via-red-500 hover:to-purple-500 hover:border-transparent transition hover:-translate-y-1"
+                                title="Instagram">
                                 <i class="fa-brands fa-instagram"></i>
                             </a>
                         </div>
@@ -299,166 +310,233 @@
     <!-- Eğitim Referanslarımız (Marquee) -->
     <section id="referanslar" class="py-12 bg-black/30 border-y border-white/5 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center reveal">
-             <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Güçlü İş Birlikleri</span>
-             <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Eğitim Verdiğimiz Kurumlar</h2>
+            <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Güçlü İş
+                Birlikleri</span>
+            <h2 class="text-2xl md:text-3xl font-bold text-white mt-1">Eğitim Verdiğimiz Kurumlar</h2>
         </div>
-        
+
         <div class="marquee-container relative w-full overflow-hidden group">
             <!-- Inner track that scrolls -->
             <div class="flex items-center gap-6 animate-scroll w-max group-hover:[animation-play-state:paused]">
                 <!-- Item Set 1 -->
                 <div class="flex items-center gap-6">
-                     <!-- Fatsa FEYZAD -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-people-roof text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Fatsa FEYZAD</span>
+                    <!-- Fatsa FEYZAD -->
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-people-roof text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Fatsa FEYZAD</span>
                     </div>
                     <!-- Sınav Kumluca -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://seeklogo.com/images/S/sinav-egitim-kurumlari-logo-7268884606-seeklogo.com.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Sınav Koleji" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Sınav Koleji Kumluca</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://seeklogo.com/images/S/sinav-egitim-kurumlari-logo-7268884606-seeklogo.com.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Sınav Koleji"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Sınav Koleji Kumluca</span>
                     </div>
                     <!-- Okyanus Okulları -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Okyanus_Kolejleri_Logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Okyanus Koleji" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Özel Okyanus Okulları</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Okyanus_Kolejleri_Logo.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Okyanus Koleji"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Özel Okyanus Okulları</span>
                     </div>
                     <!-- Antalya Anadolu Lisesi -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-building-columns text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Antalya Anadolu Lisesi</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-building-columns text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Antalya Anadolu Lisesi</span>
                     </div>
                     <!-- Balıkesir MEM -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://seeklogo.com/images/M/millli-egitim-bakanligi-logo-D55B50A057-seeklogo.com.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Balıkesir MEM" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-flag text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Balıkesir İl Milli Eğitim Müd.</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://seeklogo.com/images/M/millli-egitim-bakanligi-logo-D55B50A057-seeklogo.com.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Balıkesir MEM"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-flag text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Balıkesir İl Milli Eğitim
+                            Müd.</span>
                     </div>
                     <!-- Ecodation -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-laptop-code text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Ecodation Akademi</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-laptop-code text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Ecodation Akademi</span>
                     </div>
-                     <!-- Konya Büyükşehir -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/tr/e/e0/Konya_B%C3%BCy%C3%BCk%C5%9Fehir_Belediyesi_logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Konya Büyükşehir" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-landmark text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Konya Büyükşehir Belediyesi</span>
+                    <!-- Konya Büyükşehir -->
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/tr/e/e0/Konya_B%C3%BCy%C3%BCk%C5%9Fehir_Belediyesi_logo.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Konya Büyükşehir"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-landmark text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Konya Büyükşehir Belediyesi</span>
                     </div>
                     <!-- AREV Koleji -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-user-graduate text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">AREV Koleji</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-user-graduate text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">AREV Koleji</span>
                     </div>
                     <!-- Elit Gençler Koleji -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-graduation-cap text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Elit Gençler Koleji</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-graduation-cap text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Elit Gençler Koleji</span>
                     </div>
                     <!-- Tech İstanbul -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-microchip text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Tech İstanbul</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-microchip text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Tech İstanbul</span>
                     </div>
                 </div>
-                
+
                 <!-- Item Set 2 (Duplicate for smooth loop) -->
                 <div class="flex items-center gap-6" aria-hidden="true">
-                     <!-- Fatsa FEYZAD -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-people-roof text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Fatsa FEYZAD</span>
+                    <!-- Fatsa FEYZAD -->
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-people-roof text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Fatsa FEYZAD</span>
                     </div>
                     <!-- Sınav Kumluca -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://seeklogo.com/images/S/sinav-egitim-kurumlari-logo-7268884606-seeklogo.com.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Sınav Koleji" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Sınav Koleji Kumluca</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://seeklogo.com/images/S/sinav-egitim-kurumlari-logo-7268884606-seeklogo.com.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Sınav Koleji"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Sınav Koleji Kumluca</span>
                     </div>
                     <!-- Okyanus Okulları -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Okyanus_Kolejleri_Logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Okyanus Koleji" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Özel Okyanus Okulları</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Okyanus_Kolejleri_Logo.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Okyanus Koleji"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-school text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Özel Okyanus Okulları</span>
                     </div>
                     <!-- Antalya Anadolu Lisesi -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-building-columns text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Antalya Anadolu Lisesi</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-building-columns text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Antalya Anadolu Lisesi</span>
                     </div>
                     <!-- Balıkesir MEM -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://seeklogo.com/images/M/millli-egitim-bakanligi-logo-D55B50A057-seeklogo.com.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Balıkesir MEM" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-flag text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Balıkesir İl Milli Eğitim Müd.</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://seeklogo.com/images/M/millli-egitim-bakanligi-logo-D55B50A057-seeklogo.com.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Balıkesir MEM"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-flag text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Balıkesir İl Milli Eğitim
+                            Müd.</span>
                     </div>
                     <!-- Ecodation -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-laptop-code text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Ecodation Akademi</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-laptop-code text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Ecodation Akademi</span>
                     </div>
-                     <!-- Konya Büyükşehir -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/tr/e/e0/Konya_B%C3%BCy%C3%BCk%C5%9Fehir_Belediyesi_logo.png" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" alt="Konya Büyükşehir" class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
-                            <i class="fa-solid fa-landmark text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Konya Büyükşehir Belediyesi</span>
+                    <!-- Konya Büyükşehir -->
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/tr/e/e0/Konya_B%C3%BCy%C3%BCk%C5%9Fehir_Belediyesi_logo.png"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"
+                                alt="Konya Büyükşehir"
+                                class="max-w-full max-h-full object-contain grayscale group-hover/card:grayscale-0 transition duration-300">
+                            <i
+                                class="fa-solid fa-landmark text-4xl text-white/40 group-hover/card:text-white transition duration-300 hidden"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Konya Büyükşehir Belediyesi</span>
                     </div>
                     <!-- AREV Koleji -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-user-graduate text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">AREV Koleji</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-user-graduate text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">AREV Koleji</span>
                     </div>
                     <!-- Elit Gençler Koleji -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-graduation-cap text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Elit Gençler Koleji</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-graduation-cap text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Elit Gençler Koleji</span>
                     </div>
                     <!-- Tech İstanbul -->
-                    <div class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
-                         <div class="h-16 w-full flex items-center justify-center mb-2">
-                            <i class="fa-solid fa-microchip text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
-                         </div>
-                         <span class="text-xs text-gray-300 font-medium leading-tight">Tech İstanbul</span>
+                    <div
+                        class="flex flex-col items-center justify-center w-48 h-32 bg-white/5 rounded-xl border border-white/10 hover:bg-white/10 transition p-4 text-center group/card">
+                        <div class="h-16 w-full flex items-center justify-center mb-2">
+                            <i
+                                class="fa-solid fa-microchip text-4xl text-white/40 group-hover/card:text-white transition duration-300"></i>
+                        </div>
+                        <span class="text-xs text-gray-300 font-medium leading-tight">Tech İstanbul</span>
                     </div>
                 </div>
             </div>
@@ -472,7 +550,8 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 md:mb-16 reveal">
-                <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Geleceğin Yetkinlikleri</span>
+                <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Geleceğin
+                    Yetkinlikleri</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Öne Çıkan Eğitimlerimiz</h2>
             </div>
 
@@ -482,11 +561,13 @@
                     <div class="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition">
                         <i class="fa-solid fa-arrow-up-right-from-square text-white"></i>
                     </div>
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-purple-500/30 group-hover:scale-110 transition duration-300">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-purple-500/30 group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-robot text-2xl md:text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Üretken Yapay Zeka</h3>
-                    <p class="text-gray-400 text-sm mb-6">ChatGPT, Midjourney ve modern LLM araçlarını iş süreçlerinize entegre ederek verimliliğinizi %300 artırın.</p>
+                    <p class="text-gray-400 text-sm mb-6">ChatGPT, Midjourney ve modern LLM araçlarını iş süreçlerinize
+                        entegre ederek verimliliğinizi %300 artırın.</p>
                     <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
                         <div class="h-full w-0 bg-brand-neon group-hover:w-full transition-all duration-700"></div>
                     </div>
@@ -494,11 +575,13 @@
 
                 <!-- Card 2 -->
                 <div class="glass-card rounded-2xl p-6 md:p-8 relative group reveal">
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition duration-300">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-500/30 group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-chart-network text-2xl md:text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Veri Bilimi ve YZ</h3>
-                    <p class="text-gray-400 text-sm mb-6">Büyük veriyi anlamlandırın. Makine öğrenmesi algoritmaları ve veri analitiği ile geleceği tahmin edin.</p>
+                    <p class="text-gray-400 text-sm mb-6">Büyük veriyi anlamlandırın. Makine öğrenmesi algoritmaları ve
+                        veri analitiği ile geleceği tahmin edin.</p>
                     <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
                         <div class="h-full w-0 bg-blue-400 group-hover:w-full transition-all duration-700"></div>
                     </div>
@@ -506,11 +589,13 @@
 
                 <!-- Card 3 -->
                 <div class="glass-card rounded-2xl p-6 md:p-8 relative group reveal">
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-yellow-500/30 group-hover:scale-110 transition duration-300">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white mb-6 shadow-lg shadow-yellow-500/30 group-hover:scale-110 transition duration-300">
                         <i class="fa-brands fa-python text-2xl md:text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Python Eğitimi</h3>
-                    <p class="text-gray-400 text-sm mb-6">Yapay zekanın dili Python'ı sıfırdan uzman seviyesine, gerçek hayat projeleriyle kodlayarak öğrenin.</p>
+                    <p class="text-gray-400 text-sm mb-6">Yapay zekanın dili Python'ı sıfırdan uzman seviyesine, gerçek
+                        hayat projeleriyle kodlayarak öğrenin.</p>
                     <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
                         <div class="h-full w-0 bg-yellow-400 group-hover:w-full transition-all duration-700"></div>
                     </div>
@@ -518,11 +603,13 @@
 
                 <!-- Card 4 -->
                 <div class="glass-card rounded-2xl p-6 md:p-8 relative group reveal">
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-green-500/30 group-hover:scale-110 transition duration-300">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-green-500/30 group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-cubes-stacked text-2xl md:text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Robotik Kodlama</h3>
-                    <p class="text-gray-400 text-sm mb-6">Genç zihinler için blok tabanlı kodlama ve robotik uygulamaları. Geleceğin mühendisleri burada yetişiyor.</p>
+                    <p class="text-gray-400 text-sm mb-6">Genç zihinler için blok tabanlı kodlama ve robotik
+                        uygulamaları. Geleceğin mühendisleri burada yetişiyor.</p>
                     <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
                         <div class="h-full w-0 bg-green-400 group-hover:w-full transition-all duration-700"></div>
                     </div>
@@ -530,11 +617,13 @@
 
                 <!-- Card 5 -->
                 <div class="glass-card rounded-2xl p-6 md:p-8 relative group reveal">
-                    <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-pink-500/30 group-hover:scale-110 transition duration-300">
+                    <div
+                        class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white mb-6 shadow-lg shadow-pink-500/30 group-hover:scale-110 transition duration-300">
                         <i class="fa-solid fa-microchip text-2xl md:text-3xl"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">LLM Uygulama Geliştirme</h3>
-                    <p class="text-gray-400 text-sm mb-6">Kendi yapay zeka asistanınızı yapın. LangChain ve OpenAI API ile modern uygulamalar geliştirin.</p>
+                    <p class="text-gray-400 text-sm mb-6">Kendi yapay zeka asistanınızı yapın. LangChain ve OpenAI API
+                        ile modern uygulamalar geliştirin.</p>
                     <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
                         <div class="h-full w-0 bg-pink-400 group-hover:w-full transition-all duration-700"></div>
                     </div>
@@ -542,11 +631,15 @@
 
                 <!-- CTA Card -->
                 <div class="relative rounded-2xl p-1 bg-gradient-to-r from-brand-neon to-brand-purple reveal">
-                    <div class="bg-gray-900 rounded-xl h-full p-6 md:p-8 flex flex-col items-center justify-center text-center">
-                        <i class="fa-solid fa-hand-holding-magic text-4xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-purple-400"></i>
+                    <div
+                        class="bg-gray-900 rounded-xl h-full p-6 md:p-8 flex flex-col items-center justify-center text-center">
+                        <i
+                            class="fa-solid fa-hand-holding-magic text-4xl mb-4 text-transparent bg-clip-text bg-gradient-to-r from-brand-neon to-purple-400"></i>
                         <h3 class="text-xl font-bold text-white mb-2">Özel Kurumsal Eğitim?</h3>
-                        <p class="text-gray-400 mb-6 text-sm">Şirketinizin ihtiyaçlarına özel eğitim müfredatı hazırlayalım.</p>
-                        <a href="https://form.jotform.com/253625405418052" target="_blank" class="w-full py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">
+                        <p class="text-gray-400 mb-6 text-sm">Şirketinizin ihtiyaçlarına özel eğitim müfredatı
+                            hazırlayalım.</p>
+                        <a href="https://form.jotform.com/253625405418052" target="_blank"
+                            class="w-full py-3 rounded-lg bg-white text-black font-bold hover:bg-gray-200 transition">
                             Teklif İste
                         </a>
                     </div>
@@ -559,13 +652,15 @@
     <section id="araclar" class="py-16 md:py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12 reveal">
-                <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Küratörlü İçerik</span>
+                <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Küratörlü
+                    İçerik</span>
                 <h2 class="text-3xl md:text-4xl font-bold text-white mt-2">Yapay Zeka Araçları Seçkisi</h2>
             </div>
-            
+
             <div class="reveal">
                 <div class="glass-card p-2 rounded-xl border border-gray-700 shadow-2xl overflow-hidden">
-                   <iframe style="border: 0; width: 100%; height: 450px;" allowfullscreen frameborder="0" src="https://raindrop.io/drmurataltun/embed/me/no-header=true"></iframe>
+                    <iframe style="border: 0; width: 100%; height: 450px;" allowfullscreen frameborder="0"
+                        src="https://raindrop.io/drmurataltun/embed/me/no-header=true"></iframe>
                 </div>
             </div>
         </div>
@@ -578,15 +673,27 @@
             <div class="flex justify-center reveal">
                 <!-- Padlet Container with device look -->
                 <div class="relative w-full max-w-[850px] p-2 bg-gray-800 rounded-xl border border-gray-700 shadow-2xl">
-                    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-xl"></div>
-                    <div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4">
+                    <div
+                        class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none rounded-xl">
+                    </div>
+                    <div class="padlet-embed"
+                        style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4">
                         <p style="padding:0;margin:0">
-                            <iframe src="https://padlet.com/embed/lv1c5c3rvnjfiuq8" frameborder="0" allow="camera;microphone;geolocation;display-capture;clipboard-write" class="padlet-frame" style="width:100%;display:block;padding:0;margin:0"></iframe>
+                            <iframe src="https://padlet.com/embed/lv1c5c3rvnjfiuq8" frameborder="0"
+                                allow="camera;microphone;geolocation;display-capture;clipboard-write"
+                                class="padlet-frame" style="width:100%;display:block;padding:0;margin:0"></iframe>
                         </p>
                         <div style="display:flex;align-items:center;justify-content:end;margin:0;padding:8px 8px 8px 0">
-                            <a href="https://padlet.com?ref=embed" style="display:flex;align-items:center;gap:5px;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank">
-                                <span aria-hidden style="color:#9E9E9E;font-size:10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;line-height:1">Made with</span>
-                                <img src="https://padlet.net/emails/padlet_email_logo_2026_text-dark-200.png" height="12" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none;display:block" alt="Padlet ile yapıldı">
+                            <a href="https://padlet.com?ref=embed"
+                                style="display:flex;align-items:center;gap:5px;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none"
+                                target="_blank">
+                                <span aria-hidden
+                                    style="color:#9E9E9E;font-size:10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;line-height:1">Made
+                                    with</span>
+                                <img src="https://padlet.net/emails/padlet_email_logo_2026_text-dark-200.png"
+                                    height="12"
+                                    style="padding:0;margin:0;background:0 0;border:none;box-shadow:none;display:block"
+                                    alt="Padlet ile yapıldı">
                             </a>
                         </div>
                     </div>
@@ -602,16 +709,24 @@
                 <!-- Şirket Bilgisi -->
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png" onerror="this.src='https://placehold.co/100x100?text=YZO'" class="h-10 w-10 rounded-full bg-white p-0.5">
+                        <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                            onerror="this.src='https://placehold.co/100x100?text=YZO'"
+                            class="h-10 w-10 rounded-full bg-white p-0.5">
                         <h4 class="text-xl font-bold text-white">Yapay Zeka Okulum</h4>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed mb-6">
                         Yapay zeka teknolojilerinin eğitimde ve iş dünyasında uygulanmasına öncülük ediyoruz.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/drmurataltun/" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white text-gray-400 transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://github.com/yapayzekaokulum" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white text-gray-400 transition"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.youtube.com/@yapayzekaokulum" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 hover:text-white text-gray-400 transition"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/drmurataltun/"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white text-gray-400 transition"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/yapayzekaokulum"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white text-gray-400 transition"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://www.youtube.com/@yapayzekaokulum"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 hover:text-white text-gray-400 transition"><i
+                                class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
 
@@ -619,10 +734,16 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-6 text-white border-l-4 border-brand-purple pl-3">Menü</h4>
                     <ul class="space-y-3 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-brand-neon transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Anasayfa</a></li>
-                        <li><a href="#egitimler" class="hover:text-brand-neon transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Eğitimler</a></li>
-                        <li><a href="https://yapayzekaokulum.com/yap-kis/" class="hover:text-brand-neon transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Yap-Kis</a></li>
-                        <li><a href="https://form.jotform.com/253625405418052" target="_blank" class="hover:text-brand-neon transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-xs"></i> Başvuru</a></li>
+                        <li><a href="#" class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Anasayfa</a></li>
+                        <li><a href="#egitimler" class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Eğitimler</a></li>
+                        <li><a href="https://yapayzekaokulum.com/yap-kis/"
+                                class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Yap-Kis</a></li>
+                        <li><a href="https://form.jotform.com/253625405418052" target="_blank"
+                                class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Başvuru</a></li>
                     </ul>
                 </div>
 
@@ -640,13 +761,14 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fa-solid fa-envelope text-brand-purple"></i>
-                            <a href="mailto:yapayzekaokulum@gmail.com" class="hover:text-white transition">yapayzekaokulum@gmail.com</a>
+                            <a href="mailto:yapayzekaokulum@gmail.com"
+                                class="hover:text-white transition">yapayzekaokulum@gmail.com</a>
                         </li>
                     </ul>
                 </div>
-                
-                 <!-- Resmi Bilgiler -->
-                 <div>
+
+                <!-- Resmi Bilgiler -->
+                <div>
                     <h4 class="text-lg font-semibold mb-6 text-white border-l-4 border-blue-500 pl-3">Resmi Künye</h4>
                     <ul class="space-y-2 text-xs text-gray-500 bg-white/5 p-4 rounded-lg border border-white/5">
                         <li><strong class="text-gray-300">Ünvan:</strong> Mustafa Uçar</li>
@@ -658,7 +780,8 @@
                 </div>
             </div>
 
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 text-center gap-4">
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 text-center gap-4">
                 <p>&copy; 2026 Yapay Zeka Okulum. Tüm hakları saklıdır.</p>
                 <div class="flex gap-4">
                     <a href="#" class="hover:text-white">Gizlilik Politikası</a>
@@ -669,9 +792,12 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/905077501982?text=Merhaba,%20eğitimleriniz%20hakkında%20bilgi%20almak%20istiyorum." target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] transition z-50 animate-bounce group flex items-center gap-2 overflow-hidden hover:w-48 hover:px-6 w-14 h-14 md:w-16 md:h-16 duration-300 justify-center">
+    <a href="https://wa.me/905077501982?text=Merhaba,%20eğitimleriniz%20hakkında%20bilgi%20almak%20istiyorum."
+        target="_blank"
+        class="fixed bottom-6 right-6 bg-[#25D366] text-white p-3 md:p-4 rounded-full shadow-[0_0_20px_rgba(37,211,102,0.5)] hover:bg-[#128C7E] transition z-50 animate-bounce group flex items-center gap-2 overflow-hidden hover:w-48 hover:px-6 w-14 h-14 md:w-16 md:h-16 duration-300 justify-center">
         <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
-        <span class="whitespace-nowrap opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto transition-all duration-300 font-bold ml-0 group-hover:ml-2">WhatsApp</span>
+        <span
+            class="whitespace-nowrap opacity-0 group-hover:opacity-100 w-0 group-hover:w-auto transition-all duration-300 font-bold ml-0 group-hover:ml-2">WhatsApp</span>
     </a>
 
     <script>
@@ -710,4 +836,5 @@
         });
     </script>
 </body>
+
 </html>
