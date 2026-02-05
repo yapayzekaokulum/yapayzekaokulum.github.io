@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Araçları | Yapay Zeka Okulum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#8B5CF6',
+                            dark: '#0f172a',
+                            accent: '#F59E0B',
+                            neon: '#00f2ff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.2);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-[-1]">
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
+                        <span class="block text-xl font-bold text-white tracking-tight">YAPAY ZEKÂ OKULUM</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="/" class="text-gray-300 hover:text-white transition">Ana Sayfa</a>
+                    <a href="/araclar" class="text-brand-neon font-semibold">Araçlar</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1
+                class="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                Yapay Zeka Araçları
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Kategorilere ayrılmış en güncel yapay zeka araçları kütüphanesi.
+                İhtiyacınıza en uygun aracı keşfedin.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+
+            <!-- Sidebar (Categories) -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="glass rounded-xl p-4 sticky top-24">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-brand-purple"></i> Kategoriler
+                    </h3>
+                    <div id="category-list" class="flex flex-row md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0">
+                        <!-- Categories will be injected here -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Tools Grid -->
+            <main class="flex-1">
+
+                <!-- Search -->
+                <div class="mb-8 relative">
+                    <input type="text" id="search-input" placeholder="Araç ara (örn: ChatGPT, sunum, resim)..."
+                        class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white focus:outline-none focus:border-brand-purple transition">
+                    <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                </div>
+
+                <!-- Grid -->
+                <div id="tools-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Tools will be injected here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="no-results" class="hidden text-center py-20">
+                    <i class="fa-solid fa-robot text-6xl text-gray-600 mb-4"></i>
+                    <p class="text-gray-400 text-lg">Aradığınız kriterlere uygun araç bulunamadı.</p>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Data & Script -->
+    <script src="tools.js"></script>
+    <script>
+        const categoryListFn = document.getElementById('category-list');
+        const toolsGridFn = document.getElementById('tools-grid');
+        const searchInputFn = document.getElementById('search-input');
+        const noResultsFn = document.getElementById('no-results');
+
+        let activeCategory = 'Tümü';
+
+        function renderCategories() {
+            const allCats = ['Tümü', ...categories];
+            categoryListFn.innerHTML = allCats.map(cat => `
+                <button 
+                    onclick="filterByCategory('${cat}')"
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-left transition whitespace-nowrap md:whitespace-normal
+                    ${activeCategory === cat
+                    ? 'bg-brand-purple text-white shadow-lg shadow-purple-500/30'
+                    : 'text-gray-400 hover:bg-white/5 hover:text-white'}"
+                >
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function renderTools(toolsToRender) {
+            if (toolsToRender.length === 0) {
+                toolsGridFn.classList.add('hidden');
+                noResultsFn.classList.remove('hidden');
+                return;
+            }
+
+            toolsGridFn.classList.remove('hidden');
+            noResultsFn.classList.add('hidden');
+
+            toolsGridFn.innerHTML = toolsToRender.map(tool => `
+                <div class="glass-card rounded-xl p-6 flex flex-col h-full group">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-brand-neon border border-white/10 group-hover:bg-brand-purple group-hover:text-white transition duration-300">
+                            <i class="${tool.icon || 'fa-solid fa-bolt'} text-xl"></i>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-500 border border-white/10 px-2 py-1 rounded bg-black/20">
+                            ${tool.category}
+                        </span>
+                    </div>
+                    
+                    <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-neon transition">${tool.name}</h3>
+                    <p class="text-gray-400 text-sm mb-4 flex-grow line-clamp-3 leading-relaxed">
+                        ${tool.description}
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        ${tool.tags.map(tag => `
+                            <span class="text-xs text-brand-purple bg-brand-purple/10 px-2 py-1 rounded border border-brand-purple/20">#${tag}</span>
+                        `).join('')}
+                    </div>
+
+                    <a href="${tool.url}" target="_blank" 
+                        class="w-full py-2.5 rounded-lg bg-white/5 hover:bg-white text-white hover:text-brand-dark font-medium text-sm text-center transition flex items-center justify-center gap-2 border border-white/10 group-hover:border-white">
+                        <span>Ziyaret Et</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function filterByCategory(category) {
+            activeCategory = category;
+            renderCategories();
+            filterTools();
+        }
+
+        function filterTools() {
+            const searchTerm = searchInputFn.value.toLowerCase();
+
+            const filtered = tools.filter(tool => {
+                const matchesCategory = activeCategory === 'Tümü' || tool.category === activeCategory;
+                const matchesSearch = tool.name.toLowerCase().includes(searchTerm) ||
+                    tool.description.toLowerCase().includes(searchTerm) ||
+                    tool.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+
+                return matchesCategory && matchesSearch;
+            });
+
+            renderTools(filtered);
+        }
+
+        // Init
+        renderCategories();
+        renderTools(tools);
+
+        // Events
+        searchInputFn.addEventListener('input', filterTools);
+    </script>
+</body>
+
+</html>
