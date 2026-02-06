@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaynaklar | Yapay Zeka Okulum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#8B5CF6',
+                            dark: '#0f172a',
+                            accent: '#F59E0B',
+                            neon: '#00f2ff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+        body {
+            background-color: #0f172a;
+            color: #ffffff;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #c084fc, #00f2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body class="antialiased selection:bg-brand-purple selection:text-white min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="glass fixed w-full z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-brand-neon rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300">
+                            </div>
+                            <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                                onerror="this.src='https://placehold.co/100x100?text=YZO'"
+                                class="relative h-10 w-10 md:h-12 md:w-12 rounded-full bg-white p-0.5">
+                        </div>
+                        <div class="hidden sm:block">
+                            <span
+                                class="block text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-brand-neon transition duration-300">YAPAY
+                                ZEKÂ OKULUM</span>
+                            <span
+                                class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">The
+                                Age of AI</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/#egitimler"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Eğitimler</a>
+                    <a href="/araclar"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Araçlar</a>
+                    <a href="https://yapayzekaokulum.com/yap-kis/"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300 flex items-center gap-2"><i
+                            class="fa-solid fa-book-open text-brand-purple"></i> Yap-Kis</a>
+                    <a href="/kaynaklar"
+                        class="text-white font-semibold hover:scale-105 transition duration-300 border-b-2 border-brand-neon pb-1">Kaynaklar</a>
+                    <a href="https://form.jotform.com/253625405418052" target="_blank"
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            <i class="fa-solid fa-rocket mr-2"></i> Başvuru Yap
+                        </span>
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="/#egitimler" class="block text-gray-300 hover:text-white py-2">Eğitimler</a>
+                <a href="/araclar" class="block text-gray-300 hover:text-white py-2">Araçlar</a>
+                <a href="https://yapayzekaokulum.com/yap-kis/"
+                    class="block text-gray-300 hover:text-white py-2">Yap-Kis</a>
+                <a href="/kaynaklar" class="block text-white font-semibold py-2">Kaynaklar</a>
+                <a href="https://form.jotform.com/253625405418052" target="_blank"
+                    class="block bg-brand-purple text-white text-center py-2 rounded-lg">Başvuru Yap</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 md:pt-40 md:pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-brand-neon font-semibold tracking-widest uppercase text-xs md:text-sm">Dijital Pano</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mt-2 mb-4">Kaynaklar & Materyaller</h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Eğitim materyalleri, faydalı linkler, dökümanlar ve interaktif içeriklere ulaşın.
+            </p>
+        </div>
+    </section>
+
+    <!-- Padlet Section -->
+    <section class="py-8 md:py-16">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card p-2 rounded-xl border border-gray-700 shadow-2xl">
+                <div class="padlet-embed"
+                    style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4">
+                    <p style="padding:0;margin:0">
+                        <iframe src="https://padlet.com/embed/lv1c5c3rvnjfiuq8" frameborder="0"
+                            allow="camera;microphone;geolocation;display-capture;clipboard-write"
+                            style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe>
+                    </p>
+                    <div style="display:flex;align-items:center;justify-content:end;margin:0;padding:8px 8px 8px 0">
+                        <a href="https://padlet.com?ref=embed"
+                            style="display:flex;align-items:center;gap:5px;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none"
+                            target="_blank">
+                            <span aria-hidden
+                                style="color:#9E9E9E;font-size:10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;line-height:1">Made
+                                with</span>
+                            <img src="https://padlet.net/emails/padlet_email_logo_2026_text-dark-200.png" height="12"
+                                style="padding:0;margin:0;background:0 0;border:none;box-shadow:none;display:block"
+                                alt="Padlet ile yapıldı">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-white/10 py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 text-sm">
+                © 2026 Yapay Zeka Okulum. Tüm hakları saklıdır.
+            </p>
+            <div class="flex justify-center gap-4 mt-4">
+                <a href="https://www.instagram.com/yapayzekaokulum/"
+                    class="text-gray-400 hover:text-brand-purple transition"><i
+                        class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://github.com/yapayzekaokulum" class="text-gray-400 hover:text-brand-purple transition"><i
+                        class="fa-brands fa-github text-xl"></i></a>
+                <a href="https://www.youtube.com/@yapayzekaokulum"
+                    class="text-gray-400 hover:text-red-500 transition"><i class="fa-brands fa-youtube text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+    </script>
+</body>
+
+</html>
