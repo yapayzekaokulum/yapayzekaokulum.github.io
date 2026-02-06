@@ -60,45 +60,73 @@
 <body class="text-white min-h-screen flex flex-col">
 
     <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10"
-        id="navbar">
+    <nav class="glass fixed w-full z-50 border-b border-white/10"
+        style="background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <a href="../index.html" class="flex items-center gap-3 group">
-                        <div
-                            class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-brand-purple to-brand-blue p-0.5 group-hover:scale-105 transition duration-300">
-                            <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
-                                <i class="fa-solid fa-brain text-brand-neon text-lg"></i>
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0 flex items-center gap-3 group">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-brand-neon rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300">
                             </div>
+                            <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                                onerror="this.src='https://placehold.co/100x100?text=YZO'"
+                                class="relative h-10 w-10 md:h-12 md:w-12 rounded-full bg-white p-0.5">
                         </div>
-                        <div>
-                            <h1
-                                class="font-bold text-xl tracking-tight text-white group-hover:text-brand-neon transition">
-                                YAPAY ZEKÂ OKULUM</h1>
-                            <p class="text-[0.65rem] text-gray-400 tracking-widest uppercase">The Age of AI</p>
+                        <div class="hidden sm:block">
+                            <span
+                                class="block text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-brand-neon transition duration-300">YAPAY
+                                ZEKÂ OKULUM</span>
+                            <span
+                                class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">The
+                                Age of AI</span>
                         </div>
                     </a>
                 </div>
-
-                <div class="hidden md:block">
-                    <div class="flex items-center space-x-8">
-                        <a href="../egitimler/index.html"
-                            class="text-gray-300 hover:text-white transition py-2">Eğitimler</a>
-                        <a href="../araclar/index.html"
-                            class="text-gray-300 hover:text-white transition py-2">Araçlar</a>
-                        <a href="../yap-kis/index.html" class="text-gray-300 hover:text-white transition py-2"><i
-                                class="fa-solid fa-book-open text-brand-purple mr-2"></i> Yap-Kis</a>
-                        <a href="https://padlet.com/embed/lv1c5c3rvnjfiuq8" target="_blank"
-                            class="text-gray-300 hover:text-white transition py-2"><i
-                                class="fa-solid fa-swatchbook text-brand-purple mr-2"></i> Eğitimlerden Kareler</a>
-                        <a href="#" class="text-white font-bold border-b-2 border-brand-purple py-2"><i
-                                class="fa-solid fa-map-location-dot text-brand-neon mr-2"></i> Eğitim Haritası</a>
-                        <a href="https://form.jotform.com/253625405418052" target="_blank"
-                            class="bg-brand-purple hover:bg-purple-600 text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg shadow-purple-900/20">Eğitim
-                            İsteği</a>
-                    </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../egitimler/index.html"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Eğitimler</a>
+                    <a href="../araclar/index.html"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Araçlar</a>
+                    <a href="../yap-kis/index.html"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300 flex items-center gap-2"><i
+                            class="fa-solid fa-book-open text-brand-purple"></i> Yap-Kis</a>
+                    <a href="https://padlet.com/embed/lv1c5c3rvnjfiuq8" target="_blank"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300 flex items-center gap-2"><i
+                            class="fa-solid fa-swatchbook text-brand-purple"></i> Eğitimlerden Kareler</a>
+                    <a href="#"
+                        class="text-white font-semibold hover:scale-105 transition duration-300 border-b-2 border-brand-neon pb-1 flex items-center gap-2"><i
+                            class="fa-solid fa-map-location-dot text-brand-neon"></i> Eğitim Haritası</a>
+                    <a href="https://form.jotform.com/253625405418052" target="_blank"
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            <i class="fa-solid fa-rocket mr-2"></i> Eğitim İsteği
+                        </span>
+                    </a>
                 </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="../egitimler/index.html" class="block text-gray-300 hover:text-white py-2">Eğitimler</a>
+                <a href="../araclar/index.html" class="block text-gray-300 hover:text-white py-2">Araçlar</a>
+                <a href="../yap-kis/index.html" class="block text-gray-300 hover:text-white py-2">Yap-Kis</a>
+                <a href="https://padlet.com/embed/lv1c5c3rvnjfiuq8" target="_blank"
+                    class="block text-gray-300 hover:text-white py-2"><i
+                        class="fa-solid fa-swatchbook text-brand-purple mr-2"></i> Eğitimlerden Kareler</a>
+                <a href="#" class="block text-white font-semibold py-2"><i
+                        class="fa-solid fa-map-location-dot text-brand-neon mr-2"></i> Eğitim Haritası</a>
+                <a href="https://form.jotform.com/253625405418052" target="_blank"
+                    class="block bg-brand-purple text-white text-center py-2 rounded-lg">Eğitim İsteği</a>
             </div>
         </div>
     </nav>
