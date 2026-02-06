@@ -212,8 +212,9 @@
             });
 
             // Update Global Object
-            trainingData[currentCityKey].count = newCount;
             trainingData[currentCityKey].trainings = newTrainings;
+            // Auto-calculate count
+            trainingData[currentCityKey].count = newTrainings.length;
 
             // UI Feedback
             const btn = document.querySelector('button[onclick="saveCurrentCity()"]');
