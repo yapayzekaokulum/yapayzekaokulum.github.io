@@ -198,6 +198,11 @@
                     <!-- Tools will be injected here -->
                 </div>
 
+                <!-- Pagination -->
+                <div id="pagination" class="flex justify-center items-center gap-2 mt-8 flex-wrap">
+                    <!-- Pagination buttons injected here -->
+                </div>
+
                 <!-- Empty State -->
                 <div id="no-results" class="hidden text-center py-20">
                     <i class="fa-solid fa-robot text-6xl text-gray-600 mb-4"></i>
@@ -205,6 +210,47 @@
                 </div>
 
             </main>
+        </div>
+    </div>
+
+    <!-- Tool Detail Modal -->
+    <div id="tool-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div
+            class="bg-slate-900 border border-white/10 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="flex items-center gap-4">
+                        <div id="modal-icon"
+                            class="w-14 h-14 rounded-xl bg-brand-purple/20 flex items-center justify-center text-brand-neon border border-brand-purple/30">
+                            <i class="fa-solid fa-bolt text-2xl"></i>
+                        </div>
+                        <div>
+                            <h2 id="modal-name" class="text-2xl font-bold text-white">Araç Adı</h2>
+                            <span id="modal-category"
+                                class="text-xs text-gray-400 uppercase tracking-wider">Kategori</span>
+                        </div>
+                    </div>
+                    <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl p-2">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <p id="modal-description" class="text-gray-300 leading-relaxed mb-6"></p>
+
+                <div id="modal-video"
+                    class="mb-6 rounded-xl overflow-hidden border border-white/10 relative pt-[56.25%] bg-black hidden">
+                    <iframe id="modal-iframe" src="" class="absolute top-0 left-0 w-full h-full" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <div id="modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
+
+                <a id="modal-link" href="#" target="_blank"
+                    class="w-full py-3 rounded-xl bg-brand-purple hover:bg-purple-600 text-white font-bold text-center transition flex items-center justify-center gap-2">
+                    <span>Kullanmaya Başla</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -220,8 +266,12 @@
         const searchInputFn = document.getElementById('search-input');
         const sortSelectFn = document.getElementById('sort-select');
         const noResultsFn = document.getElementById('no-results');
+        const paginationFn = document.getElementById('pagination');
 
         let activeCategory = 'Tümü';
+        let currentPage = 1;
+        const itemsPerPage = 9;
+        let filteredTools = [];
 
         function renderCategories() {
             const allCats = ['Tümü', ...categories];
@@ -238,9 +288,19 @@
             `).join('');
         }
 
+        // Get YouTube thumbnail (maxresdefault with fallback)
+        function getYouTubeThumbnail(embedUrl) {
+            const match = embedUrl.match(/embed\/([a-zA-Z0-9_-]+)/);
+            if (match) {
+                return `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg`;
+            }
+            return null;
+        }
+
         function renderTools(toolsToRender) {
             if (toolsToRender.length === 0) {
                 toolsGridFn.classList.add('hidden');
+                paginationFn.classList.add('hidden');
                 noResultsFn.classList.remove('hidden');
                 return;
             }
@@ -248,8 +308,18 @@
             toolsGridFn.classList.remove('hidden');
             noResultsFn.classList.add('hidden');
 
-            toolsGridFn.innerHTML = toolsToRender.map(tool => `
-                <div class="glass-card rounded-xl p-6 flex flex-col h-full group">
+            // Pagination logic
+            const totalPages = Math.ceil(toolsToRender.length / itemsPerPage);
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedTools = toolsToRender.slice(startIndex, endIndex);
+
+            toolsGridFn.innerHTML = paginatedTools.map((tool, idx) => {
+                const globalIdx = startIndex + idx;
+                const thumbnail = tool.video ? getYouTubeThumbnail(tool.video) : null;
+
+                return `
+                <div class="glass-card rounded-xl p-6 flex flex-col h-full group cursor-pointer" onclick="openModal(${globalIdx})">
                     <div class="flex items-start justify-between mb-4">
                         <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-brand-neon border border-white/10 group-hover:bg-brand-purple group-hover:text-white transition duration-300">
                             <i class="${tool.icon || 'fa-solid fa-bolt'} text-xl"></i>
@@ -260,32 +330,83 @@
                     </div>
                     
                     <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-neon transition">${tool.name}</h3>
-                    <p class="text-gray-400 text-sm mb-4 flex-grow line-clamp-3 leading-relaxed">
+                    <p class="text-gray-400 text-sm mb-4 flex-grow line-clamp-2 leading-relaxed">
                         ${tool.description}
                     </p>
 
                     <div class="flex flex-wrap gap-2 mb-4">
-                        ${tool.tags.map(tag => `
+                        ${tool.tags.slice(0, 3).map(tag => `
                             <span class="text-xs text-brand-purple bg-brand-purple/10 px-2 py-1 rounded border border-brand-purple/20">#${tag}</span>
                         `).join('')}
                     </div>
 
-                    ${tool.video ? `
-                    <div class="mb-6 rounded-lg overflow-hidden border border-white/10 relative pt-[56.25%] bg-black/50 group-hover:border-brand-purple/30 transition">
-                        <iframe src="${tool.video}" title="${tool.name} Video" class="absolute top-0 left-0 w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    ${thumbnail ? `
+                    <div class="mb-4 rounded-lg overflow-hidden border border-white/10 relative aspect-video bg-black/50 group-hover:border-brand-purple/30 transition">
+                        <img src="${thumbnail}" alt="${tool.name}" class="w-full h-full object-cover" onerror="this.src='https://img.youtube.com/vi/${tool.video.match(/embed\/([a-zA-Z0-9_-]+)/)?.[1]}/hqdefault.jpg'">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition">
+                            <i class="fa-solid fa-play text-white text-3xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition"></i>
+                        </div>
                     </div>
                     ` : ''}
 
-                    <a href="${tool.url}" target="_blank" 
-                        class="w-full py-2.5 rounded-lg bg-white/5 hover:bg-white text-white hover:text-brand-dark font-medium text-sm text-center transition flex items-center justify-center gap-2 border border-white/10 group-hover:border-white">
-                        <span>Kullanmaya Başla</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                    </a>
+                    <button class="w-full py-2.5 rounded-lg bg-white/5 hover:bg-brand-purple text-white font-medium text-sm text-center transition flex items-center justify-center gap-2 border border-white/10 group-hover:border-brand-purple">
+                        <span>Detayları Gör</span> <i class="fa-solid fa-expand text-xs"></i>
+                    </button>
                 </div>
-            `).join('');
+            `}).join('');
+
+            // Render pagination
+            renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+            if (totalPages <= 1) {
+                paginationFn.classList.add('hidden');
+                return;
+            }
+            paginationFn.classList.remove('hidden');
+
+            let html = '';
+
+            // Prev button
+            html += `<button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}
+                class="px-3 py-2 rounded-lg ${currentPage === 1 ? 'text-gray-600 cursor-not-allowed' : 'text-white hover:bg-white/10'} transition">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>`;
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    html += `<button onclick="goToPage(${i})"
+                        class="w-10 h-10 rounded-lg font-medium transition
+                        ${currentPage === i ? 'bg-brand-purple text-white' : 'text-gray-400 hover:bg-white/10 hover:text-white'}">
+                        ${i}
+                    </button>`;
+                } else if (i === currentPage - 2 || i === currentPage + 2) {
+                    html += `<span class="text-gray-500 px-1">...</span>`;
+                }
+            }
+
+            // Next button
+            html += `<button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}
+                class="px-3 py-2 rounded-lg ${currentPage === totalPages ? 'text-gray-600 cursor-not-allowed' : 'text-white hover:bg-white/10'} transition">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>`;
+
+            paginationFn.innerHTML = html;
+        }
+
+        function goToPage(page) {
+            const totalPages = Math.ceil(filteredTools.length / itemsPerPage);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderTools(filteredTools);
+            window.scrollTo({ top: 400, behavior: 'smooth' });
         }
 
         function filterByCategory(category) {
             activeCategory = category;
+            currentPage = 1;
             renderCategories();
             filterAndSortTools();
         }
@@ -295,7 +416,7 @@
             const sortValue = sortSelectFn.value;
 
             // 1. Filter
-            let filtered = tools.filter(tool => {
+            filteredTools = tools.filter(tool => {
                 const matchesCategory = activeCategory === 'Tümü' || tool.category === activeCategory;
                 const matchesSearch = tool.name.toLowerCase().includes(searchTerm) ||
                     tool.description.toLowerCase().includes(searchTerm) ||
@@ -305,7 +426,7 @@
             });
 
             // 2. Sort
-            filtered.sort((a, b) => {
+            filteredTools.sort((a, b) => {
                 switch (sortValue) {
                     case 'name-asc':
                         return a.name.localeCompare(b.name);
@@ -314,21 +435,69 @@
                     case 'rank-desc':
                         return (b.rank || 0) - (a.rank || 0);
                     default:
-                        // Default to Rank if nothing matches, or preserve array order
                         return (b.rank || 0) - (a.rank || 0);
                 }
             });
 
-            renderTools(filtered);
+            renderTools(filteredTools);
         }
+
+        // Modal functions
+        function openModal(index) {
+            const tool = filteredTools[index];
+            if (!tool) return;
+
+            document.getElementById('modal-icon').innerHTML = `<i class="${tool.icon || 'fa-solid fa-bolt'} text-2xl"></i>`;
+            document.getElementById('modal-name').textContent = tool.name;
+            document.getElementById('modal-category').textContent = tool.category;
+            document.getElementById('modal-description').textContent = tool.description;
+            document.getElementById('modal-link').href = tool.url;
+
+            // Tags
+            document.getElementById('modal-tags').innerHTML = tool.tags.map(tag => `
+                <span class="text-sm text-brand-purple bg-brand-purple/10 px-3 py-1 rounded-full border border-brand-purple/30">#${tag}</span>
+            `).join('');
+
+            // Video
+            const videoContainer = document.getElementById('modal-video');
+            const iframe = document.getElementById('modal-iframe');
+            if (tool.video) {
+                iframe.src = tool.video;
+                videoContainer.classList.remove('hidden');
+            } else {
+                iframe.src = '';
+                videoContainer.classList.add('hidden');
+            }
+
+            document.getElementById('tool-modal').classList.remove('hidden');
+            document.getElementById('tool-modal').classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('tool-modal').classList.add('hidden');
+            document.getElementById('tool-modal').classList.remove('flex');
+            document.getElementById('modal-iframe').src = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on backdrop click
+        document.getElementById('tool-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'tool-modal') closeModal();
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
 
         // Init
         renderCategories();
-        filterAndSortTools(); // Initial render with default sort
+        filterAndSortTools();
 
         // Events
-        searchInputFn.addEventListener('input', filterAndSortTools);
-        sortSelectFn.addEventListener('change', filterAndSortTools);
+        searchInputFn.addEventListener('input', () => { currentPage = 1; filterAndSortTools(); });
+        sortSelectFn.addEventListener('change', () => { currentPage = 1; filterAndSortTools(); });
     </script>
 </body>
 
