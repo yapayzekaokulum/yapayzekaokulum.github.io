@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eğitim Haritası - YZO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        #vmap {
+            width: 100%;
+            height: 600px;
+            transition: all 0.3s;
+        }
+
+        /* Customize JQVMap Tooltip */
+        .jqvmap-label {
+            background: rgba(15, 23, 42, 0.9) !important;
+            border: 1px solid rgba(139, 92, 246, 0.3) !important;
+            border-radius: 8px !important;
+            padding: 8px 12px !important;
+            font-family: 'Inter', sans-serif !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',
+                            purple: '#8B5CF6',
+                            blue: '#3B82F6',
+                            neon: '#00F2FF'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="text-white min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-dark/80 backdrop-blur-md border-b border-white/10"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="flex items-center gap-3 group">
+                        <div
+                            class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-brand-purple to-brand-blue p-0.5 group-hover:scale-105 transition duration-300">
+                            <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
+                                <i class="fa-solid fa-brain text-brand-neon text-lg"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h1
+                                class="font-bold text-xl tracking-tight text-white group-hover:text-brand-neon transition">
+                                YAPAY ZEKÂ OKULUM</h1>
+                            <p class="text-[0.65rem] text-gray-400 tracking-widest uppercase">The Age of AI</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-8">
+                        <a href="../egitimler/index.html"
+                            class="text-gray-300 hover:text-white transition py-2">Eğitimler</a>
+                        <a href="../araclar/index.html"
+                            class="text-gray-300 hover:text-white transition py-2">Araçlar</a>
+                        <a href="../yap-kis/index.html" class="text-gray-300 hover:text-white transition py-2"><i
+                                class="fa-solid fa-book-open text-brand-purple mr-2"></i> Yap-Kis</a>
+                        <a href="https://padlet.com/embed/lv1c5c3rvnjfiuq8" target="_blank"
+                            class="text-gray-300 hover:text-white transition py-2"><i
+                                class="fa-solid fa-swatchbook text-brand-purple mr-2"></i> Eğitimlerden Kareler</a>
+                        <a href="#" class="text-white font-bold border-b-2 border-brand-purple py-2"><i
+                                class="fa-solid fa-map-location-dot text-brand-neon mr-2"></i> Eğitim Haritası</a>
+                        <a href="https://form.jotform.com/253625405418052" target="_blank"
+                            class="bg-brand-purple hover:bg-purple-600 text-white px-5 py-2.5 rounded-full font-medium transition shadow-lg shadow-purple-900/20">Eğitim
+                            İsteği</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-28 pb-12 px-4">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center mb-12">
+                <h2
+                    class="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-4">
+                    Eğitim Takip Haritası
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Türkiye genelinde gerçekleştirdiğimiz eğitimleri ve ulaştığımız şehirleri keşfedin.
+                </p>
+            </div>
+
+            <div class="glass-card rounded-2xl p-4 md:p-8 relative overflow-hidden">
+                <!-- Map Container -->
+                <div id="vmap"></div>
+
+                <!-- Info Box (Default Hidden, shows on click) -->
+                <div id="city-info"
+                    class="hidden absolute top-4 right-4 md:top-8 md:right-8 w-64 md:w-80 bg-slate-800/95 backdrop-blur-xl border border-white/10 rounded-xl p-6 shadow-2xl z-20 transition-all duration-300 transform scale-95 opacity-0">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 id="info-city-name" class="text-2xl font-bold text-brand-neon">Şehir Adı</h3>
+                        <button onclick="closeInfo()" class="text-gray-400 hover:text-white"><i
+                                class="fa-solid fa-xmark"></i></button>
+                    </div>
+
+                    <div class="mb-4">
+                        <span class="text-sm text-gray-400">Toplam Eğitim:</span>
+                        <div class="text-3xl font-bold text-white mt-1" id="info-count">0</div>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-4">
+                        <h4 class="text-sm font-semibold text-purple-400 mb-3">Son Eğitimler</h4>
+                        <ul id="info-list"
+                            class="space-y-3 text-sm text-gray-300 max-h-48 overflow-y-auto custom-scrollbar">
+                            <!-- List items will be injected here -->
+                            <li class="text-gray-500 italic">Henüz eğitim verisi girilmemiş.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div
+                    class="absolute bottom-4 left-4 md:bottom-8 md:left-8 bg-slate-900/80 backdrop-blur-md p-4 rounded-xl border border-white/5">
+                    <h4 class="text-xs font-bold text-gray-400 uppercase mb-3">Eğitim Yoğunluğu</h4>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-gray-700 mr-2"></span> 0
+                            Eğitim</div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-blue-900 mr-2"></span> 1-2
+                            Eğitim</div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-700 mr-2"></span> 3-5
+                            Eğitim</div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-brand-neon mr-2"></span> 6+
+                            Eğitim</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-white/5 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm">© 2026 Yapay Zekâ Okulum. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jquery.vmap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/maps/jquery.vmap.turkey.js"></script>
+    <script src="data.js"></script>
+    <script>
+        // Color scale logic
+        function getColor(count) {
+            if (count === 0) return '#374151'; // Gray-700
+            if (count <= 2) return '#1e3a8a'; // Blue-900
+            if (count <= 5) return '#7e22ce'; // Purple-700
+            if (count > 5) return '#00F2FF';  // Neon Cyan
+            return '#374151';
+        }
+
+        // Initialize Map
+        $(document).ready(function () {
+            // Prepare colors object
+            const colors = {};
+            // Assuming data.js defines 'trainingData' object with keys like "01", "06", etc.
+            // But jqvmap-turkey might use IDs like "tr-01", "tr-06" or just city names.
+            // Let's verify standard jqvmap turkey IDs. Usually they are numerical IDs or ISO codes.
+            // Common JQVMap Turkey uses 'tr-01', 'tr-06' etc matching license plate codes but likely as strings.
+            // Let's assume standard behavior first, defaulting to gray.
+            // We will Iterate our data to set initial colors.
+
+            // NOTE: JQVMap Turkey usually uses "tr-01" format for PLAKA KODU but 01 might be just "1" or "01". 
+            // We will handle data binding carefully.
+
+            // Resetting colors based on data
+            for (let key in trainingData) {
+                // Determine map key. JQVMap Turkey often uses 'tr-AD', 'tr-AN' etc OR plaka codes. 
+                // Let's assume standard plaka codes for now and try to map them. 
+                // Actually, looking at the library source usually helps. 
+                // Let's assume generic binding first.
+                // We'll update colors dynamically if possible.
+            }
+
+            $('#vmap').vectorMap({
+                map: 'turkey',
+                backgroundColor: 'transparent',
+                borderColor: '#1e293b',
+                borderOpacity: 0.25,
+                borderWidth: 1,
+                color: '#374151', // Default color
+                enableZoom: false, // Disable zoom for cleaner UI
+                hoverColor: '#8B5CF6',
+                hoverOpacity: null,
+                normalizeFunction: 'linear',
+                scaleColors: ['#b6d6ff', '#005ace'],
+                selectedColor: '#ec4899',
+                selectedRegions: null,
+                showTooltip: true,
+                onLabelShow: function (event, label, code) {
+                    // code is likely the region ID.
+                    // Let's try to find data match.
+                    // We need to map 'tr-01' -> '01' or similar.
+                    let cleanCode = code.replace('tr-', ''); // Try to strip prefix if exists
+
+                    // Note: jqvmap turkey might not use plaka codes. 
+                    // It creates a map where code is the ISO code or ID.
+
+                    // Simple logic: Try to find by name match if code fails, 
+                    // or just use a lookup.
+                    // Since we don't know exact codes, we'll try to match by name in 'trainingData'.
+                    // BUT trainingData is keyed by plaka.
+
+                    // Let's look up data by iterating values if needed or creating a name map.
+                    let cityData = null;
+
+                    // Try direct key match
+                    if (trainingData[cleanCode]) cityData = trainingData[cleanCode];
+                    // Try searching by name (label text)
+                    if (!cityData) {
+                        const cityName = label.text();
+                        cityData = Object.values(trainingData).find(c => c.name.toLowerCase() === cityName.toLowerCase());
+                    }
+
+                    if (cityData) {
+                        label.text(cityData.name + ' (' + cityData.count + ' Eğitim)');
+                    }
+                },
+                onRegionClick: function (element, code, region) {
+                    let cleanCode = code.replace('tr-', '');
+                    let cityData = null;
+                    if (trainingData[cleanCode]) cityData = trainingData[cleanCode];
+                    if (!cityData) {
+                        cityData = Object.values(trainingData).find(c => c.name.toLowerCase() === region.toLowerCase());
+                    }
+
+                    showCityInfo(cityData, region);
+                },
+                onResize: function (element, width, height) {
+                    // Auto resize
+                }
+            });
+
+            // Post-init coloring
+            // We need to iterate the map regions and color them.
+            // JQVMap exposes a 'setColors' method.
+            // We need to know the codes.
+            // We will try to map by name since that is safer.
+            // But setColors expects { "code": "color" }.
+
+            // Hack: Iterate all regions in the map object if accessible, 
+            // but easier: just rely on the click/hover for v1.
+            // Ideally we want the Heatmap effect.
+
+            // Retry Color logic:
+            // We can access $('#vmap').vectorMap('get', 'mapObject').paths to see keys?
+            // No, standard API is limited.
+
+            // Let's try standard 'tr-PLAKA' format (tr-01, tr-06).
+            const colorMap = {};
+            for (let key in trainingData) {
+                let code = 'tr-' + key; // Standard guess
+                colorMap[code] = getColor(trainingData[key].count);
+            }
+
+            $('#vmap').vectorMap('set', 'colors', colorMap);
+        });
+
+        function showCityInfo(data, regionName) {
+            const infoBox = document.getElementById('city-info');
+            const nameEl = document.getElementById('info-city-name');
+            const countEl = document.getElementById('info-count');
+            const listEl = document.getElementById('info-list');
+
+            // Show box
+            infoBox.classList.remove('hidden');
+            setTimeout(() => {
+                infoBox.classList.remove('scale-95', 'opacity-0');
+            }, 10);
+
+            if (data) {
+                nameEl.textContent = data.name;
+                countEl.textContent = data.count;
+
+                // Populate List
+                if (data.trainings && data.trainings.length > 0) {
+                    listEl.innerHTML = data.trainings.map(t => `
+                        <li class="bg-white/5 p-2 rounded border border-white/5">
+                            <div class="font-semibold text-white">${t.title || 'Eğitim'}</div>
+                            <div class="text-xs text-brand-purple flex justify-between mt-1">
+                                <span>${t.date || '-'}</span>
+                                <span>${t.place || '-'}</span>
+                            </div>
+                        </li>
+                    `).join('');
+                } else {
+                    listEl.innerHTML = '<li class="text-gray-500 italic text-center py-4">Bu şehirde kayıtlı eğitim bulunmuyor.</li>';
+                }
+            } else {
+                nameEl.textContent = regionName;
+                countEl.textContent = "0";
+                listEl.innerHTML = '<li class="text-gray-500 italic text-center py-4">Veri bulunamadı.</li>';
+            }
+        }
+
+        function closeInfo() {
+            const infoBox = document.getElementById('city-info');
+            infoBox.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                infoBox.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+</body>
+
+</html>
