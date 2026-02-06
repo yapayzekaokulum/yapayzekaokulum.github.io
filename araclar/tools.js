@@ -4,15 +4,16 @@ const tools = [
         "category": "Chatbot & Asistan",
         "description": "OpenAI tarafından geliştirilen, doğal dil işleme konusunda lider yapay zeka asistanı.",
         "url": "https://chat.openai.com",
+        "video": "https://www.youtube.com/embed/eIVOMazjGQs",
+        "icon": "fa-solid fa-message",
+        "rank": 5,
+        "date": "2023-01-15",
         "tags": [
             "Metin Üretimi",
             "Kodlama",
-            "Çeviri"
-        ],
-        "icon": "fa-solid fa-message",
-        "date": "2023-01-15",
-        "rank": 5,
-        "video": "https://www.youtube.com/embed/outcGtbnMuQ"
+            "Çeviri",
+            "Multimodal"
+        ]
     },
     {
         "name": "Midjourney",
@@ -63,7 +64,7 @@ const tools = [
         "name": "Gamma",
         "category": "Sunum & Doküman",
         "description": "Saniyeler içinde profesyonel sunumlar, web siteleri ve dokümanlar oluşturan araç.",
-        "url": "https://gamma.app",
+        "url": "https://gamma.app/signup?r=7egrrffmvb9ctfk",
         "video": "https://www.youtube.com/embed/n1n0inlWVeA",
         "icon": "fa-solid fa-layer-group",
         "rank": 3,
@@ -102,6 +103,22 @@ const tools = [
             "Görsel",
             "image",
             "gemini"
+        ]
+    },
+    {
+        "name": "Gemini",
+        "category": "Chatbot & Asistan",
+        "description": "Gemini, Google'ın çok modlu yapay zeka modeli ailesidir ve metin, görüntü, ses, video ile kod gibi farklı veri türlerini anlayıp işleyebilir. Eski adıyla Bard olarak bilinen bu sohbet robotu, 2023'te piyasaya sürüldü ve şu anda 200'den fazla ülkede 40'tan fazla dilde kullanılabiliyor.\n\nÖzellikler\nGemini, Gmail, Takvim, Haritalar gibi Google uygulamalarıyla entegre çalışır; büyük dosyaları (1 milyon token bağlam) analiz eder ve kod üretimi, duygu tanıma gibi yetenekler sunar. Multimodal yapısı sayesinde karmaşık problemleri çözer, görsel oluşturur ve hızlı yanıt verir.",
+        "url": "https://gemini.google.com/app",
+        "video": "https://www.youtube.com/embed/jN9iqzLFmVo",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-06",
+        "tags": [
+            "Metin Üretimi",
+            "Kodlama",
+            "Çeviri",
+            "Multimodal"
         ]
     }
 ];
