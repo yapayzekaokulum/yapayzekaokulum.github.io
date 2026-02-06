@@ -182,7 +182,7 @@ const tools = [
     },
     {
         "name": "SciSpace",
-        "category": "Agents",
+        "category": "Akademik",
         "description": "SciSpace (scispace.com), yapay zeka destekli bir akademik araştırma platformudur ve 270 milyondan fazla makaleye erişim sağlar. Araştırmacıların literatür taraması, makale analizi ve soru-cevap yapmasını kolaylaştıran araç, Chrome eklentisi ve mobil app ile de kullanılabilir.\n\nAna Özellikler\nCopilot AI sohbet botu ile makalelerden özet, metodoloji, bulgular ve sınırlılıklar çıkarır; benzer makaleler önerir.\n\nPDF yükleme ile tablo/veri çıkarma, podcast oluşturma ve atıf yönetimi yapar.\n​Semantik arama, literatür review ve IMRAD taslak oluşturma gibi araçlar sunar.\n​Kullanım Alanları\nHarvard ve Cambridge gibi üniversitelerden 3,5 milyondan fazla kullanıcıya hitap eder; tez, makale ve veri analizi için idealdir. Eğitim teknolojisi ve veri madenciliği araştırmalarınızda literatür taramasını hızlandırır, özellikle Colab/Kaggle entegrasyonuyla faydalıdır.\n\nErişim ve Fiyat\nÜcretsiz temel sürüm mevcut; premium özellikler (sınırsız AI sorgu) abonelikle erişilebilir, Chrome Web Store'dan eklenti yükleyin.",
         "url": "https://scispace.com/",
         "video": "https://www.youtube.com/embed/xlxRkxBUwbI",
@@ -193,6 +193,34 @@ const tools = [
             "Bilimsel araştırma",
             "makale",
             "literatür"
+        ]
+    },
+    {
+        "name": "Google Veo",
+        "category": "Video",
+        "description": "Google Labs FX Tools altında yer alan Flow, yaratıcılar için geliştirilmiş bir yapay zeka film yapım aracıdır. Google DeepMind'ın Veo modeli ile sinematik videolar, sahneler ve hikayeler oluşturmayı sağlar.\n​\n\nÖzellikler\nMetinden videoya, kareden videoya, video içerik öğesi (Ingredients to Video) dönüştürme.\nVideo uzantısı, kamera kontrolü, sahne oluşturma aracı (Scenebuilder) ve 1080p/4K çözünürlük yükseltme.\n​Karakter ve tema tutarlılığı ile hikaye akışı oluşturma; nesne kaldırma, sahne uzatma gibi düzenleme araçları.\n​Erişim ve Abonelik\nGoogle AI Pro veya Ultra abonelik gerektirir; aylık kredi sistemiyle çalışır (ek kredi satın alma mümkün).\nWorkspace kullanıcıları için ücretsiz erişim seçenekleri var, ancak gelişmiş modeller için ücretli planlar önerilir.\n​Kullanım Alanları\nİçerik üreticileri, film yapımcıları için ideal; Reels, YouTube videoları veya sinematik hikayeler üretmek üzere tasarlandı. Pro ipucu: Detaylı prompt'lar ve ayarlar menüsünden model seçimiyle en iyi sonuç alınır.",
+        "url": "https://labs.google/fx/tools/flow",
+        "video": "https://www.youtube.com/embed/hc-yBuo057E",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-06",
+        "tags": [
+            "AI video",
+            "video"
+        ]
+    },
+    {
+        "name": "KlingAI",
+        "category": "Video",
+        "description": "Kling AI, Çinli Kuaishou Technology tarafından geliştirilen bir yapay zeka video ve görüntü üretim platformudur. Metin veya görüntüden yüksek kaliteli videolar oluşturur ve OpenAI'nin Sora'sına rakip olarak öne çıkar.\n\nÖzellikler\nText-to-video ve image-to-video üretimi; 1080p çözünürlükte 30 FPS, 2 dakikaya kadar videolar.\n\nGerçekçi fizik simülasyonu, kamera hareketleri, karakter tutarlılığı; video uzatma, inpainting gibi düzenleme araçları.\n\nEk olarak görüntü üretimi, ses efekti oluşturma ve yaratıcı efektler sunar.\n​\nErişim ve Kullanım\nGlobal versiyonu klingai.com/global/ adresinde aktif; e-posta ile kayıt olup günlük 66 ücretsiz kredi alınır, ücretli planlar mevcut.\nMobil app (Google Play) ile de erişilebilir; prompt'larla hızlı video üretimi yapar.",
+        "url": "https://klingai.com/global/",
+        "video": "https://www.youtube.com/embed/BOlFslVqujg",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-06",
+        "tags": [
+            "video",
+            "AI video"
         ]
     }
 ];
