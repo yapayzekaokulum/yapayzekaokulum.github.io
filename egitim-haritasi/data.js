@@ -422,8 +422,14 @@ const trainingData = {
     },
     "77": {
         "name": "Yalova",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Öğretmenlerin Dijital Becerilerinin  Geliştirilmesi",
+                "date": "",
+                "place": "MEB UNICEF Eğitimleri"
+            }
+        ]
     },
     "78": {
         "name": "Karabük",
@@ -472,7 +478,7 @@ const trainingData = {
     },
     "06": {
         "name": "Ankara",
-        "count": 5,
+        "count": 6,
         "trainings": [
             {
                 "title": "YZ Öğretmen El Kitabı",
@@ -498,12 +504,17 @@ const trainingData = {
                 "title": "Makine Öğrenmesi ve Yapay Zeka Ders Kitabı",
                 "date": "",
                 "place": "MEB-MEGEM"
+            },
+            {
+                "title": "MEB-YEĞİTEK",
+                "date": "2024",
+                "place": "YZ Eğitimi"
             }
         ]
     },
     "07": {
         "name": "Antalya",
-        "count": 5,
+        "count": 11,
         "trainings": [
             {
                 "title": "BTK Akademi-Eğitmen Eğitimleri",
@@ -516,9 +527,9 @@ const trainingData = {
                 "place": "Döşemealtı"
             },
             {
-                "title": "Antalya İl MEM e-Twinning Eğitimleri",
+                "title": "İbradı",
                 "date": "",
-                "place": ""
+                "place": "e-Twinning YZ"
             },
             {
                 "title": "Deneyap Eğitimleri",
@@ -531,9 +542,34 @@ const trainingData = {
                 "place": "Akademisyenler İçin YZ "
             },
             {
-                "title": "",
+                "title": "İl MEM ",
                 "date": "",
-                "place": ""
+                "place": "YZ webinar"
+            },
+            {
+                "title": "Manavgat",
+                "date": "",
+                "place": "e-Twinning YZ"
+            },
+            {
+                "title": "Antalya Anadolu Lisesi",
+                "date": "",
+                "place": "YZ Öğretmen Eğitimi"
+            },
+            {
+                "title": "Korkuteli MYO",
+                "date": "",
+                "place": "Akademisyenler İçin YZ "
+            },
+            {
+                "title": "Akdeniz Üniversitesi",
+                "date": "",
+                "place": "Programlama ve Robotik dersleri"
+            },
+            {
+                "title": "Belek Üniversitesi",
+                "date": "",
+                "place": "KDS dersi"
             }
         ]
     },
@@ -544,7 +580,13 @@ const trainingData = {
     },
     "09": {
         "name": "Aydın",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Aydın İl MEM",
+                "date": "",
+                "place": "YZ Webinarı"
+            }
+        ]
     }
 };
