@@ -288,11 +288,11 @@
             `).join('');
         }
 
-        // Get YouTube thumbnail (maxresdefault with fallback)
+        // Get YouTube thumbnail (hqdefault for reliability)
         function getYouTubeThumbnail(embedUrl) {
             const match = embedUrl.match(/embed\/([a-zA-Z0-9_-]+)/);
             if (match) {
-                return `https://img.youtube.com/vi/${match[1]}/maxresdefault.jpg`;
+                return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
             }
             return null;
         }
@@ -342,7 +342,7 @@
 
                     ${thumbnail ? `
                     <div class="mb-4 rounded-lg overflow-hidden border border-white/10 relative aspect-video bg-black/50 group-hover:border-brand-purple/30 transition">
-                        <img src="${thumbnail}" alt="${tool.name}" class="w-full h-full object-cover" onerror="this.src='https://img.youtube.com/vi/${tool.video.match(/embed\/([a-zA-Z0-9_-]+)/)?.[1]}/hqdefault.jpg'">
+                        <img src="${thumbnail}" alt="${tool.name}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${tool.video.match(/embed\/([a-zA-Z0-9_-]+)/)?.[1]}/mqdefault.jpg'">
                         <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition">
                             <i class="fa-solid fa-play text-white text-3xl opacity-80 group-hover:opacity-100 group-hover:scale-110 transition"></i>
                         </div>
