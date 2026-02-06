@@ -1,8 +1,14 @@
 const trainingData = {
     "10": {
         "name": "Balıkesir",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Balıkesir İl MEM - Güney Marmara Kalkınma Ajansı",
+                "date": "Ocak 2025",
+                "place": ""
+            }
+        ]
     },
     "11": {
         "name": "Bilecik",
@@ -76,8 +82,14 @@ const trainingData = {
     },
     "25": {
         "name": "Erzurum",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Öğretmenlerin Dijital Becerilerinin  Geliştirilmesi",
+                "date": "",
+                "place": "MEB UNICEF Eğitimleri"
+            }
+        ]
     },
     "26": {
         "name": "Eskişehir",
@@ -121,13 +133,40 @@ const trainingData = {
     },
     "34": {
         "name": "İstanbul",
-        "count": 0,
-        "trainings": []
+        "count": 4,
+        "trainings": [
+            {
+                "title": "Arev Koleji",
+                "date": "2025",
+                "place": ""
+            },
+            {
+                "title": "Elit Gençler Koleji",
+                "date": "",
+                "place": "Danışmanlık-Eğitim-Müfredat"
+            },
+            {
+                "title": "ECS Akademi",
+                "date": "2023-",
+                "place": "Veri Bilimi-YZ-Python Eğitimleri (10+)"
+            },
+            {
+                "title": "İBB Tech İstanbul",
+                "date": "",
+                "place": "Makine Öğrenmesi-Görüntü İşleme"
+            }
+        ]
     },
     "35": {
         "name": "İzmir",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Öğretmenlerin Dijital Becerilerinin  Geliştirilmesi",
+                "date": "",
+                "place": "MEB UNICEF Eğitimleri"
+            }
+        ]
     },
     "36": {
         "name": "Kars",
@@ -161,8 +200,14 @@ const trainingData = {
     },
     "42": {
         "name": "Konya",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Konya Büyükşehir Belediyesi YZ Eğitimi",
+                "date": "Şubat 2025",
+                "place": "Akademi (Şube Müdürleri)"
+            }
+        ]
     },
     "43": {
         "name": "Kütahya",
@@ -211,13 +256,25 @@ const trainingData = {
     },
     "52": {
         "name": "Ordu",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "FATSA FEYZAD",
+                "date": "",
+                "place": "YZ Eğitici eğitimi"
+            }
+        ]
     },
     "53": {
         "name": "Rize",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Öğretmenlerin Dijital Becerilerinin  Geliştirilmesi",
+                "date": "",
+                "place": "MEB UNICEF Eğitimleri"
+            }
+        ]
     },
     "54": {
         "name": "Sakarya",
@@ -291,8 +348,14 @@ const trainingData = {
     },
     "68": {
         "name": "Aksaray",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Öğretmenlerin Dijital Becerilerinin  Geliştirilmesi",
+                "date": "",
+                "place": "MEB UNICEF Eğitimleri"
+            }
+        ]
     },
     "69": {
         "name": "Bayburt",
@@ -386,17 +449,53 @@ const trainingData = {
     },
     "06": {
         "name": "Ankara",
-        "count": 0,
-        "trainings": []
+        "count": 5,
+        "trainings": [
+            {
+                "title": "YZ Öğretmen El Kitabı",
+                "date": "",
+                "place": "MEB-FEYZA"
+            },
+            {
+                "title": "Herkes için Python Programlam Dili Kitap",
+                "date": "",
+                "place": "MEB-Öğretmen Yetiştirme"
+            },
+            {
+                "title": "Robotik ve Kodlama Kitabı-1",
+                "date": "",
+                "place": "MEB-Öğretmen Yetiştirme"
+            },
+            {
+                "title": "Robotik ve Kodlama Kitabı-2",
+                "date": "",
+                "place": "MEB-Öğretmen Yetiştirme"
+            },
+            {
+                "title": "Makine Öğrenmesi ve Yapay Zeka Ders Kitabı",
+                "date": "",
+                "place": "MEB-MEGEM"
+            }
+        ]
     },
     "07": {
         "name": "Antalya",
-        "count": 1,
+        "count": 3,
         "trainings": [
             {
-                "title": "BTK Akademi",
+                "title": "BTK Akademi-Eğitmen Eğitimleri",
                 "date": "2025",
                 "place": "Döşemealtı"
+            },
+            {
+                "title": "DERYA Projesi Eğitimleri",
+                "date": "2025",
+                "place": "Döşemealtı"
+            },
+            {
+                "title": "Antalya İl MEM e-Twinning Eğitimleri",
+                "date": "",
+                "place": ""
             }
         ]
     },
