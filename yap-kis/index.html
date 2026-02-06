@@ -123,43 +123,65 @@
     </div>
 
     <!-- Navbar -->
+    <!-- Navbar -->
     <nav class="glass fixed w-full z-50 border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
                 <div class="flex items-center">
-                    <a href="https://yapayzekaokulum.com" class="flex-shrink-0 flex items-center gap-3 group">
+                    <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
                         <div class="relative">
                             <div
-                                class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500">
+                                class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-brand-neon rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300">
                             </div>
                             <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
-                                onerror="this.src='https://placehold.co/100x100/1e1b4b/FFF?text=YZO'; this.className='h-12 w-12 rounded-full relative'"
-                                alt="YZO Logo"
-                                class="h-12 w-12 md:h-14 md:w-14 rounded-full object-contain relative bg-white p-1">
+                                onerror="this.src='https://placehold.co/100x100?text=YZO'"
+                                class="relative h-10 w-10 md:h-12 md:w-12 rounded-full bg-white p-0.5">
                         </div>
-                        <div class="block">
+                        <div class="hidden sm:block">
                             <span
-                                class="block text-lg md:text-xl font-bold text-white tracking-tight leading-none">YAPAY
+                                class="block text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-brand-neon transition duration-300">YAPAY
                                 ZEKÂ OKULUM</span>
                             <span
-                                class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">YAP-KİS
-                                SİSTEMİ</span>
+                                class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">The
+                                Age of AI</span>
                         </div>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#nedir"
-                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Nedir?</a>
-                    <a href="#nasil-calisir"
-                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Süreç</a>
-                    <a href="#demo-talep"
-                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
+                    <a href="/egitimler"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Eğitimler</a>
+                    <a href="/araclar"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Araçlar</a>
+                    <a href="https://yapayzekaokulum.com/yap-kis/"
+                        class="text-white font-semibold hover:scale-105 transition duration-300 border-b-2 border-brand-neon pb-1 flex items-center gap-2"><i
+                            class="fa-solid fa-book-open text-brand-purple"></i> Yap-Kis</a>
+                    <a href="/kaynaklar"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Kaynaklar</a>
+                    <a href="https://form.jotform.com/253625405418052" target="_blank"
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
                         <span
                             class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                            <i class="fa-solid fa-bolt mr-2"></i> Demo Talep Et
+                            <i class="fa-solid fa-rocket mr-2"></i> Başvuru Yap
                         </span>
                     </a>
                 </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="/egitimler" class="block text-gray-300 hover:text-white py-2">Eğitimler</a>
+                <a href="/araclar" class="block text-gray-300 hover:text-white py-2">Araçlar</a>
+                <a href="https://yapayzekaokulum.com/yap-kis/" class="block text-white font-semibold py-2">Yap-Kis</a>
+                <a href="/kaynaklar" class="block text-gray-300 hover:text-white py-2">Kaynaklar</a>
+                <a href="https://form.jotform.com/253625405418052" target="_blank"
+                    class="block bg-brand-purple text-white text-center py-2 rounded-lg">Başvuru Yap</a>
             </div>
         </div>
     </nav>
@@ -428,6 +450,10 @@
     </a>
 
     <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
         // Scroll Animation Observer
         const observerOptions = {
             root: null,
