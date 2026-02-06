@@ -139,7 +139,7 @@ const trainingData = {
     },
     "34": {
         "name": "İstanbul",
-        "count": 5,
+        "count": 6,
         "trainings": [
             {
                 "title": "Arev Koleji",
@@ -165,6 +165,11 @@ const trainingData = {
                 "title": "Öğretmenlerin Dijital Becerilerinin  Geliştirilmesi",
                 "date": "",
                 "place": "MEB UNICEF Eğitimleri"
+            },
+            {
+                "title": "Özel Okyanus Okulalrı",
+                "date": "",
+                "place": "Bilişim Zümresi  YZ ve Robotik Eğitimi"
             }
         ]
     },
@@ -514,7 +519,7 @@ const trainingData = {
     },
     "07": {
         "name": "Antalya",
-        "count": 11,
+        "count": 12,
         "trainings": [
             {
                 "title": "BTK Akademi-Eğitmen Eğitimleri",
@@ -570,6 +575,11 @@ const trainingData = {
                 "title": "Belek Üniversitesi",
                 "date": "",
                 "place": "KDS dersi"
+            },
+            {
+                "title": "Kumluca Sınav Koleji",
+                "date": "",
+                "place": "Öğretmen ve Öğrenci YZ Semineri"
             }
         ]
     },
