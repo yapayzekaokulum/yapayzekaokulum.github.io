@@ -126,6 +126,7 @@ const tools = [
         "category": "Agents",
         "description": "Manus Agents, Manus AI platformunun otonom yapay zeka ajanlarıdır ve 2026'da Agent Skills entegrasyonuyla önemli ölçüde gelişmiştir. Bu ajanlar, genel amaçlı görevlerden karmaşık iş akışlarına kadar geniş bir yelpazede çalışır.\nAgent Skills Sistemi\n2026 Ocak'ta entegre edilen Agent Skills, modüler becerilerle ajanları uzmanlaştırır; hukuki inceleme, finansal analiz veya içerik oluşturma gibi alanlarda özelleştirilebilir. Beceri oluşturma, başarılı iş akışını \"paketle\" komutuyla otomatikleştirir ve /SKILL_NAME ile tetiklenir; kademeli yükleme ile verimli çalışır. Takım kütüphaneleriyle paylaşılabilir, MCP veri protokolüyle tamamlanır.\nAna Beceriler\nBilgi Toplama ve Araştırma: Derin web araştırması, veri analizi, görselleştirme ve raporlama yapar.\nKodlama ve Geliştirme: Uçtan uca uygulama oluşturma, hata ayıklama, mobil/web projeleri yönetir.\nİçerik Üretimi: Video düzenleme, slayt tasarımı, açılış sayfası oluşturma gibi yaratıcı görevler.",
         "url": "https://manus.im/invitation/8OZRUCYAMKJF",
+        "video": "https://www.youtube.com/embed/3mdNmNLcWYQ",
         "icon": "",
         "rank": 5,
         "date": "2026-02-06",
