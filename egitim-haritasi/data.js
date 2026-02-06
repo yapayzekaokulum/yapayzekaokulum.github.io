@@ -72,8 +72,14 @@ const trainingData = {
     },
     "23": {
         "name": "Elazığ",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Deneyap Eğitimleri",
+                "date": "",
+                "place": "Yapay Zeka"
+            }
+        ]
     },
     "24": {
         "name": "Erzincan",
@@ -133,7 +139,7 @@ const trainingData = {
     },
     "34": {
         "name": "İstanbul",
-        "count": 4,
+        "count": 5,
         "trainings": [
             {
                 "title": "Arev Koleji",
@@ -154,6 +160,11 @@ const trainingData = {
                 "title": "İBB Tech İstanbul",
                 "date": "",
                 "place": "Makine Öğrenmesi-Görüntü İşleme"
+            },
+            {
+                "title": "Öğretmenlerin Dijital Becerilerinin  Geliştirilmesi",
+                "date": "",
+                "place": "MEB UNICEF Eğitimleri"
             }
         ]
     },
@@ -308,8 +319,14 @@ const trainingData = {
     },
     "60": {
         "name": "Tokat",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "OKA-Kadın Girişimciler",
+                "date": "",
+                "place": "YZ Eğitimi"
+            }
+        ]
     },
     "61": {
         "name": "Trabzon",
@@ -343,8 +360,14 @@ const trainingData = {
     },
     "67": {
         "name": "Zonguldak",
-        "count": 0,
-        "trainings": []
+        "count": 1,
+        "trainings": [
+            {
+                "title": "Bülent Ecevit Üniversitesi",
+                "date": "",
+                "place": "Yazılı Müh. Seminer"
+            }
+        ]
     },
     "68": {
         "name": "Aksaray",
@@ -480,7 +503,7 @@ const trainingData = {
     },
     "07": {
         "name": "Antalya",
-        "count": 3,
+        "count": 5,
         "trainings": [
             {
                 "title": "BTK Akademi-Eğitmen Eğitimleri",
@@ -494,6 +517,21 @@ const trainingData = {
             },
             {
                 "title": "Antalya İl MEM e-Twinning Eğitimleri",
+                "date": "",
+                "place": ""
+            },
+            {
+                "title": "Deneyap Eğitimleri",
+                "date": "",
+                "place": ""
+            },
+            {
+                "title": "Antalya Bilim Üniversitesi",
+                "date": "",
+                "place": "Akademisyenler İçin YZ "
+            },
+            {
+                "title": "",
                 "date": "",
                 "place": ""
             }

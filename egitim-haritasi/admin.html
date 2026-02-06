@@ -36,9 +36,13 @@
                     class="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
                     <i class="fa-solid fa-eye"></i> Haritayı Gör
                 </a>
+                <button onclick="saveToFile()"
+                    class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                    <i class="fa-solid fa-floppy-disk"></i> Dosyaya Kaydet
+                </button>
                 <button onclick="downloadData()"
                     class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition shadow-lg shadow-green-900/20">
-                    <i class="fa-solid fa-download"></i> Güncel data.js İndir
+                    <i class="fa-solid fa-download"></i> İndir
                 </button>
             </div>
         </div>
@@ -228,6 +232,28 @@
 
             // Refesh List View numbers
             renderCityList(document.getElementById('citySearch').value.toLowerCase());
+        }
+
+        // --- Save Directly to File (File System Access API) ---
+        async function saveToFile() {
+            const content = `const trainingData = ${JSON.stringify(trainingData, null, 4)};`;
+            try {
+                const handle = await window.showSaveFilePicker({
+                    suggestedName: 'data.js',
+                    types: [{
+                        description: 'JavaScript File',
+                        accept: { 'text/javascript': ['.js'] }
+                    }]
+                });
+                const writable = await handle.createWritable();
+                await writable.write(content);
+                await writable.close();
+                alert('✅ data.js başarıyla kaydedildi!');
+            } catch (err) {
+                if (err.name !== 'AbortError') {
+                    alert('Hata: ' + err.message);
+                }
+            }
         }
 
         function downloadData() {
