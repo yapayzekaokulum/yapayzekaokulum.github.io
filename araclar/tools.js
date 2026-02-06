@@ -19,7 +19,7 @@ const tools = [
         "name": "Midjourney",
         "category": "Görsel Üretimi",
         "description": "Metin komutlarından yüksek kaliteli ve sanatsal görseller oluşturan yapay zeka aracı.",
-        "url": "https://www.youtube.com/watch?v=8ptPSjIE49M",
+        "url": "https://www.midjourney.com/home",
         "video": "https://www.youtube.com/embed/8ptPSjIE49M",
         "icon": "fa-solid fa-paintbrush",
         "rank": 5,
