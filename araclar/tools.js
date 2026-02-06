@@ -222,6 +222,35 @@ const tools = [
             "video",
             "AI video"
         ]
+    },
+    {
+        "name": "GPT Imagine 1.5",
+        "category": "Görsel Üretimi",
+        "description": "Ana Özellikler\nModel, önceki GPT Image 1'e göre 4 kat daha hızlı görsel üretimi sağlıyor ve talimatları çok daha doğru takip ediyor. Yüklediğiniz bir görselde yalnızca istediğiniz değişiklikleri yaparak ışık, kompozisyon, yüz benzerliği gibi unsurları koruyor; bu sayede kıyafet değiştirme, saç stili denemeleri veya stilistik filtreler gibi düzenlemeler tutarlı ve gerçekçi oluyor.\n\nKullanım Alanları\nChatGPT'nin yan menüsüne eklenen yeni Images bölümü, bir \"yaratıcı stüdyo\" gibi çalışıyor: Hazır stiller, filtreler ve prompt'larla metin tabanlı veya görselden görsele dönüşümler yapabiliyorsunuz. Küçük metin blokları, çok yüzlü sahneler ve yoğun detaylar (kumaş dokusu, yüzey parıltısı) daha doğal render ediliyor.\n\nErişim ve Maliyet\nTüm ChatGPT kullanıcıları için hemen aktif; API'de gpt-image-1.5 olarak erişilebilir ve giriş/çıkış maliyetleri %20 daha düşük. OpenAI, gelecekte daha ince ayarlar ve çok dilli destek vaat ediyor.",
+        "url": "https://chatgpt.com/",
+        "video": "https://www.youtube.com/embed/jFJAIOAzFqQ",
+        "icon": "",
+        "rank": 4,
+        "date": "2026-02-06",
+        "tags": [
+            "görsel",
+            "imagine",
+            "foto"
+        ]
+    },
+    {
+        "name": "SORA-2",
+        "category": "Video",
+        "description": "OpenAI'ın Sora 2 modeli, Eylül 2025'te yayınlanan en yeni video üretim aracı; metin veya görsel girdilerden gerçekçi videolar ve senkronize sesler oluşturuyor.\n\nAna Özellikler\nSora 2, fizik kurallarına daha uyumlu hareketler, gerçekçi simülasyonlar (örneğin jimnastik rutinleri veya doğal nesne etkileşimleri) ve senkronize diyalog/ses efektleri sunuyor. Önceki Sora'ya göre çoklu çekim tutarlılığı, kamera kontrolü ve stil çeşitliliği (sinematik, anime) artmış durumda.\n\nKullanım ve Erişim\nYeni Sora mobil uygulamasında (iOS/web) davetiye ile erişilebilir; ABD ve Kanada'da 30 Eylül 2025'te başladı, global rollout devam ediyor. \"Cameos\" özelliğiyle gerçek kişileri/nesneleri videolara entegre edebiliyor, 20 saniyeye kadar 1080p videolar üretiyor.",
+        "url": "https://apps.apple.com/us/app/sora-by-openai/id6744034028",
+        "video": "https://www.youtube.com/embed/lHhHEw-Nkg0",
+        "icon": "",
+        "rank": 4,
+        "date": "2026-02-06",
+        "tags": [
+            "video",
+            "yz video"
+        ]
     }
 ];
 
