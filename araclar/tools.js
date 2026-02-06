@@ -19,16 +19,16 @@ const tools = [
         "name": "Midjourney",
         "category": "Görsel Üretimi",
         "description": "Metin komutlarından yüksek kaliteli ve sanatsal görseller oluşturan yapay zeka aracı.",
-        "url": "https://www.midjourney.com",
+        "url": "https://www.youtube.com/watch?v=8ptPSjIE49M",
+        "video": "https://www.youtube.com/embed/8ptPSjIE49M",
+        "icon": "fa-solid fa-paintbrush",
+        "rank": 5,
+        "date": "2023-03-10",
         "tags": [
             "Sanat",
             "Tasarım",
             "Görsel"
-        ],
-        "icon": "fa-solid fa-paintbrush",
-        "date": "2023-03-10",
-        "rank": 5,
-        "video": "https://www.youtube.com/embed/tE5_M743hNs"
+        ]
     },
     {
         "name": "Claude",
