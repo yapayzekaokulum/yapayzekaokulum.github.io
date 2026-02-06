@@ -519,7 +519,7 @@ const trainingData = {
     },
     "07": {
         "name": "Antalya",
-        "count": 12,
+        "count": 13,
         "trainings": [
             {
                 "title": "BTK Akademi-Eğitmen Eğitimleri",
@@ -580,6 +580,11 @@ const trainingData = {
                 "title": "Kumluca Sınav Koleji",
                 "date": "",
                 "place": "Öğretmen ve Öğrenci YZ Semineri"
+            },
+            {
+                "title": "UAB-Proit",
+                "date": "",
+                "place": "Kemer Hilton Otel"
             }
         ]
     },
