@@ -120,6 +120,49 @@ const tools = [
             "Çeviri",
             "Multimodal"
         ]
+    },
+    {
+        "name": "Manus",
+        "category": "Agents",
+        "description": "Manus Agents, Manus AI platformunun otonom yapay zeka ajanlarıdır ve 2026'da Agent Skills entegrasyonuyla önemli ölçüde gelişmiştir. Bu ajanlar, genel amaçlı görevlerden karmaşık iş akışlarına kadar geniş bir yelpazede çalışır.\nAgent Skills Sistemi\n2026 Ocak'ta entegre edilen Agent Skills, modüler becerilerle ajanları uzmanlaştırır; hukuki inceleme, finansal analiz veya içerik oluşturma gibi alanlarda özelleştirilebilir. Beceri oluşturma, başarılı iş akışını \"paketle\" komutuyla otomatikleştirir ve /SKILL_NAME ile tetiklenir; kademeli yükleme ile verimli çalışır. Takım kütüphaneleriyle paylaşılabilir, MCP veri protokolüyle tamamlanır.\nAna Beceriler\nBilgi Toplama ve Araştırma: Derin web araştırması, veri analizi, görselleştirme ve raporlama yapar.\nKodlama ve Geliştirme: Uçtan uca uygulama oluşturma, hata ayıklama, mobil/web projeleri yönetir.\nİçerik Üretimi: Video düzenleme, slayt tasarımı, açılış sayfası oluşturma gibi yaratıcı görevler.",
+        "url": "https://manus.im/invitation/8OZRUCYAMKJF",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-06",
+        "tags": [
+            "Ajan",
+            "Agents"
+        ]
+    },
+    {
+        "name": "GenSpark",
+        "category": "Agents",
+        "description": "Genspark, yapay zeka tabanlı bir \"Super Agent\" platformudur ve 2026'da multi-agent mimarisiyle otonom görevleri yöneten kapsamlı bir AI çalışma alanı olarak öne çıkar. Manus Agents'a benzer şekilde ajan becerileri sunar, ancak daha fazla araç entegrasyonu ve telefon arama gibi benzersiz özelliklerle fark yaratır.",
+        "url": "https://www.genspark.ai/",
+        "video": "https://www.youtube.com/embed/hJMDunKxVps",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-06",
+        "tags": [
+            "ajan",
+            "Agents"
+        ]
+    },
+    {
+        "name": "Comet",
+        "category": "Agents",
+        "description": "Comet, Perplexity AI tarafından geliştirilen AI-native bir tarayıcıdır ve 2026'da ajanik yetenekleriyle web gezinme, görev otomasyonu ve kişisel asistanlıkta öne çıkar. Manus Agents ve Genspark gibi super agent'lara benzer şekilde otonom ajanlar kullanır, ancak Chromium tabanlı tarayıcı entegrasyonuyla fark yaratır. Comet, Comet Assistant adlı otonom ajanla web'de gezinir, tıklar ve çok adımlı görevleri (e-posta gönderme, rezervasyon) bağımsız yürütür; Gmail entegrasyonu ve sayfa içi açıklama sunar. Ücretsiz olarak erişilebilir olup, Max aboneleri için gelişmiş özellikler ekler; Chromium uyumluluğuyla Chrome profillerini içe aktarır. 2026'da en iyi AI tarayıcılardan biri olarak PCMag ve Zapier listelerinde yer alır. Ana Beceriler\nGörev Otomasyonu: Airbnb mesajı gönderme, LeetCode kod çalıştırma, karşılaştırmalı alışveriş gibi ajanik eylemler.\nSayfa Analizi: Vurgulanan metni özetleme, açıklama veya benzer içerik bulma; bağlam zincirleme ile devamlı sohbet.\nE-posta ve Planlama: Gmail'de özetleme, cevap taslağı, arama ve zamanlama.\nÇoklu Görev: Paralel sekmelerde ajan çalıştırma, araştırma ve raporlama.\n\n",
+        "url": "https://plex.it/referrals/CBLV015J",
+        "video": "https://www.youtube.com/embed/mEEbBCIeXl0",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-06",
+        "tags": [
+            "YZ tarayıcı",
+            "AI browser",
+            "agents",
+            "ajan"
+        ]
     }
 ];
 
