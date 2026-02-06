@@ -289,8 +289,15 @@
             // Let's try standard 'tr-PLAKA' format (tr-01, tr-06).
             const colorMap = {};
             for (let key in trainingData) {
-                let code = 'tr-' + key; // Standard guess
-                colorMap[code] = getColor(trainingData[key].count);
+                const data = trainingData[key];
+                // Auto-calculate count using trainings array
+                const count = (data.trainings && data.trainings.length > 0) ? data.trainings.length : (data.count || 0);
+                const color = getColor(count);
+
+                // Try multiple ID formats for compatibility
+                colorMap['tr-' + key] = color;        // tr-01, tr-07
+                colorMap['tr-' + parseInt(key)] = color; // tr-1, tr-7
+                colorMap[key] = color;                 // 01, 07
             }
 
             $('#vmap').vectorMap('set', 'colors', colorMap);
