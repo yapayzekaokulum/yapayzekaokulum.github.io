@@ -81,7 +81,7 @@ const tools = [
         "description": "Temel Özellikler\nMetinle Şarkı Üretimi: Tür, ruh hali veya tema belirterek saniyeler içinde şarkı oluşturur; geniş müzik veritabanı üzerinde eğitilmiştir.\nVokal ve Özelleştirme: Yapay seslerle vokal ekler, mevcut sesleri uyarlayabilir ve şarkı sözlerini otomatik üretir.\nKullanıcı Dostu: Web tabanlıdır, indirme/paylaşma kolaydır; Discord entegrasyonu gibi beta özellikler sunar.",
         "url": "https://suno.com/invite/@drmurataltun",
         "video": "https://www.youtube.com/embed/kA5rJcsRtUY",
-        "icon": "fa-music",
+        "icon": "fa-music-note",
         "rank": 0,
         "date": "2026-02-06",
         "tags": [
@@ -96,7 +96,7 @@ const tools = [
         "description": "Nano Banana Pro, Google'ın Gemini 3 Pro Image modeline dayalı gelişmiş bir yapay zeka görüntü oluşturma ve düzenleme aracıdır. Bu araç, doğal dil komutlarıyla fotoğrafları düzenlemenize, 2K-4K çözünürlükte stüdyo kalitesinde görseller üretmeye olanak tanır. Özellikle yaratıcı profesyoneller için kamera açıları, aydınlatma, odak ve renk kontrolleri sunar.",
         "url": "https://gemini.google.com/",
         "video": "https://www.youtube.com/embed/nX9rfU65kCg",
-        "icon": "fa-banana",
+        "icon": "fa-solid fa-paintbrush",
         "rank": 5,
         "date": "2026-02-06",
         "tags": [
