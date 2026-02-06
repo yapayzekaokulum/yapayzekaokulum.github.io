@@ -164,6 +164,36 @@ const tools = [
             "agents",
             "ajan"
         ]
+    },
+    {
+        "name": "Open AI Prism",
+        "category": "Akademik",
+        "description": "Prism.openai.com, OpenAI tarafından geliştirilen ücretsiz bir LaTeX tabanlı bilimsel yazı ve işbirliği çalışma alanıdır. GPT-5.2 modeli ile güçlendirilen platform, araştırmacıların makale taslağı oluşturma, revizyon yapma ve literatür tarama gibi işleri hızlandırmak için tasarlanmıştır.\n\nÖzellikler\nGerçek zamanlı sınırsız ortak çalışma, proje farkındalığına sahip AI destekli redaksiyon ve denklem/diyagram üretimi sunar.\n​\n\narXiv gibi kaynaklardan literatür entegrasyonu, ses/görselden LaTeX dönüştürme ve Zotero senkronizasyonu gibi araçlar içerir.\n\nBulut tabanlıdır; yerel kurulum gerektirmez ve ChatGPT hesabı ile herkes erişebilir.\n\nKullanım Alanları\nPrism, bilimsel makaleler, hipotez testleri ve ekip projeleri için idealdir; akademisyenler ve araştırmacılar için günlük iş akışını bütünleştirir. Özellikle eğitim teknolojisi ve veri madenciliği gibi alanlarda veri analizi makalelerinizi hızlandırabilir.\n\nErişim\nChatGPT kişisel hesabı olan herkes prism.openai.com üzerinden ücretsiz kullanabilir; gelişmiş özellikler ücretli planlara gelecektir.\n​",
+        "url": "https://prism.openai.com/",
+        "video": "https://www.youtube.com/embed/f2AuLUWgaJk",
+        "icon": "",
+        "rank": 4,
+        "date": "2026-02-06",
+        "tags": [
+            "latex",
+            "makale",
+            "bilimsel araştırma"
+        ]
+    },
+    {
+        "name": "SciSpace",
+        "category": "Agents",
+        "description": "SciSpace (scispace.com), yapay zeka destekli bir akademik araştırma platformudur ve 270 milyondan fazla makaleye erişim sağlar. Araştırmacıların literatür taraması, makale analizi ve soru-cevap yapmasını kolaylaştıran araç, Chrome eklentisi ve mobil app ile de kullanılabilir.\n\nAna Özellikler\nCopilot AI sohbet botu ile makalelerden özet, metodoloji, bulgular ve sınırlılıklar çıkarır; benzer makaleler önerir.\n\nPDF yükleme ile tablo/veri çıkarma, podcast oluşturma ve atıf yönetimi yapar.\n​Semantik arama, literatür review ve IMRAD taslak oluşturma gibi araçlar sunar.\n​Kullanım Alanları\nHarvard ve Cambridge gibi üniversitelerden 3,5 milyondan fazla kullanıcıya hitap eder; tez, makale ve veri analizi için idealdir. Eğitim teknolojisi ve veri madenciliği araştırmalarınızda literatür taramasını hızlandırır, özellikle Colab/Kaggle entegrasyonuyla faydalıdır.\n\nErişim ve Fiyat\nÜcretsiz temel sürüm mevcut; premium özellikler (sınırsız AI sorgu) abonelikle erişilebilir, Chrome Web Store'dan eklenti yükleyin.",
+        "url": "https://scispace.com/",
+        "video": "https://www.youtube.com/embed/xlxRkxBUwbI",
+        "icon": "",
+        "rank": 4,
+        "date": "2026-02-06",
+        "tags": [
+            "Bilimsel araştırma",
+            "makale",
+            "literatür"
+        ]
     }
 ];
 
