@@ -108,7 +108,7 @@ const blogPosts = [
             <p>Bu formülü uygulayarak ChatGPT veya Claude gibi modellerden çok daha verimli çıktılar alabilirsiniz.</p>
         `,
         category: "Yapay Zeka",
-        image: "https://images.unsplash.com/photo-1684074895690-348df80cce75?auto=format&fit=crop&q=80&w=800",
+        image: "https://images.unsplash.com/photo-1664575602276-acd073f104c1?auto=format&fit=crop&q=80&w=800",
         date: "2024-01-20",
         author: "YZO Ekibi",
         readTime: "6 dk"
