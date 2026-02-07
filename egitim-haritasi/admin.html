@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harita Yönetimi | YZO Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="data.js"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+        }
+
+        .input-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="p-8">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Harita Veri Yönetimi</h1>
+            <div class="flex gap-4">
+                <a href="../admin/index.html" class="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Dashboard
+                </a>
+                <button onclick="saveToFile()" class="px-4 py-2 bg-green-600 rounded hover:bg-green-500">
+                    <i class="fa-solid fa-save mr-2"></i> Kaydet (data.js)
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Province Selection -->
+            <div class="bg-slate-800 p-6 rounded-xl h-[fit-content]">
+                <h2 class="text-xl font-semibold mb-4">İl Seçimi</h2>
+                <select id="provinceSelect" onchange="loadProvince()" class="w-full p-2 rounded input-dark mb-4">
+                    <option value="">Bir İl Seçin...</option>
+                    <!-- Options injected via JS -->
+                </select>
+
+                <div id="provinceStats" class="hidden">
+                    <div class="bg-white/5 p-4 rounded mb-4">
+                        <p class="text-gray-400 text-sm">Toplam Eğitim</p>
+                        <input type="number" id="totalCount"
+                            class="text-2xl font-bold bg-transparent w-full border-b border-gray-600 focus:outline-none"
+                            min="0">
+                    </div>
+                    <button onclick="updateProvinceStats()"
+                        class="w-full py-2 bg-purple-600 rounded hover:bg-purple-500">Sayısı Güncelle</button>
+                </div>
+            </div>
+
+            <!-- Training Details -->
+            <div class="bg-slate-800 p-6 rounded-xl">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold">Eğitim Detayları</h2>
+                    <button onclick="addTraining()" class="text-sm bg-blue-600 px-3 py-1 rounded hover:bg-blue-500"><i
+                            class="fa-solid fa-plus"></i> Ekle</button>
+                </div>
+
+                <div id="trainingsList" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+                    <p class="text-gray-500 text-center py-10">Lütfen önce bir il seçin.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load Provinces into Select
+        const sortedProvinces = Object.entries(trainingData).sort((a, b) => a[1].name.localeCompare(b[1].name));
+        const select = document.getElementById('provinceSelect');
+
+        sortedProvinces.forEach(([code, data]) => {
+            const option = document.createElement('option');
+            option.value = code;
+            option.textContent = `${data.name} (${code})`;
+            select.appendChild(option);
+        });
+
+        function loadProvince() {
+            const code = select.value;
+            const stats = document.getElementById('provinceStats');
+            const list = document.getElementById('trainingsList');
+
+            if (!code) {
+                stats.classList.add('hidden');
+                list.innerHTML = '<p class="text-gray-500 text-center py-10">Lütfen önce bir il seçin.</p>';
+                return;
+            }
+
+            const data = trainingData[code];
+            stats.classList.remove('hidden');
+
+            // Calculate count logic
+            const calculatedCount = data.trainings ? data.trainings.length : 0;
+            const manualCount = data.count || 0;
+            document.getElementById('totalCount').value = Math.max(calculatedCount, manualCount);
+
+            renderTrainings(code);
+        }
+
+        function renderTrainings(code) {
+            const list = document.getElementById('trainingsList');
+            const trainings = trainingData[code].trainings || [];
+
+            if (trainings.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 text-center">Bu ilde kayıtlı eğitim detayı yok.</p>';
+                return;
+            }
+
+            list.innerHTML = trainings.map((training, index) => `
+                <div class="bg-white/5 p-4 rounded border border-white/10 group relative">
+                    <div class="space-y-2">
+                        <input type="text" onchange="updateTraining('${code}', ${index}, 'title', this.value)" value="${training.title}" class="w-full bg-transparent font-semibold border-b border-transparent focus:border-purple-500 focus:outline-none" placeholder="Eğitim Başlığı">
+                        <div class="flex gap-2">
+                            <input type="text" onchange="updateTraining('${code}', ${index}, 'date', this.value)" value="${training.date}" class="w-1/2 bg-transparent text-sm text-gray-400 border-b border-transparent focus:border-purple-500 focus:outline-none" placeholder="Tarih">
+                            <input type="text" onchange="updateTraining('${code}', ${index}, 'place', this.value)" value="${training.place || ''}" class="w-1/2 bg-transparent text-sm text-gray-400 border-b border-transparent focus:border-purple-500 focus:outline-none" placeholder="Yer">
+                        </div>
+                    </div>
+                    <button onclick="removeTraining('${code}', ${index})" class="absolute top-2 right-2 text-red-500 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-times"></i></button>
+                </div>
+            `).join('');
+
+            // Also update total count display if list changes length
+            document.getElementById('totalCount').value = trainings.length;
+        }
+
+        function updateProvinceStats() {
+            const code = select.value;
+            if (!code) return;
+            const count = parseInt(document.getElementById('totalCount').value);
+            trainingData[code].count = count;
+            alert('Sayaç güncellendi!');
+        }
+
+        function addTraining() {
+            const code = select.value;
+            if (!code) return alert('Önce il seçin');
+
+            if (!trainingData[code].trainings) trainingData[code].trainings = [];
+
+            trainingData[code].trainings.unshift({
+                title: "Yeni Eğitim Başlığı",
+                date: "Tarih",
+                place: ""
+            });
+            renderTrainings(code);
+        }
+
+        function updateTraining(code, index, field, value) {
+            trainingData[code].trainings[index][field] = value;
+        }
+
+        function removeTraining(code, index) {
+            if (confirm('Silmek istediğinize emin misiniz?')) {
+                trainingData[code].trainings.splice(index, 1);
+                renderTrainings(code);
+            }
+        }
+
+        async function saveToFile() {
+            const content = `const trainingData = ${JSON.stringify(trainingData, null, 4)};`;
+
+            try {
+                const handle = await window.showSaveFilePicker({
+                    suggestedName: 'data.js',
+                    types: [{
+                        description: 'JavaScript File',
+                        accept: { 'text/javascript': ['.js'] }
+                    }]
+                });
+                const writable = await handle.createWritable();
+                await writable.write(content);
+                await writable.close();
+                alert('✅ data.js başarıyla kaydedildi!');
+            } catch (err) {
+                if (err.name !== 'AbortError') alert('Hata: ' + err.message);
+            }
+        }
+    </script>
+</body>
+
+</html>

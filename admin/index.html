@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YZO Admin Paneli</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(139, 92, 246, 0.5);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-4xl w-full">
+        <div class="text-center mb-12">
+            <h1
+                class="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-2">
+                Yapay Zeka Okulum
+            </h1>
+            <p class="text-gray-400">Yönetim Paneli Dashboard</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Araçlar -->
+            <a href="../araclar/admin.html"
+                class="glass-card p-8 rounded-2xl flex flex-col items-center text-center group">
+                <div
+                    class="w-16 h-16 rounded-full bg-purple-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-toolbox text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Araç Yönetimi</h3>
+                <p class="text-sm text-gray-400">AI araçlarını ekle, düzenle veya sil. Kategorileri yönet.</p>
+            </a>
+
+            <!-- Blog -->
+            <a href="../blog/admin.html"
+                class="glass-card p-8 rounded-2xl flex flex-col items-center text-center group">
+                <div
+                    class="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-newspaper text-2xl text-blue-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Blog Yönetimi</h3>
+                <p class="text-sm text-gray-400">Blog yazılarını yönet. Yeni makale ekle ve yayınla.</p>
+            </a>
+
+            <!-- Harita -->
+            <a href="../egitim-haritasi/admin.html"
+                class="glass-card p-8 rounded-2xl flex flex-col items-center text-center group">
+                <div
+                    class="w-16 h-16 rounded-full bg-green-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-map-location-dot text-2xl text-green-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-2">Harita Yönetimi</h3>
+                <p class="text-sm text-gray-400">İl bazlı eğitim verilerini ve etkinlikleri güncelle.</p>
+            </a>
+        </div>
+
+        <div class="mt-12 text-center text-sm text-gray-500">
+            <i class="fa-solid fa-lock mr-1"></i> Bu panel sadece yerel (local) çalışır.
+        </div>
+    </div>
+
+</body>
+
+</html>

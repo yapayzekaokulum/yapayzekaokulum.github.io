@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yapayzekaokulum.github.io/sitemap.xml

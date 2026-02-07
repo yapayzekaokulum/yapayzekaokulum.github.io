@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Yapay Zeka Okulum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="data.js"></script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Typography for content */
+        .prose h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .prose h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #e2e8f0;
+        }
+
+        .prose p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #cbd5e1;
+        }
+
+        .prose ul,
+        .prose ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: #cbd5e1;
+        }
+
+        .prose ul {
+            list-style-type: disc;
+        }
+
+        .prose ol {
+            list-style-type: decimal;
+        }
+
+        .prose strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .prose a {
+            color: #8b5cf6;
+            text-decoration: underline;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #8b5cf6;
+            padding-left: 1rem;
+            font-style: italic;
+            color: #94a3b8;
+            margin: 1.5rem 0;
+        }
+
+        .prose img {
+            border-radius: 0.75rem;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        /* New loading animation */
+        .loader {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #8b5cf6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden">
+
+    <!-- Navbar (Simplified) -->
+    <nav class="glass fixed w-full z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold tracking-tight text-white hover:text-purple-400 transition">YZO</a>
+            <a href="index.html" class="flex items-center gap-2 text-gray-300 hover:text-white transition">
+                <i class="fa-solid fa-arrow-left"></i> Blog'a Dön
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20 px-4">
+        <div id="loading" class="flex justify-center py-20">
+            <div class="loader"></div>
+        </div>
+
+        <article id="article" class="hidden max-w-4xl mx-auto">
+
+            <!-- Header -->
+            <header class="text-center mb-12">
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <span id="p-category"
+                        class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-sm font-semibold border border-purple-500/20">Category</span>
+                    <span id="p-date" class="text-gray-400 text-sm">Date</span>
+                </div>
+                <h1 id="p-title"
+                    class="text-3xl md:text-5xl font-bold mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-br from-white to-gray-400">
+                    Title</h1>
+
+                <div class="flex items-center justify-center gap-4 text-sm text-gray-400">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center">
+                            <i class="fa-regular fa-user"></i>
+                        </div>
+                        <span id="p-author">Author</span>
+                    </div>
+                    <span>•</span>
+                    <span id="p-readTime">5 min read</span>
+                </div>
+            </header>
+
+            <!-- Featured Image -->
+            <div class="mb-12 rounded-2xl overflow-hidden glass shadow-2xl shadow-purple-900/20">
+                <img id="p-image" src="" alt="" class="w-full h-auto max-h-[500px] object-cover">
+            </div>
+
+            <!-- Content -->
+            <div class="flex flex-col lg:flex-row gap-12">
+
+                <!-- Article Body -->
+                <div class="flex-1">
+                    <div id="p-content" class="prose max-w-none text-lg text-gray-300">
+                        <!-- Injected Content -->
+                    </div>
+                </div>
+
+                <!-- Sidebar (Share) -->
+                <aside class="lg:w-64 flex-shrink-0">
+                    <div class="sticky top-32 glass rounded-xl p-6">
+                        <h3 class="font-bold mb-4 text-white">Paylaş</h3>
+                        <div class="flex lg:flex-col gap-3">
+                            <button onclick="share('twitter')"
+                                class="flex items-center gap-3 w-full p-2 rounded hover:bg-white/10 transition text-left text-gray-300 hover:text-[#1DA1F2]">
+                                <i class="fa-brands fa-twitter text-xl w-6"></i> Twitter
+                            </button>
+                            <button onclick="share('linkedin')"
+                                class="flex items-center gap-3 w-full p-2 rounded hover:bg-white/10 transition text-left text-gray-300 hover:text-[#0077b5]">
+                                <i class="fa-brands fa-linkedin text-xl w-6"></i> LinkedIn
+                            </button>
+                            <button onclick="share('whatsapp')"
+                                class="flex items-center gap-3 w-full p-2 rounded hover:bg-white/10 transition text-left text-gray-300 hover:text-[#25D366]">
+                                <i class="fa-brands fa-whatsapp text-xl w-6"></i> WhatsApp
+                            </button>
+                            <button onclick="copyLink()"
+                                class="flex items-center gap-3 w-full p-2 rounded hover:bg-white/10 transition text-left text-gray-300 hover:text-white group">
+                                <i class="fa-solid fa-link text-xl w-6 group-hover:text-purple-400"></i> Linki Kopyala
+                            </button>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+        </article>
+
+        <!-- Error State -->
+        <div id="error" class="hidden text-center py-20">
+            <h2 class="text-3xl font-bold mb-4">Yazı Bulunamadı</h2>
+            <p class="text-gray-400 mb-8">Aradığınız blog yazısı mevcut değil veya kaldırılmış.</p>
+            <a href="index.html"
+                class="px-6 py-3 bg-purple-600 rounded-lg font-bold hover:bg-purple-500 transition">Blog'a Dön</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-white/10 py-8 mt-20 text-center text-gray-500 text-sm">
+        &copy; 2026 Yapay Zeka Okulum.
+    </footer>
+
+    <script>
+        // Parse URL params
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = parseInt(urlParams.get('id'));
+
+        // Elements
+        const loader = document.getElementById('loading');
+        const article = document.getElementById('article');
+        const errorDiv = document.getElementById('error');
+
+        // Logic
+        window.addEventListener('load', () => {
+            const post = blogPosts.find(p => p.id === postId);
+
+            if (post) {
+                // 1. Populate Visible Content
+                document.title = `${post.title} | YZO Blog`;
+                document.getElementById('p-title').textContent = post.title;
+                document.getElementById('p-category').textContent = post.category;
+                document.getElementById('p-date').textContent = new Date(post.date).toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('p-author').textContent = post.author;
+                document.getElementById('p-readTime').textContent = post.readTime;
+                document.getElementById('p-image').src = post.image;
+                document.getElementById('p-content').innerHTML = post.content || `<p class="italic text-gray-500">İçerik yüklenemedi...</p>`;
+
+                // 2. Dynamic SEO: Meta Tags
+                let metaDesc = document.querySelector('meta[name="description"]');
+                if (!metaDesc) {
+                    metaDesc = document.createElement('meta');
+                    metaDesc.name = "description";
+                    document.head.appendChild(metaDesc);
+                }
+                metaDesc.content = post.excerpt;
+
+                // Canonical URL
+                let canonical = document.querySelector('link[rel="canonical"]');
+                if (!canonical) {
+                    canonical = document.createElement('link');
+                    canonical.rel = "canonical";
+                    document.head.appendChild(canonical);
+                }
+                canonical.href = window.location.href.split('?')[0] + '?id=' + post.id;
+
+                // 3. Dynamic SEO: JSON-LD Schema (Article)
+                // Google AI and Search Engines use this to understand the page content dynamically
+                const schemaData = {
+                    "@context": "https://schema.org",
+                    "@type": "BlogPosting",
+                    "headline": post.title,
+                    "image": [post.image],
+                    "datePublished": post.date,
+                    "dateModified": post.date,
+                    "author": [{
+                        "@type": "Person",
+                        "name": post.author
+                    }],
+                    "description": post.excerpt,
+                    "articleBody": post.content ? post.content.replace(/<[^>]*>?/gm, '') : post.excerpt, // Strip HTML for concise schema
+                    "publisher": {
+                        "@type": "Organization",
+                        "name": "Yapay Zeka Okulum",
+                        "logo": {
+                            "@type": "ImageObject",
+                            "url": "https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                        }
+                    }
+                };
+
+                const script = document.createElement('script');
+                script.type = 'application/ld+json';
+                script.text = JSON.stringify(schemaData);
+                document.head.appendChild(script);
+
+                // Show content
+                loader.classList.add('hidden');
+                article.classList.remove('hidden');
+            } else {
+                // Show error
+                loader.classList.add('hidden');
+                errorDiv.classList.remove('hidden');
+            }
+        });
+
+        // Share Functions
+        const currentUrl = encodeURIComponent(window.location.href);
+        const title = encodeURIComponent(document.title);
+
+        function share(platform) {
+            let url = '';
+            if (platform === 'twitter') url = `https://twitter.com/intent/tweet?text=${title}&url=${currentUrl}`;
+            if (platform === 'linkedin') url = `https://www.linkedin.com/sharing/share-offsite/?url=${currentUrl}`;
+            if (platform === 'whatsapp') url = `https://wa.me/?text=${title} ${currentUrl}`;
+
+            window.open(url, '_blank', 'width=600,height=400');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Link kopyalandı!');
+        }
+    </script>
+</body>
+
+</html>

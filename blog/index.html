@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Yapay Zeka Okulum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            purple: '#8B5CF6',
+                            dark: '#0f172a',
+                            accent: '#F59E0B',
+                            neon: '#00f2ff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.2);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen relative overflow-x-hidden">
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-[-1]">
+        <div
+            class="absolute top-0 left-1/4 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 right-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[100px] opacity-20 animate-blob">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="glass fixed w-full z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="/" class="flex-shrink-0 flex items-center gap-3 group">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-brand-neon rounded-full blur opacity-30 group-hover:opacity-75 transition duration-300">
+                            </div>
+                            <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                                onerror="this.src='https://placehold.co/100x100?text=YZO'"
+                                class="relative h-10 w-10 md:h-12 md:w-12 rounded-full bg-white p-0.5">
+                        </div>
+                        <div class="hidden sm:block">
+                            <span
+                                class="block text-xl md:text-2xl font-bold tracking-tight text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-brand-neon transition duration-300">YAPAY
+                                ZEKÂ OKULUM</span>
+                            <span
+                                class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">The,
+                                Age of AI</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/egitimler"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Eğitimler</a>
+                    <a href="/araclar"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300">Araçlar</a>
+                    <a href="/blog"
+                        class="text-white font-semibold hover:scale-105 transition duration-300 border-b-2 border-brand-neon pb-1">Blog</a>
+                    <a href="https://yapayzekaokulum.com/yap-kis/"
+                        class="text-gray-300 hover:text-white hover:scale-105 transition duration-300 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open text-brand-purple"></i> Yap-Kis
+                    </a>
+                    <a href="https://form.jotform.com/253625405418052" target="_blank"
+                        class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
+                        <span
+                            class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                            <i class="fa-solid fa-rocket mr-2"></i> Eğitim İsteği
+                        </span>
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-white p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-slate-900/95 border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="/egitimler" class="block text-gray-300 hover:text-white py-2">Eğitimler</a>
+                <a href="/araclar" class="block text-gray-300 hover:text-white py-2">Araçlar</a>
+                <a href="/blog" class="block text-white font-semibold py-2">Blog</a>
+                <a href="https://yapayzekaokulum.com/yap-kis/"
+                    class="block text-gray-300 hover:text-white py-2">Yap-Kis</a>
+                <a href="https://form.jotform.com/253625405418052" target="_blank"
+                    class="block bg-brand-purple text-white text-center py-2 rounded-lg">Eğitim İsteği</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 md:pt-32">
+
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1
+                class="text-3xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                Yapay Zeka Blogu
+            </h1>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Yapay zeka, teknoloji ve eğitim dünyasındaki son gelişmeler ve rehber niteliğinde içerikler.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row gap-8">
+
+            <!-- Sidebar (Mobile: Top Scroll, Desktop: Left Sticky) -->
+            <aside class="w-full md:w-64 flex-shrink-0">
+                <div class="glass rounded-xl p-4 sticky top-24">
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-tags text-brand-purple"></i> Konular
+                    </h3>
+                    <div id="category-list"
+                        class="flex flex-row md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0 custom-scrollbar">
+                        <!-- Categories injected here -->
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Blog Grid -->
+            <main class="flex-1">
+
+                <!-- Search & Sort -->
+                <div class="mb-8 flex flex-col sm:flex-row gap-4">
+                    <div class="relative flex-grow">
+                        <input type="text" id="search-input" placeholder="Yazı ara..."
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 pl-12 text-white focus:outline-none focus:border-brand-purple transition">
+                        <i class="fa-solid fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <select id="sort-select"
+                        class="w-full sm:w-48 bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-brand-purple transition appearance-none cursor-pointer">
+                        <option value="newest" class="bg-brand-dark">📅 En Yeni</option>
+                        <option value="oldest" class="bg-brand-dark">📅 En Eski</option>
+                        <option value="name-asc" class="bg-brand-dark">🔤 İsim (A-Z)</option>
+                    </select>
+                </div>
+
+                <!-- Grid -->
+                <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                    <!-- Posts will be injected here -->
+                </div>
+
+                <!-- No Results -->
+                <div id="no-results" class="hidden text-center py-20">
+                    <i class="fa-solid fa-feather-pointed text-6xl text-gray-600 mb-4"></i>
+                    <p class="text-gray-400 text-lg">Aradığınız kriterlere uygun yazı bulunamadı.</p>
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination" class="flex justify-center items-center gap-2 mt-12"></div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="glass border-t border-white/10 py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 text-sm">© 2026 Yapay Zeka Okulum. Tüm hakları saklıdır.</p>
+            <div class="flex justify-center gap-4 mt-4">
+                <a href="https://www.instagram.com/yapayzekaokulum/"
+                    class="text-gray-400 hover:text-brand-purple transition"><i
+                        class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://github.com/yapayzekaokulum" class="text-gray-400 hover:text-brand-purple transition"><i
+                        class="fa-brands fa-github text-xl"></i></a>
+                <a href="https://www.youtube.com/@yapayzekaokulum"
+                    class="text-gray-400 hover:text-red-500 transition"><i class="fa-brands fa-youtube text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        const blogGrid = document.getElementById('blog-grid');
+        const categoryList = document.getElementById('category-list');
+        const searchInput = document.getElementById('search-input');
+        const sortSelect = document.getElementById('sort-select');
+        const paginationFn = document.getElementById('pagination');
+        const noResultsFn = document.getElementById('no-results');
+
+        let activeCategory = 'Tümü';
+        let currentPage = 1;
+        const itemsPerPage = 6;
+        let filteredPosts = [];
+
+        function renderCategories() {
+            categoryList.innerHTML = categories.map(cat => `
+                <button onclick="filterByCategory('${cat}')" 
+                    class="px-4 py-2 rounded-lg text-sm font-medium text-left transition whitespace-nowrap md:whitespace-normal ${activeCategory === cat ? 'bg-brand-purple text-white shadow-lg shadow-purple-500/30' : 'text-gray-400 hover:bg-white/5 hover:text-white'}">
+                    ${cat}
+                </button>
+            `).join('');
+        }
+
+        function renderPosts(posts) {
+            if (posts.length === 0) {
+                blogGrid.classList.add('hidden');
+                paginationFn.classList.add('hidden');
+                noResultsFn.classList.remove('hidden');
+                return;
+            }
+
+            blogGrid.classList.remove('hidden');
+            noResultsFn.classList.add('hidden');
+
+            const totalPages = Math.ceil(posts.length / itemsPerPage);
+            const start = (currentPage - 1) * itemsPerPage;
+            const paginatedPosts = posts.slice(start, start + itemsPerPage);
+
+            blogGrid.innerHTML = paginatedPosts.map(post => `
+                <article onclick="window.location.href='post.html?id=${post.id}'" class="glass-card rounded-2xl overflow-hidden group flex flex-col h-full cursor-pointer hover:shadow-2xl hover:shadow-brand-purple/20 transition duration-300">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-white border border-white/10">
+                            ${post.category}
+                        </div>
+                        ${post.isNew ? '<div class="absolute top-4 right-4 bg-brand-purple text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg animate-pulse">YENİ</div>' : ''}
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <div class="flex items-center gap-3 text-xs text-gray-400 mb-3">
+                            <span><i class="fa-regular fa-calendar mr-1"></i> ${new Date(post.date).toLocaleDateString('tr-TR')}</span>
+                            <span>•</span>
+                            <span><i class="fa-regular fa-clock mr-1"></i> ${post.readTime}</span>
+                        </div>
+                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-brand-purple transition leading-tight">${post.title}</h2>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-3 leading-relaxed flex-grow">
+                            ${post.excerpt}
+                        </p>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between mt-auto">
+                            <div class="flex items-center gap-2">
+                                <div class="w-6 h-6 rounded-full bg-brand-purple/20 flex items-center justify-center text-brand-purple text-xs">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <span class="text-xs text-gray-300 font-medium">${post.author}</span>
+                            </div>
+                            <span class="text-brand-neon text-sm font-bold group-hover:translate-x-1 transition">Oku <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                        </div>
+                    </div>
+                </article>
+            `).join('');
+
+            renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+            if (totalPages <= 1) {
+                paginationFn.classList.add('hidden');
+                return;
+            }
+            paginationFn.classList.remove('hidden');
+
+            let html = '';
+            // Prev
+            html += `<button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="w-10 h-10 rounded-lg flex items-center justify-center ${currentPage === 1 ? 'text-gray-600 cursor-not-allowed' : 'text-white hover:bg-white/10'} transition"><i class="fa-solid fa-chevron-left"></i></button>`;
+
+            // Pages
+            for (let i = 1; i <= totalPages; i++) {
+                html += `<button onclick="goToPage(${i})" class="w-10 h-10 rounded-lg font-medium transition ${currentPage === i ? 'bg-brand-purple text-white' : 'text-gray-400 hover:bg-white/10 hover:text-white'}">${i}</button>`;
+            }
+
+            // Next
+            html += `<button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''} class="w-10 h-10 rounded-lg flex items-center justify-center ${currentPage === totalPages ? 'text-gray-600 cursor-not-allowed' : 'text-white hover:bg-white/10'} transition"><i class="fa-solid fa-chevron-right"></i></button>`;
+
+            paginationFn.innerHTML = html;
+        }
+
+        function goToPage(page) {
+            const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderPosts(filteredPosts);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function filterByCategory(cat) {
+            activeCategory = cat;
+            currentPage = 1;
+            renderCategories();
+            filterPosts();
+        }
+
+        function filterPosts() {
+            const term = searchInput.value.toLowerCase();
+            const sort = sortSelect.value;
+
+            filteredPosts = blogPosts.filter(post => {
+                const matchCat = activeCategory === 'Tümü' || post.category === activeCategory;
+                const matchSearch = post.title.toLowerCase().includes(term) || post.excerpt.toLowerCase().includes(term);
+                return matchCat && matchSearch;
+            });
+
+            // Sorting
+            filteredPosts.sort((a, b) => {
+                if (sort === 'newest') return new Date(b.date) - new Date(a.date);
+                if (sort === 'oldest') return new Date(a.date) - new Date(b.date);
+                if (sort === 'name-asc') return a.title.localeCompare(b.title);
+            });
+
+            renderPosts(filteredPosts);
+        }
+
+        // Init
+        renderCategories();
+        filterPosts();
+
+        // Listeners
+        searchInput.addEventListener('input', () => { currentPage = 1; filterPosts(); });
+        sortSelect.addEventListener('change', () => { currentPage = 1; filterPosts(); });
+
+    </script>
+</body>
+
+</html>
