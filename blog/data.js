@@ -2,34 +2,36 @@ const blogPosts = [
     {
         id: 8,
         title: "Yapay Zeka GPU Vadisi:🍿 (7 Şubat 2026)",
-        excerpt: "Yapay zeka dünyası bu hafta Dallas dizisini solladı, Kurtlar Vadisi'ne rahmet okuttu. Milyar dolarlar havada uçuşuyor, uzaya veri merkezi kuruluyor!",
+        excerpt: "Yapay zeka dünyası bu hafta Dallas dizisini solladı, Kurtlar Vadisi'ne rahmet okuttu. Milyar dolarlar havada uçuşuyor, uzaya veri merkezi kuruluyor.",
         content: `
-            <p>Arkadaşlar bir durun zaten ortalık karışık :) Yapay zeka dünyası bu hafta Dallas dizisini solladı, Kurtlar Vadisi'ne rahmet okuttu. Milyar dolarlar havada uçuşuyor, uzaya veri merkezi kuruluyor, reklam savaşları mahalleye kadar düştü.</p>
-            <p>Elimdeki son RAM leri sizin için yaktım. Buyursunlar, son 1 haftanın dedikodulu, bilimsel ve bol sıfırlı özeti...</p>
+            <p>Arkadaşlar bir durun zaten ortalık karışık, herkes bir yere kaçışıyor ama sakin olun...</p>
+            <p>Yapay zeka dünyası bu hafta Dallas dizisini solladı, Kurtlar Vadisi'ne rahmet okuttu. Milyar dolarlar havada uçuşuyor, uzaya veri merkezi kuruluyor, reklam savaşları mahalleye kadar düştü.</p>
+            <p>Hocanız olarak elimdeki son RAM leri siizn için yaktım. Bu kaosu sizin için "dilimize" uygun, en güncel verilerle anlatmaya çalıştım.</p>
+            <p>Buyursunlar, son 1 haftanın dedikodulu, bilimsel ve bol sıfırlı özeti...</p>
             <br>
             <h3>1. Super Bowl 2026: Reklam Savaşları ve "Dating" Skandalı! 🥊</h3>
-            <p>Anthropic (Claude) reklam bombasını patlattı. Reklamda ne mi var? Bir adam, yaşlı annesine akşam yemeği için ChatGPT üzerinden tarif bakmaya çalışıyor. Tam anne-oğul duygusal bir an yaşayacaklar, ChatGPT'nin arayüzünde dev bir reklam beliriyor:</p>
-            <p><em>"Yalnız kalmayın çevrenizdekileri ... keşfedin. Hooop bir Date Sitesi!" 👵🔥</em></p>
-            <p>Çocuğun yüzündeki o utanç, annesinin "Evladım bu ne biçim site?" bakışı... Anthropic ekranı karartıp üzerine şunu yazıyor: "Bizde reklam yok, sadece iş var. Annenizi utandırmayın."</p>
-            <p>Sam Altman bu reklamdan sonra X'te (eski Twitter) hafiften titredi; "Komik ama dürüst değil" dedi. Sam biraz bozulmuş gibi; "Biz Teksas'ta bile onların tüm dünyada kullanıldığından daha çok kullanılıyoruz" diyerek mahalle kavgasına devam ediyor ama Claude resmen "izdivaç programı" üzerinden golü attı.</p>
+            <p>Anthropic (Claude) reklam bombasını patlattı. Reklamda ne mi var? Genç bir adam yaşlı annesine akşam yemeği için ChatGPT üzerinden tarif bakmaya çalışıyor. Tam anne-oğul duygusal bir an yaşayacaklar, ChatGPT'nin arayüzünde dev bir reklam beliriyor:</p>
+            <p><em>"Yalnız kalmayın çevrenizdekileri keşfedin! Hooop bir Date Sitesi!" 👵🔥</em></p>
+            <p>Çocuğun yüzündeki o utanç, annesinin "Evladım bu ne biçim site?" bakışı... Anthropic ekranı karartıp üzerine şunu yazıyor: "Bizde reklam yok, sadece iş var. Annenizi utandırmayın." Sam Altman bu reklamdan sonra X'te hafiften titredi; "Komik ama dürüst değil" dedi.</p>
+            <p>Sam biraz bozulmuş gibi; "Biz sadece Teksas'ta bile onların tüm dünyada kullanıldığından daha çok kullanılıyoruz" diyerek mahalle kavgasına devam ediyor ama Claude reklam göndermesi üzerinden golünü attı.</p>
             <p><strong>Neler çıktı?</strong></p>
             <ul>
-                <li><strong>Claude Opus 4.6:</strong> 1 milyon token bağlam penceresiyle geliyor. Bir görsen cin gibi ablası, ajan takımları kurup kendi arasında finans analizi yapıyor (reklamsız!). Ama pahalı.</li>
+                <li><strong>Claude Opus 4.6:</strong> 1 milyon token bağlam penceresiyle geliyor. Bir görsen cin gibi ablası, ajan takımları kurup kendi arasında finans analizi yapıyor (reklamsız!).</li>
                 <li><strong>GPT-5.3-Codex:</strong> OpenAI’ın yeni gözdesi. "Kendi kodumu kendim yazarım" diyen bu model, kodlama dünyasında yeni bir devir açıyor. Junior kardeşlerim, panik yok ama tempoyu artırın!</li>
             </ul>
             <br>
             <h3>2. RAM Fiyatları: Donanım mı, Altın mı? 📈</h3>
-            <p>Beyler, bayanlar... Bilgisayar toplayacak olan varsa cüzdanına sahip çıksın. Yapay zeka veri merkezleri dünyadaki tüm RAM stoklarını "elektrikli süpürge gibi" çekti.</p>
-            <p>2026'nın ilk çeyreğinde RAM fiyatlarının %50 ile %95 arasında artması bekleniyor. Samsung ve Micron kapasiteyi tamamen AI çiplerine kaydırdı. Bizim bilgisayarcı bile dükkana "RAM satılmaz, sadece takas olur" yazısı asmış. 64 GB RAM'i olanı mahallede omuzlarda taşıyorlar şu an; çünkü o artık bir "milli servet"! (YTD)</p>
+            <p>Leydis centilmıns... Bilgisayar toplayacak olan varsa cüzdanına sahip çıksın. Yapay zeka veri merkezleri dünyadaki tüm RAM stoklarını hüpletti. Bize de mi yok kıvamındayız şu an.</p>
+            <p>Veriler mermi gibi: 2026'nın ilk çeyreğinde RAM fiyatlarının %50 ile %95 arasında artması bekleniyor. Samsung ve Micron kapasiteyi tamamen AI çiplerine kaydırdı. Bizim mahallenin TV tamircileri bile dükkana "Eski RAM leriniz değerinde alınır" yazısı asmış. 64 GB RAM'i olanı mahallede omuzlarda taşıyorlar şu an; çünkü o artık bir "milli servet"! (YTD)</p>
             <br>
             <h3>3. OpenClaw: Mahallenin Sabıkalı Ajanı 🦀</h3>
-            <p>Bir de başımıza OpenClaw çıktı. "Açık kaynaklıyım, her şeyi yaparım" dedi, herkesi tavladı ama foyası çabuk çıktı.</p>
-            <p>ClawHub'da tam 341 tane "zararlı eklenti" (skill) tespit edildi. Bir linke tıklıyorsun, OpenClaw senin banka hesabını veya kripto cüzdanını "yanlışlıkla" başkasına havale edebiliyor.</p>
+            <p>Bir de başımıza OpenClaw çıktı. "Açık kaynaklıyım, her şeyi yaparım" dedi, herkesi tavladı ama foyası çabuk çıktı. ClawHub'da tam 341 tane "zararlı eklenti" (skill) tespit edildi. Bir linke tıklıyorsun, OpenClaw senin banka hesabını "yanlışlıkla" başkasına havale edebiliyor.</p>
             <p>Çin Sanayi ve Bilgi Teknolojileri Bakanlığı hemen uyarıyı bastı: "Tekinsiz bu, dikkatli olun!" dedi. Hackerlar bayram ediyor ama geliştiriciler yamaları yetiştirmeye çalışıyor. Aman dikkat be evladım!</p>
             <br>
             <h3>4. Nvidia ve 100 Milyar Dolarlık "Askı" Hikayesi 🌪️</h3>
             <p>Eylül 2025'te duyurulan o meşhur 100 milyar dolarlık OpenAI-Nvidia anlaşması "buzdolabına" kaldırıldı.</p>
-            <p>Jensen Huang (Nvidia CEO'su): "Yoooo ne anlaşması, sokakta mı topluyoruz parayı!" diyerek topu taca attı. OpenAI da boş durmuyor; "Zaten çiplerinizden memnun değiliz" diyerek AMD ve Cerebras gibi alternatiflerin kapısını çalıyor. Yiyin birbirinizi.</p>
+            <p>Jensen Huang (Nvidia CEO'su): "Yoooo ne anlaşması, sokakta mı topluyoruz parayı" diyerek topu taca attı. OpenAI da boş durmuyor; "Zaten çiplerinizden memnun değiliz" diyerek AMD ve Cerebras gibi alternatiflerin kapısını çalıyor.</p>
+            <p>Yiyin birbirinizi.</p>
             <br>
             <h3>5. Elon Musk: "134 Milyar Dolarımı Verin!" 💰</h3>
             <p>Elon Musk, OpenAI ve Microsoft’tan tam 134 milyar dolar talep ediyor. Mahkeme Nisan’da! Elon resmen "Sizi bitireceğim olum!" dedi ve SpaceX ile xAI'yi birleştirerek 1.25 trilyon dolarlık dev bir yapı kurdu.</p>
@@ -38,15 +40,15 @@ const blogPosts = [
             <h3>Ne Dediler? (Yaşanmamış Olaylara Dayanabilir) 🎙️</h3>
             <ul>
                 <li><strong>Sam Altman:</strong> "Baba daha çok para lazım. Claude reklamda bizi 'izdivaç sitesi' gibi göstermiş, ayıp etmiş. Ama Teksaslı teyzeler hala bizi seviyor, rahat olun."</li>
-                <li><strong>Elon Musk:</strong> "Sam, senin o ChatGPT'ni uzaydaki uydumdan gelen sinyalle dize getiririm. Reklamlarda anneleri utandırmaya devam et sen, ben Mars'ta RAM fabrikası kuruyorum."</li>
+                <li><strong>Elon Musk:</strong> "Sam çöpçatanlık site reklamlarından para toplamaya devam et sen, ben Mars'ta RAM fabrikası kuruyorum."</li>
                 <li><strong>Jensen Huang:</strong> "Gençler sakin olun, 5 yıla hepiniz milyoner olacaksınız. RAM fiyatları artar tabii, herkes AI istiyor. Ama deri ceketimin cebinde herkese yetecek kadar GPU her zaman bulunur."</li>
-                <li><strong>Bakkal:</strong> "Hocam, benim dükkandaki eski bir kasa vardı RAM lerini okutsak dükkanın yanındaki arsayı alabilir miyim?"</li>
+                <li><strong>Bakkal Hüsamettin:</strong> "Hocam, benim dükkandaki eskibir kasa var o RAM leri şimdi mi satalım biraz daha yükselir mi?</li>
             </ul>
             <br>
             <h3>Sonuç: Nereye Gidiyoruz? 🚀</h3>
             <p>Anthropic'in yeni "Claude Cowork" eklentileri SaaS dünyasını gerçekten "silkeledi". Yatırımcılar korkuyor, RAM fiyatları ağlatıyor ama biz hala gülüyoruz. Nereye mi gidiyoruz? Reklamsız bir gelecek mi, yoksa uzaydaki veri merkezleri mi kazanacak?</p>
             <p>Geliştirici kardeşlerim; OpenClaw'u kurarken dikkat edin, RAM'lerinize sahip çıkın, Elon'un uzay planlarını takip edin. Eğlence yeni başlıyor!</p>
-            <p><em>Arkası yarın.. Yorumlarınızı bekliyorum.</em></p>
+            <p><em>Yorumlarınızı bekliyorum.</em></p>
         `,
         category: "Yapay Zeka",
         image: "img/gpu-vadisi.jpg",
