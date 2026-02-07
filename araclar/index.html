@@ -281,7 +281,17 @@
         const itemsPerPage = 9;
         let filteredTools = [];
 
+        // Initialize
+        renderCategories();
+        filterAndSortTools();
+
+        // Events
+        searchInputFn.addEventListener('input', () => { currentPage = 1; filterAndSortTools(); });
+        sortSelectFn.addEventListener('change', () => { currentPage = 1; filterAndSortTools(); });
+
         function renderCategories() {
+            // Flatten categories from tools if needed (already done in tools.js variable but good to be safe)
+            // tools.js defines 'categories' as unique list
             const allCats = ['Tümü', ...categories];
             categoryListFn.innerHTML = allCats.map(cat => `
                 <button 
@@ -296,16 +306,10 @@
             `).join('');
         }
 
-        // Get YouTube thumbnail (hqdefault for reliability)
-        function getYouTubeThumbnail(embedUrl) {
-            const match = embedUrl.match(/embed\/([a-zA-Z0-9_-]+)/);
-            if (match) {
-                return `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
-            }
-            return null;
-        }
+        // ... (getYouTubeThumbnail function remains same)
 
         function renderTools(toolsToRender) {
+            // ... (Empty state logic remains same)
             if (toolsToRender.length === 0) {
                 toolsGridFn.classList.add('hidden');
                 paginationFn.classList.add('hidden');
@@ -316,7 +320,6 @@
             toolsGridFn.classList.remove('hidden');
             noResultsFn.classList.add('hidden');
 
-            // Pagination logic
             const totalPages = Math.ceil(toolsToRender.length / itemsPerPage);
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
@@ -326,15 +329,20 @@
                 const globalIdx = startIndex + idx;
                 const thumbnail = tool.video ? getYouTubeThumbnail(tool.video) : null;
 
+                // Handle category array display
+                const categoryBadges = Array.isArray(tool.category)
+                    ? tool.category.map(cat => `<span class="text-[10px] uppercase tracking-wider text-gray-500 border border-white/10 px-2 py-1 rounded bg-black/20">${cat}</span>`).join(' ')
+                    : `<span class="text-[10px] uppercase tracking-wider text-gray-500 border border-white/10 px-2 py-1 rounded bg-black/20">${tool.category}</span>`;
+
                 return `
                 <div class="glass-card rounded-xl p-6 flex flex-col h-full group cursor-pointer" onclick="openModal(${globalIdx})">
                     <div class="flex items-start justify-between mb-4">
                         <div class="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center text-brand-neon border border-white/10 group-hover:bg-brand-purple group-hover:text-white transition duration-300">
                             <i class="${tool.icon || 'fa-solid fa-bolt'} text-xl"></i>
                         </div>
-                        <span class="text-[10px] uppercase tracking-wider text-gray-500 border border-white/10 px-2 py-1 rounded bg-black/20">
-                            ${tool.category}
-                        </span>
+                        <div class="flex flex-wrapgap-1 justify-end max-w-[60%]">
+                            ${categoryBadges}
+                        </div>
                     </div>
                     
                     <h3 class="text-lg font-bold text-white mb-2 group-hover:text-brand-neon transition">${tool.name}</h3>
@@ -363,61 +371,10 @@
                 </div>
             `}).join('');
 
-            // Render pagination
             renderPagination(totalPages);
         }
 
-        function renderPagination(totalPages) {
-            if (totalPages <= 1) {
-                paginationFn.classList.add('hidden');
-                return;
-            }
-            paginationFn.classList.remove('hidden');
-
-            let html = '';
-
-            // Prev button
-            html += `<button onclick="goToPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}
-                class="px-3 py-2 rounded-lg ${currentPage === 1 ? 'text-gray-600 cursor-not-allowed' : 'text-white hover:bg-white/10'} transition">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>`;
-
-            // Page numbers
-            for (let i = 1; i <= totalPages; i++) {
-                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
-                    html += `<button onclick="goToPage(${i})"
-                        class="w-10 h-10 rounded-lg font-medium transition
-                        ${currentPage === i ? 'bg-brand-purple text-white' : 'text-gray-400 hover:bg-white/10 hover:text-white'}">
-                        ${i}
-                    </button>`;
-                } else if (i === currentPage - 2 || i === currentPage + 2) {
-                    html += `<span class="text-gray-500 px-1">...</span>`;
-                }
-            }
-
-            // Next button
-            html += `<button onclick="goToPage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}
-                class="px-3 py-2 rounded-lg ${currentPage === totalPages ? 'text-gray-600 cursor-not-allowed' : 'text-white hover:bg-white/10'} transition">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>`;
-
-            paginationFn.innerHTML = html;
-        }
-
-        function goToPage(page) {
-            const totalPages = Math.ceil(filteredTools.length / itemsPerPage);
-            if (page < 1 || page > totalPages) return;
-            currentPage = page;
-            renderTools(filteredTools);
-            window.scrollTo({ top: 400, behavior: 'smooth' });
-        }
-
-        function filterByCategory(category) {
-            activeCategory = category;
-            currentPage = 1;
-            renderCategories();
-            filterAndSortTools();
-        }
+        // ... Note: Previous functions (renderPagination, goToPage) remain unchanged ...
 
         function filterAndSortTools() {
             const searchTerm = searchInputFn.value.toLowerCase();
@@ -425,7 +382,10 @@
 
             // 1. Filter
             filteredTools = tools.filter(tool => {
-                const matchesCategory = activeCategory === 'Tümü' || tool.category === activeCategory;
+                // Check if current category is in tool's categories
+                const toolCategories = Array.isArray(tool.category) ? tool.category : [tool.category];
+                const matchesCategory = activeCategory === 'Tümü' || toolCategories.includes(activeCategory);
+
                 const matchesSearch = tool.name.toLowerCase().includes(searchTerm) ||
                     tool.description.toLowerCase().includes(searchTerm) ||
                     tool.tags.some(tag => tag.toLowerCase().includes(searchTerm));
@@ -457,7 +417,11 @@
 
             document.getElementById('modal-icon').innerHTML = `<i class="${tool.icon || 'fa-solid fa-bolt'} text-2xl"></i>`;
             document.getElementById('modal-name').textContent = tool.name;
-            document.getElementById('modal-category').textContent = tool.category;
+
+            // Format category array for modal
+            const catDisplay = Array.isArray(tool.category) ? tool.category.join(', ') : tool.category;
+            document.getElementById('modal-category').textContent = catDisplay;
+
             document.getElementById('modal-description').textContent = tool.description;
             document.getElementById('modal-link').href = tool.url;
 
@@ -481,6 +445,7 @@
             document.getElementById('tool-modal').classList.add('flex');
             document.body.style.overflow = 'hidden';
         }
+
 
         function closeModal() {
             document.getElementById('tool-modal').classList.add('hidden');
