@@ -107,12 +107,74 @@
 
 <body class="min-h-screen relative overflow-x-hidden">
 
-    <!-- Navbar (Simplified) -->
+    <!-- Navbar -->
     <nav class="glass fixed w-full z-50 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold tracking-tight text-white hover:text-purple-400 transition">YZO</a>
-            <a href="index.html" class="flex items-center gap-2 text-gray-300 hover:text-white transition">
-                <i class="fa-solid fa-arrow-left"></i> Blog'a Dön
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0 flex items-center gap-3 group">
+                        <div class="relative">
+                            <div
+                                class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500">
+                            </div>
+                            <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                                onerror="this.src='https://placehold.co/100x100/1e1b4b/FFF?text=YZO'; this.className='h-12 w-12 rounded-full relative'"
+                                alt="YZO Logo"
+                                class="h-12 w-12 md:h-14 md:w-14 rounded-full object-contain relative bg-white p-1">
+                        </div>
+                        <div class="block">
+                            <span
+                                class="block text-lg md:text-xl font-bold text-white tracking-tight leading-none">YAPAY
+                                ZEKÂ OKULUM</span>
+                            <span
+                                class="block text-[10px] md:text-xs text-brand-neon font-medium tracking-[0.2em] md:tracking-[0.3em]">The
+                                Age of AI</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="flex items-center space-x-8">
+                        <a href="../egitimler/index.html"
+                            class="text-gray-300 hover:text-white transition py-2">Eğitimler</a>
+                        <a href="../araclar/index.html"
+                            class="text-gray-300 hover:text-white transition py-2">Araçlar</a>
+                        <a href="index.html" class="text-white transition py-2 border-b-2 border-brand-purple">Blog</a>
+                        <a href="../yap-kis/index.html" class="text-gray-300 hover:text-white transition py-2"><i
+                                class="fa-solid fa-book-open text-brand-purple"></i> Yap-Kis</a>
+                        <a href="https://form.jotform.com/253625405418052" target="_blank"
+                            class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-blue-800">
+                            <span
+                                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                                <i class="fa-solid fa-rocket mr-2"></i> Eğitim İsteği
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-brand-purple focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden glass border-t border-white/10 p-4 absolute w-full bg-[#0f172a]/95 backdrop-blur-xl">
+
+            <a href="../egitimler/index.html"
+                class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Eğitimler</a>
+            <a href="../araclar/index.html"
+                class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition">Araçlar</a>
+            <a href="index.html"
+                class="block py-3 px-4 text-white border-b border-white/5 hover:bg-white/5 rounded transition font-bold">Blog</a>
+            <a href="../yap-kis/index.html"
+                class="block py-3 px-4 text-gray-300 border-b border-white/5 hover:bg-white/5 rounded transition"><i
+                    class="fa-solid fa-book-open mr-2 text-brand-purple"></i> Yap-Kis</a>
+            <a href="https://form.jotform.com/253625405418052" target="_blank"
+                class="block mt-4 py-3 text-center bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white font-bold shadow-lg">
+                <i class="fa-solid fa-rocket mr-2"></i> Eğitim İsteği
             </a>
         </div>
     </nav>
@@ -304,6 +366,23 @@
         function copyLink() {
             navigator.clipboard.writeText(window.location.href);
             alert('Link kopyalandı!');
+        }
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+
+            // Close menu when clicking links
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.add('hidden');
+                });
+            });
         }
     </script>
 </body>

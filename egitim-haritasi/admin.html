@@ -7,6 +7,13 @@
     <title>Harita Yönetimi | YZO Admin</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- JQVMap Dependencies -->
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jquery.vmap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/maps/jquery.vmap.turkey.js"></script>
+
     <script src="data.js"></script>
     <style>
         body {
@@ -19,89 +26,320 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: white;
         }
+
+        /* Dropdown Dark Mode Fix */
+        select option {
+            background-color: #1e293b;
+            color: white;
+        }
+
+        /* Map Styles */
+        #vmap {
+            width: 100%;
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .jqvmap-label {
+            background: rgba(15, 23, 42, 0.9) !important;
+            border: 1px solid rgba(139, 92, 246, 0.3) !important;
+            font-family: sans-serif !important;
+            padding: 4px 8px !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
 
-<body class="p-8">
-    <div class="max-w-6xl mx-auto">
-        <div class="flex justify-between items-center mb-8">
+<body class="p-4 md:p-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
             <h1 class="text-3xl font-bold">Harita Veri Yönetimi</h1>
             <div class="flex gap-4">
-                <a href="../admin/index.html" class="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600">
+                <a href="../admin/index.html"
+                    class="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600 transition flex items-center">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Dashboard
                 </a>
-                <button onclick="saveToFile()" class="px-4 py-2 bg-green-600 rounded hover:bg-green-500">
+                <button onclick="saveToFile()"
+                    class="px-4 py-2 bg-green-600 rounded hover:bg-green-500 transition shadow-lg shadow-green-900/20 flex items-center">
                     <i class="fa-solid fa-save mr-2"></i> Kaydet (data.js)
                 </button>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Province Selection -->
-            <div class="bg-slate-800 p-6 rounded-xl h-[fit-content]">
-                <h2 class="text-xl font-semibold mb-4">İl Seçimi</h2>
-                <select id="provinceSelect" onchange="loadProvince()" class="w-full p-2 rounded input-dark mb-4">
-                    <option value="">Bir İl Seçin...</option>
-                    <!-- Options injected via JS -->
-                </select>
-
-                <div id="provinceStats" class="hidden">
-                    <div class="bg-white/5 p-4 rounded mb-4">
-                        <p class="text-gray-400 text-sm">Toplam Eğitim</p>
-                        <input type="number" id="totalCount"
-                            class="text-2xl font-bold bg-transparent w-full border-b border-gray-600 focus:outline-none"
-                            min="0">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+            <!-- Left Column: Map & Selection -->
+            <div class="lg:col-span-12 xl:col-span-5 space-y-6">
+                <!-- Mini Map -->
+                <div class="bg-slate-800 p-4 rounded-xl border border-white/5 shadow-xl">
+                    <div class="flex justify-between items-center mb-2">
+                        <h2 class="text-xs font-bold text-gray-400 uppercase tracking-wider">Harita Önizleme</h2>
+                        <span class="text-[10px] text-gray-500">İle tıklayarak seçebilirsiniz</span>
                     </div>
-                    <button onclick="updateProvinceStats()"
-                        class="w-full py-2 bg-purple-600 rounded hover:bg-purple-500">Sayısı Güncelle</button>
+                    <div id="vmap" class="bg-slate-900/50 border border-white/5 rounded-lg"></div>
+                </div>
+
+                <!-- Selection & Stats -->
+                <div class="bg-slate-800 p-6 rounded-xl border border-white/5 shadow-xl">
+                    <h2 class="text-xl font-semibold mb-4">İl Seçimi</h2>
+                    <select id="provinceSelect" onchange="handleProvinceChange()"
+                        class="w-full p-3 rounded-lg input-dark mb-4 focus:outline-none focus:border-purple-500 transition border-white/10">
+                        <option value="">Bir İl Seçin...</option>
+                        <!-- Options injected via JS -->
+                    </select>
+
+                    <div id="provinceStats" class="hidden transition-all duration-300">
+                        <div class="bg-white/5 p-4 rounded-lg mb-4 border border-white/5">
+                            <p class="text-gray-400 text-xs uppercase tracking-wider mb-1">Toplam Eğitim Sayısı</p>
+                            <input type="number" id="totalCount"
+                                class="text-3xl font-bold bg-transparent w-full border-b border-gray-600 focus:border-purple-500 focus:outline-none py-1 text-white placeholder-gray-600"
+                                min="0" placeholder="0">
+                        </div>
+                        <button onclick="updateProvinceStats()"
+                            class="w-full py-2.5 bg-purple-600 rounded-lg hover:bg-purple-500 transition font-medium shadow-lg shadow-purple-900/20 text-white">
+                            <i class="fa-solid fa-rotate mr-2"></i> Sayısı Güncelle
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <!-- Training Details -->
-            <div class="bg-slate-800 p-6 rounded-xl">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-semibold">Eğitim Detayları</h2>
-                    <button onclick="addTraining()" class="text-sm bg-blue-600 px-3 py-1 rounded hover:bg-blue-500"><i
-                            class="fa-solid fa-plus"></i> Ekle</button>
-                </div>
+            <!-- Right Column: Details -->
+            <div class="lg:col-span-12 xl:col-span-7">
+                <div class="bg-slate-800 p-6 rounded-xl border border-white/5 shadow-xl h-full flex flex-col">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-semibold">Eğitim Detayları</h2>
+                        <button onclick="addTraining()"
+                            class="text-sm bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-500 transition shadow-lg shadow-blue-900/20 text-white">
+                            <i class="fa-solid fa-plus mr-1"></i> Yeni Ekle
+                        </button>
+                    </div>
 
-                <div id="trainingsList" class="space-y-3 max-h-[600px] overflow-y-auto pr-2">
-                    <p class="text-gray-500 text-center py-10">Lütfen önce bir il seçin.</p>
+                    <div id="trainingsList"
+                        class="space-y-3 overflow-y-auto pr-2 custom-scrollbar flex-grow min-h-[400px]">
+                        <div
+                            class="flex flex-col items-center justify-center h-64 text-gray-500 border-2 border-dashed border-gray-700/50 rounded-xl bg-white/5">
+                            <div class="w-16 h-16 rounded-full bg-slate-700/50 flex items-center justify-center mb-4">
+                                <i class="fa-solid fa-map-location-dot text-3xl opacity-50 text-gray-400"></i>
+                            </div>
+                            <p class="font-medium">Lütfen haritadan veya listeden bir il seçin.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Load Provinces into Select
+        // --- State Management ---
+        let fileHandle = null; // Cache for file handle
+
+        // --- IndexedDB Setup for Persistent Handles ---
+        const DB_NAME = 'YZOAdminDB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'fileHandles';
+        let db;
+
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+        request.onupgradeneeded = (event) => {
+            db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME);
+            }
+        };
+
+        request.onsuccess = (event) => {
+            db = event.target.result;
+            loadHandle(); // Try to load saved handle on init
+        };
+
+        request.onerror = (event) => {
+            console.error("IndexedDB error:", event.target.errorCode);
+        };
+
+        async function loadHandle() {
+            if (!db) return;
+            const transaction = db.transaction([STORE_NAME], 'readonly');
+            const store = transaction.objectStore(STORE_NAME);
+            const request = store.get('mapData'); // Key specific to this admin panel
+
+            request.onsuccess = (e) => {
+                if (e.target.result) {
+                    fileHandle = e.target.result;
+                    console.log("File handle restored from IndexedDB");
+
+                    // Visual indicator that we are ready to save
+                    const btn = document.querySelector('button[onclick="saveToFile()"]');
+                    btn.classList.add('ring-2', 'ring-green-400', 'ring-offset-2', 'ring-offset-slate-900');
+                    btn.title = "Hazır: Doğrudan kayıt yapılabilir";
+                }
+            };
+        }
+
+        async function saveHandle(handle) {
+            if (!db) return;
+            const transaction = db.transaction([STORE_NAME], 'readwrite');
+            const store = transaction.objectStore(STORE_NAME);
+            store.put(handle, 'mapData');
+        }
+
+        async function verifyPermission(fileHandle, withWrite) {
+            const options = {};
+            if (withWrite) {
+                options.mode = 'readwrite';
+            }
+            // Check if permission was already granted. If so, return true.
+            if ((await fileHandle.queryPermission(options)) === 'granted') {
+                return true;
+            }
+            // Request permission. If the user grants permission, return true.
+            if ((await fileHandle.requestPermission(options)) === 'granted') {
+                return true;
+            }
+            // The user didn't grant permission, so return false.
+            return false;
+        }
+
+        // --- Initialization ---
         const sortedProvinces = Object.entries(trainingData).sort((a, b) => a[1].name.localeCompare(b[1].name));
         const select = document.getElementById('provinceSelect');
 
+        // Populate Dropdown
         sortedProvinces.forEach(([code, data]) => {
             const option = document.createElement('option');
             option.value = code;
-            option.textContent = `${data.name} (${code})`;
+
+            // Calculate count
+            const count = (data.trainings && data.trainings.length > 0)
+                ? data.trainings.length
+                : (data.count || 0);
+
+            option.textContent = `${data.name} (${count} Eğitim)`;
             select.appendChild(option);
         });
 
-        function loadProvince() {
+        // Initialize Map
+        $(document).ready(function () {
+            $('#vmap').vectorMap({
+                map: 'turkey',
+                backgroundColor: 'transparent',
+                borderColor: '#1e293b',
+                borderOpacity: 0.25,
+                borderWidth: 1,
+                color: '#334155', // Default region color
+                enableZoom: false,
+                hoverColor: '#8B5CF6',
+                hoverOpacity: null,
+                normalizeFunction: 'linear',
+                scaleColors: ['#b6d6ff', '#005ace'],
+                selectedColor: '#d946ef', // Pinkish selection
+                selectedRegions: null, // We'll manage selection manually via colors/dropdown
+                showTooltip: true,
+                onRegionClick: function (element, code, region) {
+                    let cleanCode = code.replace('tr-', '');
+
+                    // Normalize code logic
+                    if (!trainingData[cleanCode]) {
+                        // Fallback search by name if code doesn't match directly
+                        const found = Object.entries(trainingData).find(([k, v]) => v.name.toLowerCase() === region.toLowerCase());
+                        if (found) cleanCode = found[0];
+                    }
+
+                    if (trainingData[cleanCode]) {
+                        select.value = cleanCode;
+                        handleProvinceChange();
+                    }
+                },
+                onLabelShow: function (event, label, code) {
+                    let cleanCode = code.replace('tr-', '');
+                    if (trainingData[cleanCode]) {
+                        const count = (trainingData[cleanCode].trainings && trainingData[cleanCode].trainings.length > 0)
+                            ? trainingData[cleanCode].trainings.length
+                            : (trainingData[cleanCode].count || 0);
+                        label.html(`<b>${trainingData[cleanCode].name}</b><br>Eğitim: ${count}`);
+                    }
+                }
+            });
+            updateMapColors();
+        });
+
+        function updateMapColors(activeCode = null) {
+            const colorMap = {};
+            for (let key in trainingData) {
+                const data = trainingData[key];
+                const count = (data.trainings && data.trainings.length > 0) ? data.trainings.length : (data.count || 0);
+
+                let color = '#334155'; // Default dark slate
+                if (count > 0) color = '#1e3a8a'; // Blue
+                if (count > 2) color = '#7e22ce'; // Purple
+                if (count > 5) color = '#06b6d4'; // Cyan
+
+                // Highlight active selection
+                if (activeCode && (key == activeCode || parseInt(key) == parseInt(activeCode))) {
+                    color = '#d946ef'; // Fuchsia/Pink for selected
+                }
+
+                colorMap['tr-' + key] = color;
+                // Try integer key too just in case map library uses different keys
+                try { colorMap['tr-' + parseInt(key)] = color; } catch (e) { }
+            }
+
+            // JQVMap doesn't strictly support updating just one color easily without full reset or 'set' 'colors'
+            // So we update all
+            $('#vmap').vectorMap('set', 'colors', colorMap);
+        }
+
+        // --- Logic ---
+
+        function handleProvinceChange() {
             const code = select.value;
+            loadProvince(code);
+            updateMapColors(code); // Highlight selected on map
+        }
+
+        function loadProvince(code) {
             const stats = document.getElementById('provinceStats');
             const list = document.getElementById('trainingsList');
 
             if (!code) {
                 stats.classList.add('hidden');
-                list.innerHTML = '<p class="text-gray-500 text-center py-10">Lütfen önce bir il seçin.</p>';
+                list.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-64 text-gray-500 border-2 border-dashed border-gray-700/50 rounded-xl bg-white/5">
+                        <div class="w-16 h-16 rounded-full bg-slate-700/50 flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-map-location-dot text-3xl opacity-50 text-gray-400"></i>
+                        </div>
+                        <p class="font-medium">Lütfen haritadan veya listeden bir il seçin.</p>
+                    </div>`;
                 return;
             }
 
             const data = trainingData[code];
             stats.classList.remove('hidden');
 
-            // Calculate count logic
+            // Logic: prefer calculated count from array, fallback to manual count property
             const calculatedCount = data.trainings ? data.trainings.length : 0;
             const manualCount = data.count || 0;
-            document.getElementById('totalCount').value = Math.max(calculatedCount, manualCount);
+
+            // Show the larger of the two to be safe, or just the calculated one if array exists
+            document.getElementById('totalCount').value = calculatedCount > 0 ? calculatedCount : manualCount;
 
             renderTrainings(code);
         }
@@ -111,25 +349,50 @@
             const trainings = trainingData[code].trainings || [];
 
             if (trainings.length === 0) {
-                list.innerHTML = '<p class="text-gray-500 text-center">Bu ilde kayıtlı eğitim detayı yok.</p>';
+                list.innerHTML = `
+                <div class="text-center py-12 bg-white/5 rounded-xl border border-dashed border-white/10 m-2">
+                    <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fa-regular fa-folder-open text-gray-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-400 mb-4 text-sm">Bu ilde detaylı eğitim kaydı bulunmuyor.</p>
+                    <button onclick="addTraining()" class="px-4 py-2 bg-blue-600/20 text-blue-400 hover:bg-blue-600 hover:text-white rounded-lg transition text-sm font-medium border border-blue-600/30">
+                        <i class="fa-solid fa-plus mr-1"></i> İlk Eğitimi Ekle
+                    </button>
+                </div>`;
                 return;
             }
 
             list.innerHTML = trainings.map((training, index) => `
-                <div class="bg-white/5 p-4 rounded border border-white/10 group relative">
-                    <div class="space-y-2">
-                        <input type="text" onchange="updateTraining('${code}', ${index}, 'title', this.value)" value="${training.title}" class="w-full bg-transparent font-semibold border-b border-transparent focus:border-purple-500 focus:outline-none" placeholder="Eğitim Başlığı">
-                        <div class="flex gap-2">
-                            <input type="text" onchange="updateTraining('${code}', ${index}, 'date', this.value)" value="${training.date}" class="w-1/2 bg-transparent text-sm text-gray-400 border-b border-transparent focus:border-purple-500 focus:outline-none" placeholder="Tarih">
-                            <input type="text" onchange="updateTraining('${code}', ${index}, 'place', this.value)" value="${training.place || ''}" class="w-1/2 bg-transparent text-sm text-gray-400 border-b border-transparent focus:border-purple-500 focus:outline-none" placeholder="Yer">
+                <div class="bg-white/5 p-4 rounded-xl border border-white/10 group relative hover:border-purple-500/30 transition-all duration-300">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="md:col-span-2">
+                             <div class="relative group/input">
+                                <label class="absolute -top-2 left-2 bg-slate-800 px-1 text-[10px] text-purple-400 font-bold uppercase tracking-wider">Eğitim Başlığı</label>
+                                <input type="text" onchange="updateTraining('${code}', ${index}, 'title', this.value)" value="${training.title}" 
+                                    class="w-full bg-slate-900/50 p-2.5 rounded-lg border border-white/10 focus:border-purple-500 focus:outline-none text-white font-medium placeholder-gray-600 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                             <div class="relative group/input">
+                                <label class="absolute -top-2 left-2 bg-slate-800 px-1 text-[10px] text-gray-500 group-focus-within/input:text-purple-400 uppercase tracking-wider transition-colors">Tarih</label>
+                                <input type="text" onchange="updateTraining('${code}', ${index}, 'date', this.value)" value="${training.date}" 
+                                    class="w-full bg-slate-900/50 p-2.5 rounded-lg border border-white/10 focus:border-purple-500 focus:outline-none text-sm text-gray-300 placeholder-gray-600 transition-colors">
+                            </div>
+                        </div>
+                        <div>
+                             <div class="relative group/input">
+                                <label class="absolute -top-2 left-2 bg-slate-800 px-1 text-[10px] text-gray-500 group-focus-within/input:text-purple-400 uppercase tracking-wider transition-colors">Yer / Kurum</label>
+                                <input type="text" onchange="updateTraining('${code}', ${index}, 'place', this.value)" value="${training.place || ''}" 
+                                    class="w-full bg-slate-900/50 p-2.5 rounded-lg border border-white/10 focus:border-purple-500 focus:outline-none text-sm text-gray-300 placeholder-gray-600 transition-colors">
+                            </div>
                         </div>
                     </div>
-                    <button onclick="removeTraining('${code}', ${index})" class="absolute top-2 right-2 text-red-500 opacity-0 group-hover:opacity-100 transition"><i class="fa-solid fa-times"></i></button>
+                    <button onclick="removeTraining('${code}', ${index})" 
+                        class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-slate-800 border border-red-500/30 text-red-400 hover:bg-red-500 hover:text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition shadow-lg z-10" title="Sil">
+                        <i class="fa-solid fa-trash-can text-xs"></i>
+                    </button>
                 </div>
             `).join('');
-
-            // Also update total count display if list changes length
-            document.getElementById('totalCount').value = trainings.length;
         }
 
         function updateProvinceStats() {
@@ -137,7 +400,20 @@
             if (!code) return;
             const count = parseInt(document.getElementById('totalCount').value);
             trainingData[code].count = count;
-            alert('Sayaç güncellendi!');
+            updateMapColors(code); // Refresh map colors
+
+            // Visual feedback
+            const btn = document.querySelector('#provinceStats button');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Güncellendi!';
+            btn.classList.add('bg-green-600', 'text-white');
+            btn.classList.remove('bg-purple-600');
+
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('bg-green-600');
+                btn.classList.add('bg-purple-600');
+            }, 1000);
         }
 
         function addTraining() {
@@ -148,10 +424,14 @@
 
             trainingData[code].trainings.unshift({
                 title: "Yeni Eğitim Başlığı",
-                date: "Tarih",
+                date: new Date().toLocaleDateString('tr-TR'),
                 place: ""
             });
             renderTrainings(code);
+            // Also update count automatically when adding
+            const currentCount = parseInt(document.getElementById('totalCount').value);
+            document.getElementById('totalCount').value = currentCount + 1;
+            updateProvinceStats();
         }
 
         function updateTraining(code, index, field, value) {
@@ -159,32 +439,100 @@
         }
 
         function removeTraining(code, index) {
-            if (confirm('Silmek istediğinize emin misiniz?')) {
+            if (confirm('Bu eğitimi silmek istediğinize emin misiniz?')) {
                 trainingData[code].trainings.splice(index, 1);
                 renderTrainings(code);
+                // Also update count automatically when removing
+                const currentCount = parseInt(document.getElementById('totalCount').value);
+                if (currentCount > 0) {
+                    document.getElementById('totalCount').value = currentCount - 1;
+                    updateProvinceStats();
+                }
             }
         }
 
+        // --- File Saving with Handle Caching ---
         async function saveToFile() {
+            // Check if API is supported
+            if (!('showSaveFilePicker' in window)) {
+                alert('Tarayıcınız bu özelliği desteklemiyor. Lütfen Chrome veya Edge kullanın.');
+                downloadFallback();
+                return;
+            }
+
             const content = `const trainingData = ${JSON.stringify(trainingData, null, 4)};`;
 
             try {
-                const handle = await window.showSaveFilePicker({
-                    suggestedName: 'data.js',
-                    types: [{
-                        description: 'JavaScript File',
-                        accept: { 'text/javascript': ['.js'] }
-                    }]
-                });
-                const writable = await handle.createWritable();
+                // If we have a handle, try to use it directly
+                if (fileHandle) {
+                    // Check permissions
+                    const hasPermission = await verifyPermission(fileHandle, true);
+
+                    if (hasPermission) {
+                        try {
+                            const writable = await fileHandle.createWritable();
+                            await writable.write(content);
+                            await writable.close();
+
+                            // Show subtle toast or alert
+                            const btn = document.querySelector('button[onclick="saveToFile()"]');
+                            const originalHTML = btn.innerHTML;
+                            btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Kaydedildi!';
+                            btn.className = "px-4 py-2 bg-green-500 rounded text-white flex items-center transition shadow-lg";
+                            setTimeout(() => {
+                                btn.innerHTML = originalHTML;
+                                btn.className = "px-4 py-2 bg-green-600 rounded hover:bg-green-500 transition shadow-lg shadow-green-900/20 flex items-center";
+                            }, 1500);
+                            return;
+                        } catch (e) {
+                            console.warn("Write error:", e);
+                            if (e.name === 'NotAllowedError') {
+                                alert('Yazma izni verilmedi. Lütfen tekrar deneyin ve izin verin.');
+                            } else {
+                                // If write failed for other reasons (e.g. file moved), fall back to picker
+                                fileHandle = null;
+                            }
+                        }
+                    } else {
+                        // Permission denied, fall through to picker
+                        fileHandle = null;
+                    }
+                }
+
+                // Get new handle if no handle or permission denied/failed
+                if (!fileHandle) {
+                    fileHandle = await window.showSaveFilePicker({
+                        suggestedName: 'data.js',
+                        types: [{
+                            description: 'JavaScript File',
+                            accept: { 'text/javascript': ['.js'] }
+                        }]
+                    });
+                }
+
+                // Save the new handle to IndexedDB
+                await saveHandle(fileHandle);
+
+                const writable = await fileHandle.createWritable();
                 await writable.write(content);
                 await writable.close();
-                alert('✅ data.js başarıyla kaydedildi!');
+                alert('✅ Dosya bağlantısı kuruldu ve kaydedildi! Tarayıcı tekrar açıldığında bu konum hatırlanacak.');
+
             } catch (err) {
-                if (err.name !== 'AbortError') alert('Hata: ' + err.message);
+                if (err.name !== 'AbortError') {
+                    alert('Hata: ' + err.message);
+                }
             }
         }
-    </script>
-</body>
 
-</html>
+        function downloadFallback() {
+            const content = `const trainingData = ${JSON.stringify(trainingData, null, 4)};`;
+            const blob = new Blob([content], { type: 'text/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.js';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+    </script>

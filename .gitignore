@@ -1,2 +1,7 @@
+# Admin Panels (Local Only)
+admin/
 araclar/admin.html
+blog/admin.html
+egitim-haritasi/admin.html
+**/admin.html
 

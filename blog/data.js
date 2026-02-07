@@ -1,5 +1,45 @@
 const blogPosts = [
     {
+        id: 7,
+        title: "Derin Derin Düşünme Derim!",
+        excerpt: "Herkesin DeepSeek ve Çin uzmanı olduğu şu günlerde, bu konuyu (belki biraz da komik bir şekilde) daha geniş kitlelere anlatıyoruz.",
+        content: `
+            <p>Herkesin DeepSeek ve Çin uzmanı olduğu şu günlerde bir yazılım geliştirici, doktoralı bir uzman ve en önemlisi bir öğretmen olarak, bu konuyu (belki biraz da komik bir şekilde 😊) daha geniş kitlelere anlatmayı kendime görev bildim. Başlayalım…</p>
+            <br>
+            <h3>Neler Oldu?</h3>
+            <p>Çinli firma DeepSeek, DeepSeek-V3 ve DeepSeek-R1 adlı yapay zekâ dil modellerini (ChatGPT gibi bir şey) ücretsiz ve açık kaynak olarak yayımladı. Bu modeller; soru yanıtlıyor, mantıksal muhakeme yapıyor, internetteki sonuçları değerlendiriyor; bir görsen cin gibi ablası.</p>
+            <p>Çinliler, OpenAI, Anthropic ve Google gibi küresel devlerin milyarlarca dolarlık modellerle başardıklarını, yalnızca 5.6 milyon dolara ve yan bir proje olarak geliştirdi!</p>
+            <p>Bu hikâyenin kahramanı, DeepSeek’in kurucusu Liang Wenfeng, ilginç bir motivasyona sahip. ABD’li bir iş adamının kızıyla evlenmek istiyor ama kızın babası onaylamayınca bu da "Meydan okuyorum, sizi bitireceğim" diyerek işe koyulmuş.</p>
+            <br>
+            <h3>DeepSeek’in Asıl Hikâyesi</h3>
+            <p>DeepSeek aslında yatırım fonu yönetimi yapıyor. Şirketin sahibi, boşta duran GPU’ları değerlendirmek istemiş, "milli servet la yazık" demiş. Hobi olarak ortaya çıkan bu proje, "duydun mu Çinliler ne yapmış" diye diye küresel çapta gündem oldu!</p>
+            <p>ABD piyasalarını silkeledi. Çin’e uygulanan çip ambargosunu biliyorsunuz; malum eski ABD Başkanı Biden’ın, gelişmiş çiplerin Çin’e satışını engellemesi üzerine Çinliler, "Biz de elimizdeki çiplerle oynarız," diyerek çalışmışlar.</p>
+            <p>Sonuç mu? Eski çiplerle, çok az parayla, az veriyle daha iyisi. ABD borsalarının toplam zararının 1 trilyon $ üstünde olduğu söyleniyor. Karşılaştırma için: Koç Holding’in piyasa değeri 12.39 milyar $. Bu farkı anlamak için düşünebilirsiniz.</p>
+            <br>
+            <h3>Ne Dediler? (Yaşanmamış olaylara dayanabilir 😊)</h3>
+            <ul>
+                <li><strong>Jensen Huang (NVIDIA CEO’su):</strong> "DeepSeek’in başarısını takdir ediyorum ama o kadar çip elimizde patladı."</li>
+                <li><strong>Sam Altman (OpenAI CEO’su):</strong> "Baba, daha çok para gerekiyor. Daha çok GPU, daha çok veri lazım!"</li>
+                <li><strong>Trump, Sam’e dönüp:</strong> "500 milyar dolar mı? Geç içeri geç seninle sonra görüşeceğiz!"</li>
+                <li><strong>Elon Musk:</strong> "Bunlar iyi günlerin Sam! Fabrikanın başına ben geçeceğim. Ama önce Grok 3’ü biraz daha eğiteyim. Jensen, seri GPU getir dostum."</li>
+                <li><strong>Bakkal Hüsamettin:</strong> "Hocam, Çinliler ChatGPT’yi kopyalamış diyorlar."</li>
+                <li><strong>Muhipler Derneği:</strong> "Olum, Çinliler tüm verilerinizi alacak, hem sansür var. Demokrasi yok!"</li>
+                <li><strong>Şüpheci Teyze:</strong> "Aman evladım Corona morona bulaştırmasınlar."</li>
+                <li><strong>Junior:</strong> "Kesin el altından çip aldılar, şuraya yazıyorum. Tayvan dan almışlardır abi orada üretilmiyor mu?"</li>
+            </ul>
+            <br>
+            <h3>Hangi Model Daha İyi?</h3>
+            <p>Bu tür modellerin performansı, benchmark testleriyle ölçülüyor. Bir nevi okullardaki bilgi yarışması gibi! (Matematik, kod yazma, problem çözme, genel kültür gibi alanlarda)</p>
+            <p>Özetle; DeepSeek sınıfa yeni gelen ufak tefek çekik gözlü, fakir ama cin gibi O çocuk.</p>
+        `,
+        category: "Yapay Zeka",
+        image: "img/deepseek.jpg",
+        date: "2025-11-20",
+        author: "Dr. Murat Altun",
+        readTime: "4 dk",
+        isNew: true
+    },
+    {
         id: 1,
         title: "Yapay Zeka Okuryazarlığı Neden Önemli?",
         excerpt: "Geleceğin dünyasında var olabilmek için yapay zeka okuryazarlığı artık bir tercih değil, zorunluluk haline geliyor.",

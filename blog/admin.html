@@ -30,8 +30,9 @@
                 <a href="../admin/index.html" class="px-4 py-2 bg-gray-700 rounded hover:bg-gray-600">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Dashboard
                 </a>
-                <button onclick="saveToFile()" class="px-4 py-2 bg-green-600 rounded hover:bg-green-500">
-                    <i class="fa-solid fa-save mr-2"></i> Kaydet (data.js)
+                <button onclick="saveToFile()"
+                    class="px-4 py-2 bg-green-600 rounded hover:bg-green-500 flex items-center gap-2">
+                    <i class="fa-solid fa-save"></i> Kaydet (data.js)
                 </button>
             </div>
         </div>
@@ -78,7 +79,8 @@
                     </div>
                     <div>
                         <label class="block text-sm text-gray-400 mb-1">İçerik (HTML)</label>
-                        <textarea id="content" rows="6" class="w-full p-2 rounded input-dark font-mono text-xs" placeholder="<p>Makale içeriği...</p>"></textarea>
+                        <textarea id="content" rows="6" class="w-full p-2 rounded input-dark font-mono text-xs"
+                            placeholder="<p>Makale içeriği...</p>"></textarea>
                     </div>
                     <div class="flex items-center gap-2">
                         <input type="checkbox" id="isNew">
@@ -108,13 +110,80 @@
     <script>
         let posts = [...blogPosts]; // from data.js
 
+        // --- State Management ---
+        let fileHandle = null; // Cache for file handle
+
+        // --- IndexedDB Setup for Persistent Handles ---
+        const DB_NAME = 'YZOAdminDB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'fileHandles';
+        let db;
+
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+        request.onupgradeneeded = (event) => {
+            db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME);
+            }
+        };
+
+        request.onsuccess = (event) => {
+            db = event.target.result;
+            loadHandle(); // Try to load saved handle on init
+        };
+
+        request.onerror = (event) => {
+            console.error("IndexedDB error:", event.target.errorCode);
+        };
+
+        async function loadHandle() {
+            if (!db) return;
+            const transaction = db.transaction([STORE_NAME], 'readonly');
+            const store = transaction.objectStore(STORE_NAME);
+            const request = store.get('blogData'); // Unique key for this admin panel
+
+            request.onsuccess = (e) => {
+                if (e.target.result) {
+                    fileHandle = e.target.result;
+                    console.log("File handle restored from IndexedDB");
+
+                    // Visual indicator that we are ready to save
+                    const btn = document.querySelector('button[onclick="saveToFile()"]');
+                    btn.classList.add('ring-2', 'ring-green-400', 'ring-offset-2', 'ring-offset-slate-900');
+                    btn.title = "Hazır: Doğrudan kayıt yapılabilir";
+                }
+            };
+        }
+
+        async function saveHandle(handle) {
+            if (!db) return;
+            const transaction = db.transaction([STORE_NAME], 'readwrite');
+            const store = transaction.objectStore(STORE_NAME);
+            store.put(handle, 'blogData');
+        }
+
+        async function verifyPermission(fileHandle, withWrite) {
+            const options = {};
+            if (withWrite) {
+                options.mode = 'readwrite';
+            }
+            if ((await fileHandle.queryPermission(options)) === 'granted') {
+                return true;
+            }
+            if ((await fileHandle.requestPermission(options)) === 'granted') {
+                return true;
+            }
+            return false;
+        }
+
         function renderPosts() {
             const list = document.getElementById('postList');
             document.getElementById('count').textContent = posts.length;
 
             list.innerHTML = posts.map(post => `
                 <div class="bg-slate-800 p-4 rounded-xl flex gap-4 items-center group hover:bg-slate-700 transition">
-                    <img src="${post.image}" class="w-16 h-16 object-cover rounded-lg bg-gray-700">
+                    <img src="${post.image}" class="w-16 h-16 object-cover rounded-lg bg-gray-700" onerror="this.src='https://via.placeholder.com/150'">
                     <div class="flex-1">
                         <h3 class="font-bold flex items-center gap-2">
                             ${post.title}
@@ -185,26 +254,70 @@
         function resetForm() {
             document.getElementById('postForm').reset();
             document.getElementById('postId').value = '';
-            document.getElementById('image').value = '';
         }
 
         async function saveToFile() {
             const content = `const blogPosts = ${JSON.stringify(posts, null, 4)};\n\nconst categories = ["Tümü", "Yapay Zeka", "Eğitim", "Yazılım", "Araçlar", "Kariyer"];`;
 
             try {
-                const handle = await window.showSaveFilePicker({
-                    suggestedName: 'data.js',
-                    types: [{
-                        description: 'JavaScript File',
-                        accept: { 'text/javascript': ['.js'] }
-                    }]
-                });
-                const writable = await handle.createWritable();
+                // If we have a handle, try to use it directly
+                if (fileHandle) {
+                    // Check permissions
+                    const hasPermission = await verifyPermission(fileHandle, true);
+
+                    if (hasPermission) {
+                        try {
+                            const writable = await fileHandle.createWritable();
+                            await writable.write(content);
+                            await writable.close();
+
+                            // Show subtle toast or alert
+                            const btn = document.querySelector('button[onclick="saveToFile()"]');
+                            const originalHTML = btn.innerHTML;
+                            btn.innerHTML = '<i class="fa-solid fa-check mr-2"></i> Kaydedildi!';
+                            btn.className = "px-4 py-2 bg-green-500 rounded text-white flex items-center transition shadow-lg";
+                            setTimeout(() => {
+                                btn.innerHTML = originalHTML;
+                                btn.className = "px-4 py-2 bg-green-600 rounded hover:bg-green-500 flex items-center gap-2";
+                            }, 1500);
+                            return;
+                        } catch (e) {
+                            console.warn("Write error:", e);
+                            if (e.name === 'NotAllowedError') {
+                                alert('Yazma izni verilmedi. Lütfen tekrar deneyin ve izin verin.');
+                            } else {
+                                // If write failed for other reasons (e.g. file moved), fall back to picker
+                                fileHandle = null;
+                            }
+                        }
+                    } else {
+                        fileHandle = null;
+                    }
+                }
+
+                // Get new handle
+                if (!fileHandle) {
+                    fileHandle = await window.showSaveFilePicker({
+                        suggestedName: 'data.js',
+                        types: [{
+                            description: 'JavaScript File',
+                            accept: { 'text/javascript': ['.js'] }
+                        }]
+                    });
+                }
+
+                // Save the new handle to IndexedDB
+                await saveHandle(fileHandle);
+
+                const writable = await fileHandle.createWritable();
                 await writable.write(content);
                 await writable.close();
-                alert('✅ data.js başarıyla kaydedildi!');
+                alert('✅ data.js bağlantısı kuruldu ve kaydedildi! Tarayıcı tekrar açıldığında bu konum hatırlanacak.');
+
             } catch (err) {
-                if (err.name !== 'AbortError') alert('Hata: ' + err.message);
+                if (err.name !== 'AbortError') {
+                    alert('Hata: ' + err.message);
+                }
             }
         }
 
