@@ -92,7 +92,7 @@ const blogPosts = [
         `,
         category: "Yapay Zeka",
         image: "img/deepseek.jpg",
-        date: "2025-11-20",
+        date: "2024-11-20",
         author: "Dr. Murat Altun",
         readTime: "4 dk",
         isNew: true

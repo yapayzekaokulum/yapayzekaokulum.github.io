@@ -281,13 +281,6 @@
         const itemsPerPage = 9;
         let filteredTools = [];
 
-        // Initialize
-        renderCategories();
-        filterAndSortTools();
-
-        // Events
-        searchInputFn.addEventListener('input', () => { currentPage = 1; filterAndSortTools(); });
-        sortSelectFn.addEventListener('change', () => { currentPage = 1; filterAndSortTools(); });
 
         function renderCategories() {
             // Flatten categories from tools if needed (already done in tools.js variable but good to be safe)
@@ -306,7 +299,55 @@
             `).join('');
         }
 
-        // ... (getYouTubeThumbnail function remains same)
+        function getYouTubeThumbnail(url) {
+            const videoId = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/)?.[1];
+            return videoId ? `https://img.youtube.com/vi/${videoId}/mqdefault.jpg` : null;
+        }
+
+        function renderPagination(totalPages) {
+            paginationFn.innerHTML = '';
+            if (totalPages <= 1) return;
+
+            // Previous Button
+            const prevButton = document.createElement('button');
+            prevButton.onclick = () => goToPage(currentPage - 1);
+            prevButton.disabled = currentPage === 1;
+            prevButton.className = `w-10 h-10 rounded-lg flex items-center justify-center transition ${currentPage === 1 ? 'text-gray-600 cursor-not-allowed hidden' : 'text-white hover:bg-white/10'}`;
+            prevButton.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+            paginationFn.appendChild(prevButton);
+
+            // Page Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                    const pageButton = document.createElement('button');
+                    pageButton.onclick = () => goToPage(i);
+                    pageButton.className = `w-10 h-10 rounded-lg font-medium transition ${currentPage === i ? 'bg-brand-purple text-white shadow-lg shadow-purple-500/30' : 'text-gray-400 hover:bg-white/10 hover:text-white'}`;
+                    pageButton.textContent = i;
+                    paginationFn.appendChild(pageButton);
+                } else if (i === currentPage - 2 || i === currentPage + 2) {
+                    const dots = document.createElement('span');
+                    dots.className = 'text-gray-500 px-1';
+                    dots.textContent = '...';
+                    paginationFn.appendChild(dots);
+                }
+            }
+
+            // Next Button
+            const nextButton = document.createElement('button');
+            nextButton.onclick = () => goToPage(currentPage + 1);
+            nextButton.disabled = currentPage === totalPages;
+            nextButton.className = `w-10 h-10 rounded-lg flex items-center justify-center transition ${currentPage === totalPages ? 'text-gray-600 cursor-not-allowed hidden' : 'text-white hover:bg-white/10'}`;
+            nextButton.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+            paginationFn.appendChild(nextButton);
+        }
+
+        function goToPage(page) {
+            const totalPages = Math.ceil(filteredTools.length / itemsPerPage);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderTools(filteredTools);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
         function renderTools(toolsToRender) {
             // ... (Empty state logic remains same)
@@ -374,7 +415,7 @@
             renderPagination(totalPages);
         }
 
-        // ... Note: Previous functions (renderPagination, goToPage) remain unchanged ...
+
 
         function filterAndSortTools() {
             const searchTerm = searchInputFn.value.toLowerCase();
@@ -408,6 +449,13 @@
             });
 
             renderTools(filteredTools);
+        }
+
+        function filterByCategory(category) {
+            activeCategory = category;
+            currentPage = 1;
+            renderCategories();
+            filterAndSortTools();
         }
 
         // Modal functions
@@ -464,13 +512,14 @@
             if (e.key === 'Escape') closeModal();
         });
 
-        // Init
+        // Initialize - placed at end to ensure all functions are defined
         renderCategories();
         filterAndSortTools();
 
         // Events
         searchInputFn.addEventListener('input', () => { currentPage = 1; filterAndSortTools(); });
         sortSelectFn.addEventListener('change', () => { currentPage = 1; filterAndSortTools(); });
+
     </script>
 </body>
 
