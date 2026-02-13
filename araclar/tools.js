@@ -251,6 +251,21 @@ const tools = [
             "video",
             "yz video"
         ]
+    },
+    {
+        "name": "Grok-Imagine",
+        "category": ["Video"],
+        "description": "xAI tarafından geliştirilen Grok-Imagine, yapay zeka destekli görsel üretiminde sınırları zorlayan bir araçtır. Özellikle Flux tabanlı modelleriyle metin komutlarını yüksek kaliteli görsellere dönüştürür. Video içerik üreticileri için sahne tasarımları, storyboard oluşturma ve görsel materyal hazırlama süreçlerinde güçlü bir yardımcıdır.\n\nÖzellikler\nYüksek Kaliteli Görsel Üretimi: Metin komutlarından detaylı ve gerçekçi görseller oluşturur.\nHızlı ve Esnek: Farklı stil ve formatlarda üretim yapabilir.\nVideo Projeleri İçin İdeal: Video kurguları için gerekli görsel varlıkları hızla üretir.",
+        "url": "https://grok.com/imagine",
+        "video": "https://www.youtube.com/embed/CImyOGwD-pE",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": [
+            "Grok",
+            "Imagine",
+            "Video Materyal"
+        ]
     }
 ];
 
