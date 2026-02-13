@@ -266,6 +266,22 @@ const tools = [
             "Imagine",
             "Video Materyal"
         ]
+    },
+    {
+        "name": "Grok",
+        "category": ["Chatbot & Asistan"],
+        "description": "xAI tarafından geliştirilen Grok, evreni anlamayı hedefleyen, hazırcevap ve esprili bir yapay zeka asistanıdır. Elon Musk'ın X platformuna entegre çalışan Grok, gerçek zamanlı bilgi erişimiyle öne çıkar.\n\nÖzellikler\nGerçek Zamanlı Erişim: X (Twitter) verilerini anlık olarak tarayarak en güncel olaylar hakkında bilgi verir.\nEğlenceli Mod: Sadece bilgi vermekle kalmaz, isteğe bağlı olarak esprili ve 'asi' bir üslupla yanıtlar verebilir.\nGelişmiş Kodlama ve Mantık: Karmaşık soruları çözebilir, kod yazabilir ve yaratıcı metinler oluşturabilir.\nGörsel ve Doküman Analizi: Görselleri yorumlayabilir ve belgeleri özetleyebilir.\n\nKullanım Alanları\nGüncel haber takibi, eğlenceli sohbetler, kodlama desteği ve hızlı bilgi edinme.",
+        "url": "https://grok.com",
+        "video": "https://www.youtube.com/embed/d13GBJEB-CA",
+        "icon": "",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": [
+            "Grok",
+            "xAI",
+            "Chatbot",
+            "Gerçek Zamanlı"
+        ]
     }
 ];
 
