@@ -299,7 +299,7 @@ const tools = [
         "category": ["Akademik"],
         "description": "Araştırma sorularınıza doğrudan makalelerden yanıtlar bulan devrim niteliğinde bir araç. Makale özetleri çıkarır, metodolojileri karşılaştırır ve literatür taramasını günler yerine dakikalara indirir.",
         "url": "https://elicit.org",
-        "video": "https://www.youtube.com/embed/2oyBkmOogsQ",
+        "video": "https://www.youtube.com/embed/XmRideUs2ck",
         "icon": "fa-solid fa-magnifying-glass-chart",
         "rank": 5,
         "date": "2026-02-13",
@@ -349,17 +349,7 @@ const tools = [
         "date": "2026-02-13",
         "tags": ["Yazım", "Editör", "Gramer", "Akademik Yazım"]
     },
-    {
-        "name": "Prism AI",
-        "category": ["Akademik"],
-        "description": "OpenAI tarafından geliştirilen, bilim insanları için tasarlanmış yeni nesil yazım ve işbirliği platformu. LaTeX desteği ve GPT-5.2 entegrasyonu ile makale yazımını, kaynak yönetimini ve formatlamayı otomatikleştirir.",
-        "url": "https://prism.openai.com",
-        "video": "https://www.youtube.com/embed/ERmSjIR1bR3",
-        "icon": "fa-solid fa-file-pen",
-        "rank": 5,
-        "date": "2026-02-13",
-        "tags": ["Yazım", "LaTeX", "OpenAI", "Akademik Yazım"]
-    },
+
     {
         "name": "PaperWizard",
         "category": ["Akademik"],
