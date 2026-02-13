@@ -366,7 +366,7 @@ const tools = [
         "category": ["Akademik"],
         "description": "'Spotify for Papers' olarak bilinen, araştırmalarınızı hızlandıran ve literatür taramasını sezgisel hale getiren bir araç. Makaleleri koleksiyonlara eklediğinizde, yapay zeka size benzer makaleleri ve yazarları önerir. Atıf ağlarını görselleştirerek literatürdeki bağlantıları keşfetmenizi sağlar.",
         "url": "https://researchrabbit.ai/",
-        "video": "https://www.youtube.com/embed/_mzyQyLXVUc",
+        "video": "https://www.youtube.com/embed/videoseries?list=PL_ctsbuZQZexNfNApkAdEUz0YlcLUUc3n",
         "icon": "fa-solid fa-diagram-project",
         "rank": 5,
         "date": "2026-02-13",
