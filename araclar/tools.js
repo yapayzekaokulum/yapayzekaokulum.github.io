@@ -355,7 +355,7 @@ const tools = [
         "category": ["Akademik"],
         "description": "Makalenizi bir hakem gözüyle değerlendiren yapay zeka aracı. Çalışmanızın güçlü ve zayıf yönlerini analiz eder, metodolojik eksiklikleri raporlar ve yayına hazırlık sürecinde kritik geri bildirimler sunar.",
         "url": "https://paper-wizard.com",
-        "video": "https://www.youtube.com/embed/-b3TZ44pbYx",
+        "video": "https://www.youtube.com/embed/3RzSVcFuDL4",
         "icon": "fa-solid fa-wand-magic-sparkles",
         "rank": 4,
         "date": "2026-02-13",
