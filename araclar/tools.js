@@ -282,6 +282,105 @@ const tools = [
             "Chatbot",
             "Gerçek Zamanlı"
         ]
+    },
+    {
+        "name": "Semantic Scholar",
+        "category": ["Literatür Tarama"],
+        "description": "Yapay zeka destekli ücretsiz akademik arama motoru. Milyonlarca makaleyi tarar, atıf analizi yapar ve en ilgili çalışmaları bulmanıza yardımcı olur. Consensus ve Connected Papers gibi araçların temel altyapısını oluşturur.",
+        "url": "https://www.semanticscholar.org/",
+        "video": "https://www.youtube.com/embed/3lHRL3FhVKK",
+        "icon": "fa-solid fa-book-open",
+        "rank": 4,
+        "date": "2026-02-13",
+        "tags": ["Akademik", "Arama Motoru"]
+    },
+    {
+        "name": "Elicit",
+        "category": ["Literatür Tarama"],
+        "description": "Araştırma sorularınıza doğrudan makalelerden yanıtlar bulan devrim niteliğinde bir araç. Makale özetleri çıkarır, metodolojileri karşılaştırır ve literatür taramasını günler yerine dakikalara indirir.",
+        "url": "https://elicit.org",
+        "video": "https://www.youtube.com/embed/2oyBkmOogsQ",
+        "icon": "fa-solid fa-magnifying-glass-chart",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": ["Literatür", "Analiz"]
+    },
+    {
+        "name": "Consensus",
+        "category": ["Literatür Tarama"],
+        "description": "Bilimsel konsensüse dayalı cevaplar almanızı sağlayan akademik arama motoru. Sorularınızı sorarsınız, yapay zeka hakemli makaleleri tarayıp 'Evet/Hayır/Belirsiz' oranlarıyla kanıta dayalı bir özet sunar.",
+        "url": "https://consensus.app",
+        "video": "https://www.youtube.com/embed/wYd7fwY0ALL",
+        "icon": "fa-solid fa-scale-balanced",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": ["Kanıta Dayalı", "Arama"]
+    },
+    {
+        "name": "Connected Papers",
+        "category": ["Literatür Görselleştirme"],
+        "description": "Akademik çalışmaları görsel bir ağ haritası üzerinde keşfetmenizi sağlar. Tek bir makaleden yola çıkarak, atıf ve referans ilişkilerine göre benzer çalışmaları bulur ve literatürdeki boşlukları görmenize yardımcı olur.",
+        "url": "https://www.connectedpapers.com/",
+        "video": "https://www.youtube.com/embed/D7d-zS7TLh6",
+        "icon": "fa-solid fa-circle-nodes",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": ["Görselleştirme", "Atıf Ağı"]
+    },
+    {
+        "name": "NotebookLM",
+        "category": ["Makale & Doküman Özetleme"],
+        "description": "Google'ın geliştirdiği kişisel araştırma asistanı. Yüklediğiniz makale ve dokümanları analiz eder, özetler, sorularınızı yanıtlar ve hatta içeriği sesli bir podcast formatında size anlatabilir.",
+        "url": "https://notebooklm.google.com/",
+        "video": "https://www.youtube.com/embed/2SS3_UM_SgD",
+        "icon": "fa-solid fa-book-journal-whills",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": ["Özetleme", "Not Alma", "Google"]
+    },
+    {
+        "name": "Paperpal",
+        "category": ["Akademik Yazım Desteği"],
+        "description": "Yayınlanmaya hazır makaleler yazmanız için tasarlanmış kapsamlı bir yapay zeka editörü. Gramer kontrolü, akademik dil önerileri, intihal taraması ve Word eklentisiyle yazım sürecini profesyonelleştirir.",
+        "url": "https://paperpal.com",
+        "video": "https://www.youtube.com/embed/EuH61Wsr_rY",
+        "icon": "fa-solid fa-pen-nib",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": ["Yazım", "Editör", "Gramer"]
+    },
+    {
+        "name": "Prism AI",
+        "category": ["Akademik Yazım Desteği"],
+        "description": "OpenAI tarafından geliştirilen, bilim insanları için tasarlanmış yeni nesil yazım ve işbirliği platformu. LaTeX desteği ve GPT-5.2 entegrasyonu ile makale yazımını, kaynak yönetimini ve formatlamayı otomatikleştirir.",
+        "url": "https://prism.openai.com",
+        "video": "https://www.youtube.com/embed/ERmSjIR1bR3",
+        "icon": "fa-solid fa-file-pen",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": ["Yazım", "LaTeX", "OpenAI"]
+    },
+    {
+        "name": "PaperWizard",
+        "category": ["Makale Değerlendirme & Hakemlik"],
+        "description": "Makalenizi bir hakem gözüyle değerlendiren yapay zeka aracı. Çalışmanızın güçlü ve zayıf yönlerini analiz eder, metodolojik eksiklikleri raporlar ve yayına hazırlık sürecinde kritik geri bildirimler sunar.",
+        "url": "https://paper-wizard.com",
+        "video": "https://www.youtube.com/embed/-b3TZ44pbYx",
+        "icon": "fa-solid fa-wand-magic-sparkles",
+        "rank": 4,
+        "date": "2026-02-13",
+        "tags": ["Hakemlik", "Değerlendirme"]
+    },
+    {
+        "name": "Napkin.ai",
+        "category": ["Veri Görselleştirme"],
+        "description": "Karmaşık fikirleri ve metinleri saniyeler içinde etkileyici görsel taslaklara ve infografiklere dönüştürür. Ders notları, sunumlar ve makaleler için görsel anlatımı güçlendirir.",
+        "url": "https://napkin.ai",
+        "video": "https://www.youtube.com/embed/evOrhy9P5Wt",
+        "icon": "fa-solid fa-chart-simple",
+        "rank": 5,
+        "date": "2026-02-13",
+        "tags": ["Görselleştirme", "Diyagram"]
     }
 ];
 
