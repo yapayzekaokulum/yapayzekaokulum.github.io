@@ -2,7 +2,7 @@ const tools = [
     {
         "name": "ChatGPT",
         "category": ["Chatbot & Asistan"],
-        "description": "OpenAI tarafından geliştirilen, doğal dil işleme konusunda lider yapay zeka asistanı.",
+        "description": "OpenAI tarafından geliştirilen ChatGPT, GPT-4o modeli ile güçlendirilmiş, doğal dil işleme konusunda lider yapay zeka asistanıdır.\n\nÖzellikler\nMetin Üretimi ve Düzenleme: Makale, e-posta, kod ve yaratıcı içerik yazabilir.\nÇok Modlu Yetenekler (Multimodal): Görsel okuma, sesli sohbet ve veri analizi yapabilir.\nGelişmiş Kodlama: Python, JavaScript gibi dillerde kod yazar ve hata ayıklar.\nVeri Analizi: Excel dosyalarını analiz eder, grafikler oluşturur ve içgörüler sunar.\nKullanım Alanları\nİçerik üretimi, yazılım geliştirme, eğitim, dil öğrenimi ve günlük asistanlık işleri için idealdir.",
         "url": "https://chat.openai.com",
         "video": "https://www.youtube.com/embed/eIVOMazjGQs",
         "icon": "fa-solid fa-message",
@@ -18,7 +18,7 @@ const tools = [
     {
         "name": "Midjourney",
         "category": ["Görsel Üretimi"],
-        "description": "Metin komutlarından yüksek kaliteli ve sanatsal görseller oluşturan yapay zeka aracı.",
+        "description": "Midjourney, metin komutlarından (prompt) yüksek kaliteli, sanatsal ve fotogerçekçi görseller oluşturan önde gelen yapay zeka aracıdır.\n\nÖzellikler\nV6 Modeli: Olağanüstü detay, ışıklandırma ve kompozisyon yeteneği.\nStil Kontrolü: Anime, yağlı boya, sinematik gibi sayısız sanat stilini taklit edebilir.\nDiscord Entegrasyonu: Discord sunucusu üzerinden komutlarla çalışır.\nDüzenleme Araçları: Varyasyon oluşturma (V), boyutu büyütme (U), inpainting ve zoom out özellikleri.\nKullanım Alanları\nKonsept tasarımı, reklamcılık, oyun geliştirme, kitap kapağı tasarımı ve sanatsal projeler.",
         "url": "https://www.midjourney.com/home",
         "video": "https://www.youtube.com/embed/8ptPSjIE49M",
         "icon": "fa-solid fa-paintbrush",
@@ -33,7 +33,7 @@ const tools = [
     {
         "name": "Claude",
         "category": ["Chatbot & Asistan"],
-        "description": "Anthropic'in geliştirdiği, uzun metinleri analiz edebilen ve güvenliğe odaklanan yapay zeka.",
+        "description": "Anthropic tarafından geliştirilen Claude, özellikle uzun metinleri analiz etme, güvenli içerik üretme ve doğal diyalog kurma konularında uzmanlaşmış bir yapay zeka asistanıdır.\n\nÖzellikler\nGeniş Bağlam Penceresi (Context Window): Kitap boyutundaki dokümanları tek seferde okuyup analiz edebilir.\nArtifacts: Kodları, metinleri ve tasarımları yan panelde önizleyerek interaktif bir çalışma alanı sunar.\nİnsan Benzeri Doğallık: Daha az robotik, daha doğal ve nüanslı cevaplar verir.\nGüvenlik Odaklı: Zararlı içerik üretimine karşı gelişmiş korumalara sahiptir.\nKullanım Alanları\nAkademik okuma, hukuki metin analizi, yaratıcı yazarlık ve karmaşık problem çözme.",
         "url": "https://claude.ai",
         "video": "https://www.youtube.com/embed/nYs2YP5BoJs",
         "icon": "fa-solid fa-robot",
@@ -48,7 +48,7 @@ const tools = [
     {
         "name": "Perplexity",
         "category": ["Arama Motoru"],
-        "description": "Gerçek zamanlı internet erişimi ile kaynaklı cevaplar sunan yapay zeka arama motoru.",
+        "description": "Perplexity, geleneksel arama motorlarının yerini almayı hedefleyen, gerçek zamanlı internet erişimine sahip bir 'cevap motorudur'.\n\nÖzellikler\nGerçek Zamanlı Arama: Güncel olaylar hakkında internetten anlık bilgi toplar.\nKaynak Gösterme: Verdiği her bilgi için dipnot ve kaynak linki paylaşır, halüsinasyonu azaltır.\nPro Search: Karmaşık soruları adım adım düşünerek ve farklı kaynakları tarayarak yanıtlar.\nDosya Analizi: PDF ve metin dosyalarını yükleyip içeriği hakkında sorular sorabilirsiniz.\nKullanım Alanları\nAkademik araştırma, pazar analizi, haber takibi ve hızlı bilgi doğrulama.",
         "url": "https://www.perplexity.ai",
         "video": "https://www.youtube.com/embed/kV9Pj-HQEEg",
         "icon": "fa-solid fa-magnifying-glass",
@@ -63,7 +63,7 @@ const tools = [
     {
         "name": "Gamma",
         "category": ["Sunum & Doküman"],
-        "description": "Saniyeler içinde profesyonel sunumlar, web siteleri ve dokümanlar oluşturan araç.",
+        "description": "Gamma, sadece bir konu başlığı veya notlarınızdan saniyeler içinde profesyonel sunumlar, web siteleri ve dokümanlar oluşturan bir yapay zeka aracıdır.\n\nÖzellikler\nTek Tıkla Tasarım: İçeriği yazar, görselleri seçer ve slaytları otomatik formatlar.\nAI Editör: 'Bunu daha profesyonel yap' veya 'Resmi değiştir' gibi komutlarla düzenleme imkanı.\nİnteraktif Öğeler: Sunumlara video, web sitesi, grafik ve form gömebilirsiniz (Embed).\nEsnek Format: Sunumu web sitesine veya PDF'e dönüştürme kolaylığı.\nKullanım Alanları\nİş sunumları, eğitim materyalleri, portfolyo siteleri ve proje raporları oluşturmak için idealdir.",
         "url": "https://gamma.app/signup?r=7egrrffmvb9ctfk",
         "video": "https://www.youtube.com/embed/n1n0inlWVeA",
         "icon": "fa-solid fa-layer-group",
