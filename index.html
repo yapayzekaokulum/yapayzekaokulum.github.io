@@ -92,7 +92,7 @@
         }
 
         /* Glassmorphism Styles */
-                .glass {
+        .glass {
             background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -112,7 +112,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        
+
 
         /* Responsive Padlet Height */
         .padlet-frame {
@@ -162,6 +162,78 @@
             100% {
                 transform: scale(1);
             }
+        }
+
+        /* ============================
+           V3 — Minimalist & Sade UI
+           Tailwind CDN override
+        ============================ */
+
+        /* Buton glow'larını kapat */
+        a[class*="shadow-[0_0_"],
+        button[class*="shadow-[0_0_"] {
+            box-shadow: none !important;
+        }
+
+        /* Neon geçiş butonları sadeleştir */
+        .from-purple-600.to-blue-600,
+        [class*="from-purple-600"][class*="to-blue-600"],
+        [class*="bg-gradient-to-r"][class*="purple"] {
+            background-image: none !important;
+            background-color: #4f46e5 !important;
+            /* indigo-600 */
+        }
+
+        /* Hero alanı degradesini yumuşat */
+        header .absolute[class*="from-purple"],
+        header .absolute[class*="via-purple"],
+        .hero-blob {
+            opacity: 0.25 !important;
+        }
+
+        /* Stat numaraları — gradyanı kaldır */
+        [data-countup],
+        .stat-number {
+            background-image: none !important;
+            -webkit-text-fill-color: #e2e8f0 !important;
+            /* slate-200 */
+            color: #e2e8f0 !important;
+        }
+
+        /* Kart hover efektlerini sadeleştir */
+        .glass-card:hover {
+            border-color: rgba(255, 255, 255, 0.12) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /* Navbar'ı biraz daha opak yap */
+        nav.glass {
+            background: rgba(15, 23, 42, 0.85) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        }
+
+        /* Section arka planlarını sadeleştir */
+        section .absolute[class*="from-purple"],
+        section .absolute[class*="via-blue"] {
+            opacity: 0.2 !important;
+        }
+
+        /* Footer border temizle */
+        footer.glass {
+            border-top-color: rgba(255, 255, 255, 0.06) !important;
+            background: rgba(15, 23, 42, 0.7) !important;
+        }
+
+        /* WhatsApp bounce gölgesi */
+        #whatsapp-btn {
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.25) !important;
+        }
+
+        /* Blob animasyonlarını yavaşlat */
+        .animate-blob {
+            animation-duration: 14s !important;
+            opacity: 0.25 !important;
         }
     </style>
 </head>
