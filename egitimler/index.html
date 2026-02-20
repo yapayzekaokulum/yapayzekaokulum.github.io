@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eğitimler | Yapay Zeka Okulum</title>
+    <meta name="description"
+        content="Yapay zeka, makine öğrenimi, derin öğrenme ve veri bilimi eğitimleri. Dr. Murat Altun öncülüğünde kurumsal ve bireysel eğitim programları.">
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png">
+    <link rel="canonical" href="https://yapayzekaokulum.github.io/egitimler/">
+    <meta property="og:title" content="Eğitimler | Yapay Zeka Okulum">
+    <meta property="og:description" content="Yapay zeka, makine öğrenimi ve veri bilimi eğitimleri.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png">
+    <meta property="og:url" content="https://yapayzekaokulum.github.io/egitimler/">
+    <meta property="og:type" content="website">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,7 +29,7 @@
                             purple: '#8B5CF6',
                             dark: '#0f172a',
                             accent: '#F59E0B',
-                            neon: '#00f2ff'
+                            neon: '#38bdf8'
                         }
                     },
                     fontFamily: {
@@ -36,31 +47,27 @@
             color: #ffffff;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
+                .glass {
+            background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .glass-card {
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(15, 23, 42, 0.4);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
 
         .glass-card:hover {
-            border-color: rgba(139, 92, 246, 0.5);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .gradient-text {
-            background: linear-gradient(to right, #c084fc, #00f2ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        
 
         /* Padlet Container */
         .padlet-frame {
@@ -435,19 +442,92 @@
     </section>
 
     <!-- Footer -->
-    <footer class="glass border-t border-white/10 py-8 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-400 text-sm">
-                © 2026 Yapay Zeka Okulum. Tüm hakları saklıdır.
-            </p>
-            <div class="flex justify-center gap-4 mt-4">
-                <a href="https://www.instagram.com/yapayzekaokulum/"
-                    class="text-gray-400 hover:text-brand-purple transition"><i
-                        class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="https://github.com/yapayzekaokulum" class="text-gray-400 hover:text-brand-purple transition"><i
-                        class="fa-brands fa-github text-xl"></i></a>
-                <a href="https://www.youtube.com/@yapayzekaokulum"
-                    class="text-gray-400 hover:text-red-500 transition"><i class="fa-brands fa-youtube text-xl"></i></a>
+    <footer class="glass border-t border-white/10 pt-12 md:pt-16 pb-8 relative overflow-hidden mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
+                <!-- Şirket Bilgisi -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="https://raw.githubusercontent.com/yapayzekaokulum/yapayzekaokulum.github.io/f89a990099d3b14587f99452b62da9ef373cde07/data/logo.png"
+                            onerror="this.src='https://placehold.co/100x100?text=YZO'"
+                            class="h-10 w-10 rounded-full bg-white p-0.5" alt="YZO Logo">
+                        <h4 class="text-xl font-bold text-white">Yapay Zeka Okulum</h4>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Yapay zeka teknolojilerinin eğitimde ve iş dünyasında uygulanmasına öncülük ediyoruz.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/yapayzekaokulum/"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white text-gray-400 transition"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/yapayzekaokulum"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-purple hover:text-white text-gray-400 transition"><i
+                                class="fa-brands fa-github"></i></a>
+                        <a href="https://www.youtube.com/@yapayzekaokulum"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-red-600 hover:text-white text-gray-400 transition"><i
+                                class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Hızlı Linkler -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-white border-l-4 border-brand-purple pl-3">Menü</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="../index.html" class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Anasayfa</a></li>
+                        <li><a href="../egitimler/index.html"
+                                class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Eğitimler</a></li>
+                        <li><a href="https://yapayzekaokulum.com/yap-kis/"
+                                class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Yap-Kis</a></li>
+                        <li><a href="https://form.jotform.com/253625405418052" target="_blank"
+                                class="hover:text-brand-neon transition flex items-center gap-2"><i
+                                    class="fa-solid fa-chevron-right text-xs"></i> Başvuru</a></li>
+                    </ul>
+                </div>
+
+                <!-- İletişim -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-white border-l-4 border-brand-neon pl-3">İletişim</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-purple"></i>
+                            <span>Yelten Mah. 15547 Sk. No: 5<br>Korkuteli / ANTALYA</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-brand-purple"></i>
+                            <a href="https://wa.me/905077501982?text=Yapay%20Zeka%20Okulum%20E%C4%9Fitim%20talebi"
+                                target="_blank" class="hover:text-white transition">+90 507 750 19 82</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-purple"></i>
+                            <a href="mailto:yapayzekaokulum@gmail.com"
+                                class="hover:text-white transition">yapayzekaokulum@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resmi Bilgiler -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-white border-l-4 border-blue-500 pl-3">Resmi Künye</h4>
+                    <ul class="space-y-2 text-xs text-gray-500 bg-white/5 p-4 rounded-lg border border-white/5">
+                        <li><strong class="text-gray-300">Ünvan:</strong> Mustafa Uçar</li>
+                        <li><strong class="text-gray-300">Vergi D.:</strong> Korkuteli V.D.</li>
+                        <li><strong class="text-gray-300">Vergi No:</strong> 8840208935</li>
+                        <li><strong class="text-gray-300">NACE:</strong> 85.59.03 (Bilişim Eğitimi)</li>
+                        <li><strong class="text-gray-300">Statü:</strong> Şahıs Şirketi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 text-center gap-4">
+                <p>&copy; 2026 Yapay Zeka Okulum. Tüm hakları saklıdır.</p>
+                <div class="flex gap-4 items-center">
+                    <a href="#" class="hover:text-white">Gizlilik Politikası</a>
+                    <a href="#" class="hover:text-white">Kullanım Şartları</a>
+                </div>
             </div>
         </div>
     </footer>
